@@ -19,7 +19,7 @@
   },
   "ava": {
     "files": [
-      "test/index.js"
+      "test/**/*.js"
     ]
   },
   "bugs": {
@@ -36,7 +36,7 @@
   },
   "keywords": [
     "sass",
-    "colors",
+    "color",
     "manipulation"
   ],
   "dependencies": {},
