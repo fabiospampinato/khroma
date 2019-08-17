@@ -1,6 +1,6 @@
 {
   "name": "sass.js",
-  "description": "A port of SASS&#x27; functions for manipulating colors.",
+  "description": "A port of SASS' functions for manipulating colors.",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,16 +35,18 @@
     "url": "https://github.com/fabiospampinato/sass.js.git"
   },
   "keywords": [
-    "//TODO"
+    "sass",
+    "colors",
+    "manipulation"
   ],
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^10.9.4",
-    "ava": "^0.18.2",
-    "ava-spec": "^1.1.0",
-    "nyc": "^10.1.2",
-    "rimraf": "^2.6.0",
-    "typescript": "^3.0.3",
-    "typescript-transform-export-interop": "^1.0.0"
+    "@types/node": "^12.7.2",
+    "ava": "^2.2.0",
+    "ava-spec": "^1.1.1",
+    "nyc": "^14.1.1",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.5.3",
+    "typescript-transform-export-interop": "^1.0.2"
   }
 }

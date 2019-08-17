@@ -1,6 +1,6 @@
-# Sass Js
+# SASS.js
 
-A port of SASS&#x27; functions for manipulating colors.
+A port of SASS' functions for manipulating colors.
 
 ## Install
 
@@ -11,9 +11,9 @@ npm install --save sass.js
 ## Usage
 
 ```ts
-import sassJs from 'sass.js';
+import {} from 'sass.js';
 
-sassJs (); // result
+//TODO
 ```
 
 ## License
