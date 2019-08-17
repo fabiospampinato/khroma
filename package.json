@@ -1,0 +1,50 @@
+{
+  "name": "sass.js",
+  "description": "A port of SASS&#x27; functions for manipulating colors.",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean:dist": "rimraf dist",
+    "clean:coverage": "rimraf coverage .nyc_output",
+    "clean": "npm run clean:dist && npm run clean:coverage",
+    "compile": "tsc --skipLibCheck && tstei",
+    "compile:watch": "tsc --skipLibCheck --watch",
+    "test": "ava",
+    "test:watch": "ava --watch",
+    "coverage": "nyc --reporter=html ava",
+    "report": "nyc report",
+    "report:html": "open coverage/index.html",
+    "prepublishOnly": "npm run clean && npm run compile && npm run coverage"
+  },
+  "ava": {
+    "files": [
+      "test/index.js"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/fabiospampinato/sass.js/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Fabio Spampinato",
+    "email": "spampinabio@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabiospampinato/sass.js.git"
+  },
+  "keywords": [
+    "//TODO"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.9.4",
+    "ava": "^0.18.2",
+    "ava-spec": "^1.1.0",
+    "nyc": "^10.1.2",
+    "rimraf": "^2.6.0",
+    "typescript": "^3.0.3",
+    "typescript-transform-export-interop": "^1.0.0"
+  }
+}
