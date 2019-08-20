@@ -9,18 +9,19 @@ import Abstract from './abstract';
 
 class Hex extends Abstract {
 
-  re = /#([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})/i; //TODO: Support all possible formats
+  re = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/i; //TODO: Support all possible formats
 
   parse ( color: string ): RGBA | undefined {
 
     const match = color.match ( this.re );
 
     if ( !match ) return;
+    color = Utils.convertHex2SixChars(color);
 
     return {
-      r: Utils.hex2dec ( match[1] ),
-      g: Utils.hex2dec ( match[2] ),
-      b: Utils.hex2dec ( match[3] ),
+      r: Utils.hex2dec ( `${color[1]}${color[2]}` ),
+      g: Utils.hex2dec ( `${color[1]}${color[2]}`),
+      b: Utils.hex2dec ( `${color[1]}${color[2]}` ),
       a: 1
     };
 
