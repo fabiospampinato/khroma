@@ -12,19 +12,31 @@ class Hex extends Abstract {
   re = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/i; //TODO: Support all possible formats
 
   parse ( color: string ): RGBA | undefined {
-
+    
     const match = color.match ( this.re );
 
+    function convertHex2SixChars(color:string) {
+
+      if(color.length === 4){
+
+        return `#${color[1].repeat(2)}${color[2].repeat(2)}${color[3].repeat(2)}`;
+
+      }
+
+      return color;
+
+    }
+
     if ( !match ) return;
-    color = Utils.convertHex2SixChars(color);
+
+    color = convertHex2SixChars(color);
 
     return {
-      r: Utils.hex2dec ( `${color[1]}${color[2]}` ),
-      g: Utils.hex2dec ( `${color[1]}${color[2]}`),
-      b: Utils.hex2dec ( `${color[1]}${color[2]}` ),
+      r: parseInt(color.slice(1,3), 16 ),
+      g: parseInt(color.slice(3, 5), 16),
+      b: parseInt(color.slice(5, 7), 16),
       a: 1
     };
-
   }
 
   output ( rgba: RGBA ): string {

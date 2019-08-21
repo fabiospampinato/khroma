@@ -17,12 +17,6 @@ const Utils = {
 
   },
 
-  convertHex2SixChars(hex: string) {
-    if (hex.length === 4) {
-      return `#${hex[1]}${hex[1]}${hex[2]}${hex[2]}${hex[3]}${hex[3]}`;
-    }
-     return hex;
-  },
 
   padStart ( str: string, char: string, length: number ) {
 
@@ -62,7 +56,7 @@ const Utils = {
 
   },
 
-  hex2dec ( hex: string ): number {
+  hex2dec ( hex: string, ): number {
 
     return parseInt ( hex, 16 );
 

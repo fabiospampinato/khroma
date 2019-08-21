@@ -24,7 +24,8 @@ describe ( 'Color', it => {
   it ( 'supports keywords', t => {
 
     const tests = [
-      ['black', '#000'],
+      ['white', '#ffffff'],
+      ['BLACK', '#000000'],
     ];
 
     tests.forEach ( ([ keyword, result ]) => {
