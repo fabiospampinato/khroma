@@ -27,6 +27,7 @@ describe ( 'Color', it => {
       ['#fff', '#ffffff'],
       ['BLACK', '#000000'],
       ['white', '#ffffff'],
+      ['rgba(255,165,0,0.8)','#ffa500cc']
     ];
 
     tests.forEach ( ([ keyword, result ]) => {
