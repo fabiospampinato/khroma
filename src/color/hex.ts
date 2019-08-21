@@ -9,7 +9,7 @@ import Abstract from './abstract';
 
 class Hex extends Abstract {
 
-  re = /^#([A-Fa-f0-9]{7}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{4}|[A-Fa-f0-9]{3})$/i; //TODO: Support all possible formats
+  re = /^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{4}|[A-Fa-f0-9]{3})$/i; //TODO: Support all possible formats
 
   parse ( color: string ): RGBA | undefined {
     
@@ -21,7 +21,7 @@ class Hex extends Abstract {
       r: Utils.hex2dec(color.length === 4 ? color[1].repeat(2) :color[1]+color[2]),
       g:  Utils.hex2dec(color.length === 4 ? color[2].repeat(2) : color[3]+color[4]),
       b:  Utils.hex2dec(color.length === 4 ? color[3].repeat(2) : color[5]+color[6]),
-      a: color.length === 8 ? Utils.dec2per(Utils.hex2dec(color[6]+color[7])):1
+      a: color.length === 9 ? Utils.dec2per(Utils.hex2dec(color[7]+color[8])):1
     };
   }
 
