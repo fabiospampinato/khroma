@@ -24,7 +24,7 @@ describe ( 'Color', it => {
   it ( 'supports keywords', t => {
 
     const tests = [
-      ['white', '#ffffff'],
+      ['white', '#fff'],
       ['BLACK', '#000000'],
     ];
 
