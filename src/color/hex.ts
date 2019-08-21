@@ -21,12 +21,11 @@ class Hex extends Abstract {
       r: Utils.hex2dec(color.length === 4 ? color[1].repeat(2) :color[1]+color[2]),
       g:  Utils.hex2dec(color.length === 4 ? color[2].repeat(2) : color[3]+color[4]),
       b:  Utils.hex2dec(color.length === 4 ? color[3].repeat(2) : color[5]+color[6]),
-      a: color.length === 9 ? Utils.dec2per(Utils.hex2dec(color[7]+color[8])) : 1
+      a: color.length === 9 ? Utils.dec2per(Utils.hex2dec(color[7]+color[8]))/100 : 1
     };
   }
 
   output ( rgba: RGBA ): string {
-    console.log(rgba);
 
     if ( rgba.a < 1 ) { // #RRGGBBAA
 
