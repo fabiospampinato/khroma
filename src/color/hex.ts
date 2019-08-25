@@ -9,7 +9,7 @@ import Abstract from './abstract';
 
 class Hex extends Abstract {
 
-  re = new RegExp(/^#((?<hex3>[0-9a-f]{3})|(?<hex4>[0-9a-f]{4})|(?<hex6>[0-9a-f]{6})|(?<hex8>[0-9a-f]{8}))$/i);
+  re = /^#((?<hex3>[0-9a-f]{3})|(?<hex4>[0-9a-f]{4})|(?<hex6>[0-9a-f]{6})|(?<hex8>[0-9a-f]{8}))$/i;
 
   parse ( color: string ): RGBA | undefined {
 
