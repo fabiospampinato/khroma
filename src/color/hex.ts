@@ -9,14 +9,13 @@ import Abstract from './abstract';
 
 class Hex extends Abstract {
 
-  re = /^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{4}|[A-Fa-f0-9]{3})$/i; //TODO: Support all possible formats
+  re = /^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{4}|[A-Fa-f0-9]{3})$/i;
 
   parse ( color: string ): RGBA | undefined {
     
     const match = color.match ( this.re );
 
     if ( !match ) return;
-
 
     return {
       r: Utils.hex2dec(color.length === 4 ? color[1].repeat(2) : color.length === 5 ? color[1].repeat(2) : color[1]+color[2]),

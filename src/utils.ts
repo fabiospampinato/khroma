@@ -17,7 +17,6 @@ const Utils = {
 
   },
 
-
   padStart ( str: string, char: string, length: number ) {
 
     if ( str.length >= length ) return str;
@@ -56,7 +55,7 @@ const Utils = {
 
   },
 
-  hex2dec ( hex: string, ): number {
+  hex2dec ( hex: string ): number {
 
     return parseInt ( hex, 16 );
 

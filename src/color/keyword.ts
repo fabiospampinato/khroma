@@ -11,7 +11,7 @@ class Keyword extends Abstract {
 
   colors = { //TODO: Add more colors //TODO: Make this more performant, pre-parsing colors
     black: '#000000',
-    transparent: '#0000',
+    transparent: '#00000000',
     silver: '#c0c0c0',
     gray: '#808080',
     white: '#ffffff',
@@ -27,7 +27,7 @@ class Keyword extends Abstract {
     blue: '#0000ff',
     teal: '#008080',
     aqua: '#00ffff',
-    orange:'#ffa500',
+    orange: '#ffa500',
     aliceblue: '#f0f8ff',
     antiquewhite:' #faebd7',
     aquamarine: '#7fffd4',
