@@ -8,23 +8,37 @@ import Abstract from './abstract';
 
 class RGB extends Abstract {
 
-  re = /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/i; //TODO: Support all possible formats
+  reForRgba = /rgba\((\s*\d+\s*),(\s*\d+\s*),(\s*\d+\s*),([\d\.]+)\)/i; //TODO: Support all possible formats
+  reForRgb = /rgb\((\s*\d+\s*),(\s*\d+\s*),(\s*\d+\s*)\s*\)/i;
 
   parse ( color: string ): RGBA | undefined {
 
     color = color.replace(/\s/g,"");
 
-    const match = color.match ( this.re );
+    const matchForRgba = color.match ( this.reForRgba );
+    let rgba;
 
-    if ( !match ) return;
-
-    return {
-      r: Number ( match[1] ),
-      g: Number ( match[2] ),
-      b: Number ( match[3] ),
-      a: Number ( match[4] )
-    };
-
+    if (!matchForRgba ){
+      const matchForRgb = color.match ( this.reForRgb );
+      if(matchForRgb){
+        rgba = {
+          r: Number ( matchForRgb[1] ),
+          g: Number ( matchForRgb[2] ),
+          b: Number ( matchForRgb[3] ),
+          a: 1
+        }
+      }else{
+        return;
+      }
+    }else{
+      rgba = {
+        r: Number ( matchForRgba[1] ),
+        g: Number ( matchForRgba[2] ),
+        b: Number ( matchForRgba[3] ),
+        a: Number ( matchForRgba[4] ),
+      }
+    }
+    return rgba;
   }
 
   output ( rgba: RGBA ): string {
@@ -35,7 +49,7 @@ class RGB extends Abstract {
 
     } else { // RGB
 
-      return `rgba(${rgba.r}, ${rgba.g}, ${rgba.b})`;
+      return `rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, 1)`;
 
     }
 

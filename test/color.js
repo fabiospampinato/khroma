@@ -26,7 +26,8 @@ describe ( 'Color', it => {
     const tests = [
       ['black', '#000000'],
       ['BLACK', '#000000'],
-      ['rgba(243 , 234 ,  212 ,   1 )','#f3ead4']
+      ['rgba(243 , 234 ,  212 ,   1 )','#f3ead4'],
+      ['rgb(243 , 234 ,  212)','#f3ead4']
     ];
 
     tests.forEach ( ([ keyword, result ]) => {
