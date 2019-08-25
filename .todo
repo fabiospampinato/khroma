@@ -1,6 +1,6 @@
 ☐ implement all color formants and test them
   ✔ support all keywords (`transparent` etc.) @done(19-08-17 20:28)
-  ☐ hex (3, 4, 6 or 8 chars formats)
+  ✔ hex (3, 4, 6 or 8 chars formats) @done(19-08-25 10:20)
   ☐ rgb (rgb, rgba, numbers/percentages, with/without spaces, with/without commas etc.)
   ☐ hsl (hsl, hsla, all possible syntaxes)
 ☐ implement more methods

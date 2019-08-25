@@ -8,9 +8,11 @@ import Abstract from './abstract';
 
 class RGB extends Abstract {
 
-  re = /rgba\(\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?)\s*\)/i; //TODO: Support all possible formats
+  re = /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/i; //TODO: Support all possible formats
 
   parse ( color: string ): RGBA | undefined {
+
+    color = color.replace(/\s/g,"");
 
     const match = color.match ( this.re );
 
