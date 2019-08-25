@@ -24,12 +24,24 @@ describe ( 'Color', it => {
   it ( 'supports keywords', t => {
 
     const tests = [
-      ['#fff', '#ffffff'],
+      ['#ffffff', '#ffffff'],
       ['BLACK', '#000000'],
       ['white', '#ffffff'],
-      ['rgba(255,165,0,0.8)','#ffa500cc'],
-      ['#fc0c','#ffcc00cc'],
-      ['#ffcc00cc','#ffcc00cc']
+    ];
+
+    tests.forEach ( ([ keyword, result ]) => {
+      t.is ( Hex.output ( Color.parse ( keyword ) ), result );
+    });
+
+  });
+
+  it ( 'supports hex decimal', t => {
+
+    const tests = [
+      ['#fc0', '#ffcc00'],
+      ['#fc0c', '#ffcc00cc'],
+      ['#ffffff', '#ffffff'],
+      ['#ffcc00cc', '#ffcc00cc']
     ];
 
     tests.forEach ( ([ keyword, result ]) => {
