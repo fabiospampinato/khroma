@@ -24,9 +24,8 @@ describe ( 'Color', it => {
   it ( 'supports keywords', t => {
 
     const tests = [
-      ['#ffffff', '#ffffff'],
-      ['BLACK', '#000000'],
-      ['white', '#ffffff'],
+      ['black', '#000000'],
+      ['BLACK', '#000000']
     ];
 
     tests.forEach ( ([ keyword, result ]) => {
@@ -40,12 +39,12 @@ describe ( 'Color', it => {
     const tests = [
       ['#fc0', '#ffcc00'],
       ['#fc0c', '#ffcc00cc'],
-      ['#ffffff', '#ffffff'],
-      ['#ffcc00cc', '#ffcc00cc']
+      ['#fffFff', '#ffffff'],
+      ['#ffCC00cc', '#ffcc00cc']
     ];
 
-    tests.forEach ( ([ keyword, result ]) => {
-      t.is ( Hex.output ( Color.parse ( keyword ) ), result );
+    tests.forEach ( ([ hex, result ]) => {
+      t.is ( Hex.output ( Color.parse ( hex ) ), result );
     });
 
   });
