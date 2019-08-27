@@ -51,7 +51,7 @@ const Utils = {
 
   hex2per ( hex: string ): number {
 
-    return Utils.dec2per ( Utils.hex2dec ( hex ) );
+    return Utils.dec2per ( Utils.hex2dec ( hex ) )/100;
 
   },
 

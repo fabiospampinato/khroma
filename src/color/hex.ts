@@ -23,7 +23,7 @@ class Hex extends Abstract {
       r: Utils.hex2dec(hex3 ? hex3[0].repeat(2) : hex4 ? hex4[0].repeat(2) : color[1]+color[2]),
       g: Utils.hex2dec(hex3 ? hex3[1].repeat(2) : hex4 ? hex4[1].repeat(2) : color[3]+color[4]),
       b: Utils.hex2dec(hex3 ? hex3[2].repeat(2) : hex4 ? hex4[2].repeat(2) : color[5]+color[6]),
-      a: hex4 ? Utils.dec2per(Utils.hex2dec(color[4].repeat(2)))/100 : hex8 ? Utils.dec2per(Utils.hex2dec(color[7]+color[8]))/100 : 1
+      a: hex4 ? Utils.hex2per(hex4[3].repeat(2)) : hex8 ? Utils.hex2per(color[7]+color[8]) : 1
     };
 
   }
