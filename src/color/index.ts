@@ -30,12 +30,6 @@ const Color = {
 
     if ( rgba.a < 1 ) { // RGB
 
-      if ( rgba.a == 0 ) { // transparent
-
-        return `transparent`;
-        
-      }
-
       return RGB.output ( rgba );
 
     } else { // HEX
