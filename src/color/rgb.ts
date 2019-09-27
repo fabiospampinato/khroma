@@ -30,7 +30,9 @@ class RGB extends Abstract {
     if ( rgba.a < 1 ) { // RGBA
 
       if ( rgba.a == 0 ) { // transparent
+
         return `transparent`;
+        
       }
 
       return `rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, ${rgba.a})`;
