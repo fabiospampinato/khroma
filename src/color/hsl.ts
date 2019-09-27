@@ -8,7 +8,7 @@ import Abstract from './abstract';
 
 class HSL extends Abstract {
 
-  re = /hsl\(\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?)\s*\)/i; //TODO: Support all possible formats
+  re = /(hsl|hsla)\(\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?)\s*,?(\d+?(?:\.\d+)?)?\s*\)/i; //TODO: Support all possible formats
 
   parse ( color: string ): HSLA | undefined {
 
@@ -20,7 +20,7 @@ class HSL extends Abstract {
       h: Number ( match[1] ),
       s: Number ( match[2] ),
       l: Number ( match[3] ),
-      a: 1
+      a: !match[4] ? 1 : Number ( match[4] )
     };
 
   }
