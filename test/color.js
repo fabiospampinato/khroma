@@ -34,4 +34,16 @@ describe ( 'Color', it => {
 
   });
 
+  it ( 'supports transparent', t => {
+
+    const tests = [
+      ['rgba(0, 0, 0, 0)', 'transparent']
+    ];
+
+    tests.forEach ( ([ keyword, result ]) => {
+      t.is ( Color.output ( Color.parse ( keyword ) ), result );
+    });
+
+  });
+
 });
