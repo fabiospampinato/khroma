@@ -1,15 +1,15 @@
 
 /* IMPORT */
 
-import {RGBA, HSLA} from '../types';
+import {RGBA} from '../types';
 
 /* ABSTRACT */
 
 abstract class Abstract {
 
-  abstract parse ( color: string ): RGBA | HSLA | undefined;
+  abstract parse ( color: string ): RGBA | undefined;
 
-  abstract output ( color: RGBA | HSLA ): string | undefined;
+  abstract output ( rgba: RGBA ): string | undefined;
 
 }
 

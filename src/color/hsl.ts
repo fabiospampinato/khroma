@@ -2,11 +2,10 @@
 /* IMPORT */
 
 import {HSLA} from '../types';
-import Abstract from './abstract';
 
 /* HSL */
 
-class HSL extends Abstract {
+class HSL {
 
   re = /(hsl|hsla)\(\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?)\s*,?(\d+?(?:\.\d+)?)?\s*\)/i; //TODO: Support all possible formats
 
