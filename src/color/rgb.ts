@@ -8,7 +8,7 @@ import Abstract from './abstract';
 
 class RGB extends Abstract {
 
-  re = /rgba\(\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?)\s*\)/i; //TODO: Support all possible formats
+  re = /(rgb|rgba)\(\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),?\s*(\d+?(?:\.\d+)?)?\s*\)/i; //TODO: Support all possible formats
 
   parse ( color: string ): RGBA | undefined {
 
@@ -16,12 +16,29 @@ class RGB extends Abstract {
 
     if ( !match ) return;
 
-    return {
-      r: Number ( match[1] ),
-      g: Number ( match[2] ),
-      b: Number ( match[3] ),
-      a: Number ( match[4] )
-    };
+    if ( !match[4] ) {
+
+      return {
+        r: Number ( match[1] ),
+        g: Number ( match[2] ),
+        b: Number ( match[3] ),
+        a: 1
+      };
+
+    } else {
+
+      if ( match[0] = "rgb" ) {
+        console.log("WARNING: For better syntax, please use rgba when setting an alpha.");
+      }
+
+      return {
+        r: Number ( match[1] ),
+        g: Number ( match[2] ),
+        b: Number ( match[3] ),
+        a: Number ( match[4] )
+      };
+
+    }
 
   }
 
@@ -33,7 +50,7 @@ class RGB extends Abstract {
 
     } else { // RGB
 
-      return `rgba(${rgba.r}, ${rgba.g}, ${rgba.b})`;
+      return `rgb(${rgba.r}, ${rgba.g}, ${rgba.b})`;
 
     }
 
