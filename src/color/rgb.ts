@@ -8,37 +8,36 @@ import Abstract from './abstract';
 
 class RGB extends Abstract {
 
-  re = /(rgb|rgba)\(\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),\s*(\d+?(?:\.\d+)?),?\s*(\d+?(?:\.\d+)?)?\s*\)/i; //TODO: Support all possible formats
+  rgbRegex = /^rgb\(\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*\)$/i;
+  rgbaRegex = /^rgba\(\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*\)$/i;
 
   parse ( color: string ): RGBA | undefined {
 
-    const match = color.match ( this.re );
-
-    if ( !match ) return;
-
-    if ( !match[4] ) {
+    const rgbMatched = this.rgbRegex.exec(color);
+    if ( rgbMatched ) {
 
       return {
-        r: Number ( match[1] ),
-        g: Number ( match[2] ),
-        b: Number ( match[3] ),
+        r: Number ( rgbMatched[1] ),
+        g: Number ( rgbMatched[2] ),
+        b: Number ( rgbMatched[3] ),
         a: 1
       };
 
-    } else {
+    }
 
-      if ( match[0] = "rgb" ) {
-        console.log("WARNING: For better syntax, please use rgba when setting an alpha.");
-      }
+    const rgbaMatched = this.rgbaRegex.exec(color);
+    if ( rgbaMatched ) {
 
       return {
-        r: Number ( match[1] ),
-        g: Number ( match[2] ),
-        b: Number ( match[3] ),
-        a: Number ( match[4] )
+        r: Number ( rgbaMatched[1] ),
+        g: Number ( rgbaMatched[2] ),
+        b: Number ( rgbaMatched[3] ),
+        a: Number ( rgbaMatched[4] ),
       };
 
     }
+
+    return;
 
   }
 
