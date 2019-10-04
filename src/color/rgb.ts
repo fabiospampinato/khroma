@@ -8,6 +8,7 @@ import Abstract from './abstract';
 
 class RGB extends Abstract {
 
+  //TODO: Support all possible formats
   rgbRegex = /^rgb\(\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*\)$/i;
   rgbaRegex = /^rgba\(\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*\)$/i;
 
