@@ -6,35 +6,59 @@ import Abstract from './abstract';
 
 /* RGB */
 
-class RGB extends Abstract {
+function parseItem(item: string): number | undefined {
 
-  //TODO: Support all possible formats
-  rgbRegex = /^rgb\(\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*\)$/i;
-  rgbaRegex = /^rgba\(\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*,\s*(\d+?(?:\.\d+)?)\s*\)$/i;
+  let num;
+
+  if ( item.indexOf('%') != -1 ) {
+
+    num = Math.round( parseFloat( item ) * 2.55 );
+
+  }
+  else num = parseInt(item);
+  if ( num < 0 || num > 255 ) return;
+
+  return num;
+
+}
+
+class RGB extends Abstract {
 
   parse ( color: string ): RGBA | undefined {
 
-    const rgbMatched = this.rgbRegex.exec(color);
-    if ( rgbMatched ) {
+    let match = color.replace(/ +/g, '').match(/(rgba?)|(\d+(\.\d+)?%?)|(\.\d+)/g);
+    
+    let rgbaObject = {
+      r: 0,
+      g: 0,
+      b: 0,
+      a: 1
+    };
 
-      return {
-        r: Number ( rgbMatched[1] ),
-        g: Number ( rgbMatched[2] ),
-        b: Number ( rgbMatched[3] ),
-        a: 1
-      };
+    if ( match && match.length > 3 ) {
 
-    }
+      // red
+      let red = parseItem(match[1])
+      if ( !red ) return;
+      rgbaObject.r = red;
+      // geen
+      let green = parseItem(match[2])
+      if ( !green ) return;
+      rgbaObject.g = green;
+      // blue
+      let blue = parseItem(match[2])
+      if ( !blue ) return;
+      rgbaObject.b = blue;
+      // alpha
+      if ( color.indexOf('rgba') == 0 ) {
 
-    const rgbaMatched = this.rgbaRegex.exec(color);
-    if ( rgbaMatched ) {
+        if ( !match[4] || parseInt(match[4]) < 0 || parseInt(match[4]) > 1 ) return;
+        rgbaObject.a = parseInt(match[4]);
 
-      return {
-        r: Number ( rgbaMatched[1] ),
-        g: Number ( rgbaMatched[2] ),
-        b: Number ( rgbaMatched[3] ),
-        a: Number ( rgbaMatched[4] ),
-      };
+      }
+      else if ( match[4] ) return;
+
+      return rgbaObject;
 
     }
 
