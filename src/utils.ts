@@ -25,10 +25,21 @@ const Utils = {
 
   },
 
+  isPercent ( str: string ): boolean {
+
+    return str.endsWith( '%' );
+
+  },
+
   per2dec ( per: number ): number {
 
-    return Math.round ( 255 * per );
+    return Math.round ( 255 * per / 100 );
 
+  },
+
+  normPer2dec ( per: number ): number {
+
+    return Math.round ( 255 * per );
   },
 
   per2hex ( per: number,  ): string {
@@ -39,7 +50,13 @@ const Utils = {
 
   dec2per ( dec: number ): number {
 
-    return ( dec * 100 / 255 );
+    return ( dec / 255 * 100 );
+
+  },
+
+  dec2normPer ( dec: number ): number {
+
+    return ( dec / 255 );
 
   },
 
@@ -59,7 +76,19 @@ const Utils = {
 
     return parseInt ( hex, 16 );
 
-  }
+  },
+
+  str2dec ( str: string ): number {
+
+    return Utils.isPercent ( str ) ? Utils.per2dec ( parseFloat ( str ) ) : Number ( str );
+
+  },
+
+  str2normDec ( str: string ): number {
+
+    return Utils.isPercent ( str ) ? parseFloat ( str ) / 100 : Number ( str );
+
+  },
 
 };
 
