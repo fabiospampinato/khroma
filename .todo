@@ -2,6 +2,21 @@
   ☐ support `transparent`
   ☐ hex (3, 4, 6 or 8 chars formats)
   ☐ rgb (rgb, rgba, numbers/percentages, with/without spaces, with/without commas etc.)
+    ✔ rgb
+    ☐ rgba
+    ✔ numbers
+      ✔ 0-255
+    ✔ percentages
+      ✔ 0%-100%
+    ✔ with spaces
+    ✔ without spaces
+    ✔ with commas
+    ✔ without commas
+    ☐ edge cases:
+      ✔ hella spaces
+      ✔ multiple commas
+      ✔ nonsensical characters
+      ☐ too many inputs?
   ☐ hsl (hsl, hsla, all possible syntaxes)
 ☐ implement more methods
   ☐ get
