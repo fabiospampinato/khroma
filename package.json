@@ -16,7 +16,7 @@
     "report": "nyc report",
     "report:html": "open coverage/index.html",
     "prepublishOnly": "npm run clean && npm run compile && npm run coverage",
-    "dev": "concurrently \"npm run compile:watch\" \"npm run test:watch\" --names \"compile,test\" -i"
+    "dev": "concurrently -i -n compile,test npm:compile:watch npm:test:watch"
   },
   "ava": {
     "files": [

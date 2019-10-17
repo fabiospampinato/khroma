@@ -3,6 +3,13 @@
 
 const Utils = {
 
+  /**
+   * Checks if `number` is between `lower` and `upper` (inclusive).
+   * Throws an Error otherwise
+   * @param number number to check
+   * @param lower lower bound (inclusive)
+   * @param upper upper bound (inclusive)
+   */
   checkRange ( number: number, lower: number, upper: number ): void {
 
     if ( number >= lower && number <= upper ) return;
@@ -11,6 +18,12 @@ const Utils = {
 
   },
 
+  /**
+   * Clamps a number within the `lower` and `upper` bounds
+   * @param number number to clamp
+   * @param lower lower bound (inclusive)
+   * @param upper upper bound (inclusive)
+   */
   clamp ( number: number, lower: number, upper: number ): number {
 
     return Math.min ( upper, Math.max ( lower, number ) );
@@ -25,26 +38,44 @@ const Utils = {
 
   },
 
-  isPercent ( str: string ): boolean {
+  /*
+   * ==== Units ====
+   * CSS has a number of different types of units that our library easily converts between.
+   * Here is how we have defined them:
+   * 
+   * | Name | Short for   | Range |
+   * | ---- | ----------- | ----- |
+   * | per  | percent     | 0~100 |
+   * | dec  | decimal     | 0~255 |
+   * | frac | fraction    | 0~1   |
+   * | hex  | hexadecimal | 00~FF |
+   */
 
-    return str.endsWith( '%' );
+  per2dec ( per: number | string ): number {
+    
+    return typeof per === 'number' ? 
+        Math.round ( 255 * per / 100 ) : 
+        Math.round ( 255 * parseFloat ( per ) / 100 );
 
   },
 
-  per2dec ( per: number ): number {
+  per2frac ( per: number | string ): number {
 
-    return Math.round ( 255 * per / 100 );
+    return typeof per === 'number' ? 
+        per / 100 : 
+        parseFloat ( per ) / 100;
 
-  },
-
-  normPer2dec ( per: number ): number {
-
-    return Math.round ( 255 * per );
   },
 
   per2hex ( per: number,  ): string {
-
+    
     return Utils.dec2hex ( Utils.per2dec ( per ) );
+    
+  },
+  
+  frac2dec ( per: number ): number {
+
+    return Math.round ( 255 * per );
 
   },
 
@@ -54,7 +85,7 @@ const Utils = {
 
   },
 
-  dec2normPer ( dec: number ): number {
+  dec2frac ( dec: number ): number {
 
     return ( dec / 255 );
 
@@ -75,18 +106,6 @@ const Utils = {
   hex2dec ( hex: string ): number {
 
     return parseInt ( hex, 16 );
-
-  },
-
-  str2dec ( str: string ): number {
-
-    return Utils.isPercent ( str ) ? Utils.per2dec ( parseFloat ( str ) ) : Number ( str );
-
-  },
-
-  str2normDec ( str: string ): number {
-
-    return Utils.isPercent ( str ) ? parseFloat ( str ) / 100 : Number ( str );
 
   },
 

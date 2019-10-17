@@ -9,25 +9,24 @@ import Utils from '../utils';
 
 class RGB extends Abstract {
 
-  re = /rgba?\(\s*(-?\d+(?:\.\d+)?%?)\s*(?:,|\s)\s*(-?\d+(?:\.\d+)?%?)\s*(?:,|\s)\s*(-?\d+(?:\.\d+)?%?)(?:\s*(?:,|\s)\s*(-?\d+(?:\.\d+)?%?))?\s*\)/i; //TODO: make less gross
-
+  re = /rgba?\(\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e\d+)?%?)\s*(?:,|\s)\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e\d+)?%?)\s*(?:,|\s)\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e\d+)?%?)(?:\s*(?:,|\/)\s*\+?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e\d+)?%?))?\s*\)/i;
   parse ( color: string ): RGBA | undefined {
 
     const match = color.match ( this.re );
 
     if ( !match ) return;
 
-    const [ , r, g, b, a ] = match as Array<string>;
+    const [ , r, g, b, a ] = match;
 
-    const format = ( num: string ): number => Utils.clamp ( Utils.str2dec ( num ), 0, 255 );
+    const formatColor = ( num: string ): number => Utils.clamp ( Math.round ( Number ( num ) || Utils.per2dec ( num ) ), 0, 255 );
     
-    const formatAlpha = ( num: string ): number => Utils.clamp ( Number ( Utils.str2normDec ( num ) ), 0, 1 );
+    const formatAlpha = ( num: string | number ): number => Utils.clamp ( Number ( num ) || Utils.per2frac ( num ), 0, 1 );
 
     return {
-      r: format ( r ) ,
-      g: format ( g ) ,
-      b: format ( b ) ,
-      a: formatAlpha ( a || '1' )
+      r: formatColor ( r ) ,
+      g: formatColor ( g ) ,
+      b: formatColor ( b ) ,
+      a: formatAlpha ( a || 1 )
     };
 
   }
@@ -40,7 +39,7 @@ class RGB extends Abstract {
 
     } else { // RGB
 
-      return `rgba(${rgba.r}, ${rgba.g}, ${rgba.b})`;
+      return `rgb(${rgba.r}, ${rgba.g}, ${rgba.b})`;
 
     }
 

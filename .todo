@@ -3,7 +3,9 @@
   ☐ hex (3, 4, 6 or 8 chars formats)
   ☐ rgb (rgb, rgba, numbers/percentages, with/without spaces, with/without commas etc.)
     ✔ rgb
-    ☐ rgba
+    ✔ rgba
+      ✔ `rgba(51 170 51 / 0.4)`
+      ✔ `rgba(1e2, .5e1, .5e0, +.25e2%)`
     ✔ numbers
       ✔ 0-255
     ✔ percentages
@@ -12,12 +14,16 @@
     ✔ without spaces
     ✔ with commas
     ✔ without commas
-    ☐ edge cases:
+    ✔ scientific notation
+    ✔ edge cases:
       ✔ hella spaces
       ✔ multiple commas
       ✔ nonsensical characters
-      ☐ too many inputs?
+      ✔ too many inputs?
+    ✔ comments
   ☐ hsl (hsl, hsla, all possible syntaxes)
+☐ Utils
+  ☐ document units
 ☐ implement more methods
   ☐ get
     ☐ red
