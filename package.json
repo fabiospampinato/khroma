@@ -15,7 +15,8 @@
     "coverage": "nyc --reporter=html ava",
     "report": "nyc report",
     "report:html": "open coverage/index.html",
-    "prepublishOnly": "npm run clean && npm run compile && npm run coverage"
+    "prepublishOnly": "npm run clean && npm run compile && npm run coverage",
+    "dev": "concurrently -i -n compile,test npm:compile:watch npm:test:watch"
   },
   "ava": {
     "files": [
@@ -44,6 +45,7 @@
     "@types/node": "^12.7.2",
     "ava": "^2.2.0",
     "ava-spec": "^1.1.1",
+    "concurrently": "^5.0.0",
     "nyc": "^14.1.1",
     "rimraf": "^3.0.0",
     "typescript": "^3.5.3",
