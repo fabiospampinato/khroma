@@ -1,7 +1,7 @@
 ☐ implement all color formants and test them
   ☐ support `transparent`
   ☐ hex (3, 4, 6 or 8 chars formats)
-  ☐ rgb (rgb, rgba, numbers/percentages, with/without spaces, with/without commas etc.)
+  ✔ rgb (rgb, rgba, numbers/percentages, with/without spaces, with/without commas etc.)
     ✔ rgb
     ✔ rgba
       ✔ `rgba(51 170 51 / 0.4)`
