@@ -3,6 +3,13 @@
 
 const Utils = {
 
+  /**
+   * Checks if `number` is between `lower` and `upper` (inclusive).
+   * Throws an Error otherwise
+   * @param number number to check
+   * @param lower lower bound (inclusive)
+   * @param upper upper bound (inclusive)
+   */
   checkRange ( number: number, lower: number, upper: number ): void {
 
     if ( number >= lower && number <= upper ) return;
@@ -11,6 +18,12 @@ const Utils = {
 
   },
 
+  /**
+   * Clamps a number within the `lower` and `upper` bounds
+   * @param number number to clamp
+   * @param lower lower bound (inclusive)
+   * @param upper upper bound (inclusive)
+   */
   clamp ( number: number, lower: number, upper: number ): number {
 
     return Math.min ( upper, Math.max ( lower, number ) );
