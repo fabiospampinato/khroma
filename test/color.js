@@ -5,6 +5,7 @@ import {describe} from 'ava-spec';
 import Color from '../dist/color';
 import Hex from '../dist/color/hex';
 import RGB from '../dist/color/rgb';
+import HSL from '../dist/color/hsl';
 
 /* COLOR */
 
@@ -143,5 +144,93 @@ describe ( 'Color', it => {
     });
 
   });
+
+  it ( 'supports HSL', t => {
+
+    const tests = [
+      /* No units */
+      ['hsl(0, 0, 0)', 'hsl(0, 0, 0)'],
+      ['hsl(0, 100, 0)', 'hsl(0, 0, 0)'],
+      ['hsl(0, 0, 100)', 'hsl(0, 0, 100)'],
+      ['hsl(0, 100, 100)', 'hsl(0, 0, 100)'],
+      ['hsl(180, 50, 50)', 'hsl(180, 49.8, 50)'],
+      ['hsl(180, 40.4, 70.4)', 'hsl(180, 40.4, 70.4)'],
+      /* OOB (s & l clamp, h wraps) */
+      ['hsl(-180, 40.4, 70.4)', 'hsl(180, 40.4, 70.4)'],
+      ['hsl(180, -40.4, -70.4)', 'hsl(0, 0, 0)'],
+      ['hsl(180, 400.4, 700.4)', 'hsl(0, 0, 100)'],
+      ['hsl(540, 100, 50)', 'hsl(180, 100, 50)'],
+      /* Units */
+      ['hsl(180deg, 50%, 50%)', 'hsl(180, 49.8, 50)'],
+      /* Scientific notation */
+      ['hsl(1.8e2, 4.04e1, .704e2)', 'hsl(180, 40.4, 70.4)'],
+      ['hsl(1.8e2deg, 4.04e1%, .704e2%)', 'hsl(180, 40.4, 70.4)'],
+      /* Mixed units */
+      ['hsl(180, 50, 50%)', 'hsl(180, 49.8, 50)'],
+      /* With commas and weird spaces */
+      ['hsl( 0 ,   0   ,  0   )', 'hsl(0, 0, 0)'],
+      ['hsl(0,0,0)', 'hsl(0, 0, 0)'],
+      /* Without commas */
+      ['hsl(0 0 0)', 'hsl(0, 0, 0)'],
+      ['hsl(   0   0   0   )', 'hsl(0, 0, 0)'],
+      ['hsl(180deg 50% 50%)', 'hsl(180, 49.8, 50)'],
+      ['hsl(180 40.4 70.4)', 'hsl(180, 40.4, 70.4)'],
+      /* Weird casing */
+      ['HSL(0 0 0)', 'hsl(0, 0, 0)'],
+      ['hSl(0 0 0)', 'hsl(0, 0, 0)'],
+    ];
+
+    tests.forEach( ([ input, result ]) => {
+      t.is ( HSL.output ( Color.parse ( input ) ), result )
+    });
+
+  });
+
+  it ( 'supports HSLA', t => {
+
+    const tests = [
+      /* Fraction 0~1 */
+      ['hsla(0, 0, 0, 0)', 'hsla(0, 0, 0, 0)'],
+      ['hsla(0, 0, 0)', 'hsl(0, 0, 0)'],
+      ['hsla(0, 0, 0, 10)', 'hsl(0, 0, 0)'],
+      ['hsla(0, 0, 0, -10)', 'hsla(0, 0, 0, 0)'],
+      ['hsla(0, 0, 0, 0.5)', 'hsla(0, 0, 0, 0.5)'],
+      ['hsla(0, 0, 0, .5)', 'hsla(0, 0, 0, 0.5)'],
+      ['hsla(0, 0, 0,   0.5   )', 'hsla(0, 0, 0, 0.5)'], 
+      /* Percentage 0~100 */
+      ['hsla(0, 0, 0, 0%)', 'hsla(0, 0, 0, 0)'],
+      ['hsla(0, 0, 0, 100%)', 'hsl(0, 0, 0)'],
+      ['hsla(0, 0, 0, 110%)', 'hsl(0, 0, 0)'],
+      ['hsla(0, 0, 0, -110%)', 'hsla(0, 0, 0, 0)'],
+      ['hsla(0, 0, 0, 50%)', 'hsla(0, 0, 0, 0.5)'],
+      ['hsla(0, 0, 0, 50.5%)', 'hsla(0, 0, 0, 0.505)'],
+      /* With commas and weird spaces */
+      ['hsla(  1 , 20 , 50, 0.5  )', 'hsla(1, 20, 50, 0.5)'],
+      ['hsla(1,20,50,50%)', 'hsla(1, 20, 50, 0.5)'],
+      ['hsla( 1,20,50,0.5 )', 'hsla(1, 20, 50, 0.5)'],
+      /* With slash */
+      ['hsla(0 0 0 / 0.4)', 'hsla(0, 0, 0, 0.4)'],
+      ['hsla(0 0 0/0.4)', 'hsla(0, 0, 0, 0.4)'],
+      ['hsla(0 0 0 / 40%)', 'hsla(0, 0, 0, 0.4)'],
+      ['hsla(0, 0, 0 / 40%)', 'hsla(0, 0, 0, 0.4)'],
+      ['hsla(0,0,0/40%)', 'hsla(0, 0, 0, 0.4)'],
+      /* Scientific notation */
+      ['hsla(1e2, 2e1, .5e2, +.25e2%)', 'hsla(100, 20, 50, 0.25)'],
+      ['hsla(1e2, 2e1, .5e2, +.25e1%)', 'hsla(100, 20, 50, 0.025)'],
+      ['hsla(1e2, 2e1, .5e2, +.25e0%)', 'hsla(100, 20, 50, 0.0025)'],
+      ['hsla(1e2, 2e1, .5e2, .25e0)', 'hsla(100, 20, 50, 0.25)'],
+      ['hsla(1e2, 2e1, .5e2, .25e1)', 'hsl(100, 20, 50)'],
+      /* Mixed units */
+      ['hsla(1, 20%, .5e2, +.25e2%)', 'hsla(1, 20, 50, 0.25)'],
+      /* Weird casing */
+      ['HSLA(1, 20, 50, 0.5)', 'hsla(1, 20, 50, 0.5)'],
+      ['hSlA(1, 20, 50, 0.5)', 'hsla(1, 20, 50, 0.5)'],
+    ];
+
+    tests.forEach( ([ input, result ]) => {
+      t.is ( HSL.output ( Color.parse ( input ) ), result )
+    });
+
+  })
 
 });

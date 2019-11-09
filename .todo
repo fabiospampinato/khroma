@@ -21,7 +21,14 @@
       ✔ nonsensical characters
       ✔ too many inputs?
     ✔ comments
-  ☐ hsl (hsl, hsla, all possible syntaxes)
+    ☐ test: output
+  ✔ hsl (hsl, hsla, all possible syntaxes)
+    ✔ input
+      ✔ percent
+      ✔ deg
+      ✔ scientific
+    ✔ output
+    ✔ tests
 ☐ Utils
   ☐ document units
 ☐ implement more methods

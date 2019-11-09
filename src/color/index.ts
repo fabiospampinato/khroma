@@ -5,10 +5,11 @@ import {RGBA} from '../types';
 import Hex from './hex';
 import Keyword from './keyword';
 import RGB from './rgb';
+import HSL from './hsl';
 
 /* COLOR */
 
-const formats = [Hex, Keyword, RGB];
+const formats = [Hex, Keyword, RGB, HSL];
 
 const Color = {
 
