@@ -22,6 +22,11 @@
       ✔ too many inputs?
     ✔ comments
   ☐ hsl (hsl, hsla, all possible syntaxes)
+  ✔ hex
+    ✔ 3 digit
+    ✔ 6 digit
+    ✔ 8 digit
+    ✔ 4 digit
 ☐ Utils
   ☐ document units
 ☐ implement more methods
