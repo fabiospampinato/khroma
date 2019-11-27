@@ -68,9 +68,7 @@ const Utils = {
 
   frac2per ( frac: number ): number {
 
-    // weird muliplication/divison so I can get percentages rounded
-    // to the tenths place
-    return Math.round ( 1000 * frac ) / 10;
+    return 100 * frac;
 
   },
 
