@@ -27,10 +27,22 @@
       ✔ percent
       ✔ deg
       ✔ scientific
+      ✔ Hue units
+        ✔ deg
+        ✔ grad
+        ✔ rad
+        ✔ turn
     ✔ output
     ✔ tests
+    ✔ change conversion input/output units
+    ✔ fix rounding
+    ✔ A few more tests should be added
+      ✔ All color parts using the same unit
+      ✔ Negative exponents
+      ✔ malformed input
 ☐ Utils
   ☐ document units
+  ✔ move hsl-rgb conversion functions to the HSL class
 ☐ implement more methods
   ☐ get
     ☐ red

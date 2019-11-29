@@ -8,9 +8,9 @@ import Utils from "../utils";
 
 class HSL extends Abstract {
 
-  re = /hsla?\(\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e\d+)?(?:deg)?)\s*(?:,|\s)\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e\d+)?%?)\s*(?:,|\s)\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e\d+)?%?)(?:\s*(?:,|\/)\s*\+?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e\d+)?%?))?\s*\)/i;
+  re = /hsla?\(\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?(?:deg|grad|rad|turn)?)\s*(?:,|\s)\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?%?)\s*(?:,|\s)\s*(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?%?)(?:\s*(?:,|\/)\s*\+?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?%?))?\s*\)/i;
 
-  parse(color: string): RGBA | undefined {
+  parse ( color: string ): RGBA | undefined {
 
     const match = color.match ( this.re );
 
@@ -90,7 +90,7 @@ class HSL extends Abstract {
    */
   hsl2rgb(h: string, s: string, l: string) {
     var r: number, g: number, b: number;
-    const _h: number = Utils.deg2frac ( h );
+    const _h: number = this.convertHue ( h );
     const _s: number = Utils.clamp ( Utils.per2frac ( s ), 0, 1 );
     const _l: number = Utils.clamp ( Utils.per2frac ( l ), 0, 1 );
 
@@ -115,6 +115,26 @@ class HSL extends Abstract {
     }
 
     return [ Math.round ( r * 255 ), Math.round ( g * 255 ), Math.round ( b * 255 ) ];
+
+  }
+
+  convertHue ( hue: string ): number {
+
+    const match = hue.match ( /(.+?)(deg|grad|rad|turn)/ );
+
+    if ( !match ) return Utils.deg2frac ( hue );
+    
+    const [ , number, unit ] = match;
+
+    const converter = {
+      'deg': Utils.deg2frac,
+      'grad': Utils.grad2frac,
+      'rad': Utils.rad2frac,
+      'turn': Utils.turn2frac
+    }
+
+    return converter [ unit ] ( number );
+
   }
 
 }

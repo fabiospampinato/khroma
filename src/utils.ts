@@ -122,6 +122,24 @@ const Utils = {
 
   },
 
+  grad2frac ( grad: number | string ) {
+
+    return Number ( grad ) / 400;
+
+  },
+
+  rad2frac ( rad: number | string ) {
+
+    return Number ( rad ) / ( 2 * Math.PI );
+
+  },
+
+  turn2frac ( turn: number | string ) {
+
+    return Number ( turn );
+
+  }
+
 };
 
 /* EXPORT */
