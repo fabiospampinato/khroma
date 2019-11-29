@@ -18,21 +18,19 @@ class Hex extends Abstract {
     if ( !match ) return;
 
     /* 
-     * Alright so the following code looks pretty weird, but allow me to explain.
-     * I am doing this to avoid a nasty regex. Hex colors can be 3, 4, 6, or 8-digit.
-     * It is pretty difficult to write a regex that cleanly matches all of these formats and captures the channels.
-     * What I have done instead is write a regex that will match all valid formats without capturing groups.
-     * Then, I use this loop to split up the hex code into the appropriate channels.
-     * I know the hex code will be in one of these forms: RGB, RGBA, RRGGBB, RRGGBBAA
+     * We know the hex code will be in one of these forms: RGB, RGBA, RRGGBB, RRGGBBAA
+     * The following loop splits up the hex code into the appropriate channels.
      */
 
     const hex = match[1];
 
+    const increment = Math.floor ( hex.length / 3 );
+
     const colors: string[] = [];
 
-    for ( let i = 0; i < hex.length; i += Math.floor ( hex.length / 3 ) ) {
+    for ( let i = 0; i < hex.length; i += increment ) {
 
-      colors.push ( hex.slice ( i, i + Math.floor ( hex.length / 3 ) ) )
+      colors.push ( hex.slice ( i, i + increment ) )
 
     }
 
