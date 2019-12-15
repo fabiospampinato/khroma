@@ -66,6 +66,12 @@ const Utils = {
 
   },
 
+  frac2hex ( frac: number ): string {
+
+    return Utils.padStart ( ( Math.round ( frac * 255 ) ).toString(16), '0', 2 );
+
+  },
+
   dec2per ( dec: number ): number {
 
     return ( dec / 255 * 100 );
@@ -95,6 +101,12 @@ const Utils = {
     return parseInt ( hex, 16 );
 
   },
+
+  hex2frac ( hex: string ): number {
+
+    return parseInt ( hex, 16 ) / 255;
+
+  }
 
 };
 
