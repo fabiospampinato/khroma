@@ -78,6 +78,17 @@ describe ( 'Color', it => {
       'hsla(51 170 51 // 0.4)',
       'hsla(1ee2, .5e1, .5e0, +.25e2%)',
       'hsla(1f2, .5e1, .5e0, +.25e2%)',
+      /* HEX */
+      '#',
+      '#0',
+      '#00',
+      '#ggg',
+      'fff',
+      '#0 0 0',
+      '# 000',
+      '#aabbc',
+      '#aabbccd',
+      '#aabbccdde'
     ];
 
     tests.forEach ( color => {
@@ -95,6 +106,38 @@ describe ( 'Color', it => {
 
     tests.forEach ( ([ keyword, result ]) => {
       t.is ( Hex.output ( Color.parse ( keyword ) ), result );
+    });
+
+  });
+
+  it ( 'supports hex', t => {
+
+    const tests = [
+      /* 6 digit */
+      ['#000000', '#000000'],
+      ['#FFFFFF', '#ffffff'],
+      ['#ffffff', '#ffffff'],
+      ['#ae12b4', '#ae12b4'],
+      ['#Ae12B4', '#ae12b4'],
+      /* 3 digit */
+      ['#000', '#000000'],
+      ['#fff', '#ffffff'],
+      ['#a2b', '#aa22bb'],
+      ['#a2B', '#aa22bb'],
+      /* 8 digit */
+      ['#000000ff', '#000000'],
+      ['#00000000', '#00000000'],
+      ['#ffffffa8', '#ffffffa8'],
+      ['#ffffffA8', '#ffffffa8'],
+      /* 4 digit */
+      ['#0000', '#00000000'],
+      ['#ffff', '#ffffff'],
+      ['#a2b', '#aa22bb'],
+      ['#a2B', '#aa22bb'],
+    ]
+
+    tests.forEach ( ([ input, expected ]) => {
+      t.is ( Hex.output ( Color.parse ( input ) ), expected );
     });
 
   });
