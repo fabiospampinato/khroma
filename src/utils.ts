@@ -25,6 +25,12 @@ const Utils = {
 
   },
 
+  roundDec ( number: number, decimals: number ): number {
+
+    return Math.round ( number * 10 ** decimals ) / 10 ** decimals;
+
+  },
+
   /*
    * ==== Units ====
    * CSS has a number of different types of units that our library easily converts between.
@@ -60,9 +66,21 @@ const Utils = {
     
   },
   
-  frac2dec ( per: number ): number {
+  frac2dec ( frac: number ): number {
 
-    return Math.round ( 255 * per );
+    return Math.round ( 255 * frac );
+
+  },
+
+  frac2per ( frac: number ): number {
+
+    return 100 * frac;
+
+  },
+
+  frac2deg ( frac: number ): number {
+
+    return Math.round ( 360 * frac );
 
   },
 
@@ -102,6 +120,32 @@ const Utils = {
 
   },
 
+  deg2frac ( deg: number | string ) {
+
+    return typeof deg === 'number' ? 
+        Math.abs ( deg % 360 / 360 ) : 
+        Math.abs ( parseFloat ( deg ) % 360 / 360 );
+
+  },
+
+  grad2frac ( grad: number | string ) {
+
+    return Number ( grad ) / 400;
+
+  },
+
+  rad2frac ( rad: number | string ) {
+
+    return Number ( rad ) / ( 2 * Math.PI );
+
+  },
+
+  turn2frac ( turn: number | string ) {
+
+    return Number ( turn );
+
+  },
+  
   hex2frac ( hex: string ): number {
 
     return parseInt ( hex, 16 ) / 255;
