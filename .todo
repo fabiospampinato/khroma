@@ -43,14 +43,23 @@
   ✔ move hsl-rgb conversion functions to the HSL class
 ☐ implement more methods
   ☐ get
-    ☐ red
-    ☐ green
-    ☐ blue
-    ☐ alpha
-      ☐ opacity (alias)
-    ☐ hue
-    ☐ lightness
-    ☐ saturation
+    ✔ red
+      ✔ test
+    ✔ green
+      ✔ test
+    ✔ blue
+      ✔ test
+    ✔ alpha
+      ✔ opacity (alias)
+      ✔ test
+    ✔ hue
+      ✔ test
+    ✔ lightness
+      ✔ test
+      ✔ should this round? I decided yes, to 10 digits
+    ✔ saturation
+      ✔ test
+      ✔ rounding? yes
   ☐ create
     ☐ hsl
     ☐ hsla
@@ -75,3 +84,4 @@
     ☐ scale-color
   ☐ others
     ☐ mix
+☐ set up style guide with ESLint
