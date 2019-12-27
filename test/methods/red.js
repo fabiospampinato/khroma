@@ -21,11 +21,5 @@ describe ( 'red', it => {
     });
 
   });
-
-  it ( 'expects supported colors', t => {
-
-    t.throws ( () => red ( 'garbage' ) );
-
-  });
   
 });

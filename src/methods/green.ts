@@ -3,7 +3,7 @@
 
 import Color from '../color';
 
-/* RED */
+/* GREEN */
 
 function green ( color: string ): number {
 

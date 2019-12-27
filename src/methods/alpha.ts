@@ -4,11 +4,11 @@
 import Color from '../color';
 import Utils from '../utils';
 
-/* RED */
+/* ALPHA */
 
 function alpha ( color: string ): number {
 
-  return Utils.roundDec ( Color.parse ( color ).a, 10 );
+  return Utils.roundDec ( Color.parse ( color ).a );
 
 };
 

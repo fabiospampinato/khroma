@@ -60,6 +60,7 @@
     ✔ saturation
       ✔ test
       ✔ rounding? yes
+    ✔ rounding should be configurable
   ☐ create
     ☐ hsl
     ☐ hsla

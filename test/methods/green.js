@@ -4,9 +4,9 @@
 import {describe} from 'ava-spec';
 import {green} from '../../dist';
 
-/* RED */
+/* GREEN */
 
-describe ( 'red', it => {
+describe ( 'green', it => {
 
   it ( 'works', t => {
 
@@ -19,12 +19,6 @@ describe ( 'red', it => {
     tests.forEach ( ([ color, expected ]) => {
       t.is ( green ( color ), expected );
     });
-
-  });
-
-  it ( 'expects supported colors', t => {
-
-    t.throws ( () => green ( 'garbage' ) );
 
   });
   
