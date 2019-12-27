@@ -6,7 +6,7 @@ import {saturation} from '../../dist';
 
 /* SATURATION */
 
-describe ( 'lightness', it => {
+describe ( 'saturation', it => {
 
   it ( 'works', t => {
 
@@ -21,12 +21,6 @@ describe ( 'lightness', it => {
     tests.forEach ( ([ color, expected ]) => {
       t.is ( saturation ( color ), expected );
     });
-
-  });
-
-  it ( 'expects supported colors', t => {
-
-    t.throws ( () => saturation ( 'garbage' ) );
 
   });
   

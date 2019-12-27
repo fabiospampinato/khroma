@@ -99,7 +99,7 @@ class HSL extends Abstract {
     const _s: number = Utils.clamp ( Utils.per2frac ( s ), 0, 1 );
     const _l: number = Utils.clamp ( Utils.per2frac ( l ), 0, 1 );
 
-    if (_s == 0) {
+    if (_s === 0) {
       r = g = b = _l; // achromatic
     } else {
       const hue2rgb = (p: number, q: number, t: number) => {

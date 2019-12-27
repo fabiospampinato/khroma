@@ -21,11 +21,5 @@ describe ( 'hue', it => {
     });
 
   });
-
-  it ( 'expects supported colors', t => {
-
-    t.throws ( () => hue ( 'garbage' ) );
-
-  });
   
 });

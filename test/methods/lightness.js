@@ -22,11 +22,5 @@ describe ( 'lightness', it => {
     });
 
   });
-
-  it ( 'expects supported colors', t => {
-
-    t.throws ( () => lightness ( 'garbage' ) );
-
-  });
   
 });
