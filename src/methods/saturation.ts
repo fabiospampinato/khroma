@@ -3,7 +3,7 @@
 import Color from '../color';
 import HSL from '../color/hsl';
 
-/* LIGHTNESS */
+/* SATURATION */
 
 function saturation ( color: string ): string {
 
