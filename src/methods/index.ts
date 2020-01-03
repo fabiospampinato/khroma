@@ -18,7 +18,7 @@ export {
   opacify,
   transparentize,
   alpha,
-  opacity, // alias alpha
+  opacity,
   red,
   green,
   blue,
