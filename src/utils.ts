@@ -1,4 +1,8 @@
 
+/* IMPORT */
+
+import Config from './config';
+
 /* UTILS */
 
 const Utils = {
@@ -25,7 +29,7 @@ const Utils = {
 
   },
 
-  roundDec ( number: number, decimals: number ): number {
+  roundDec ( number: number, decimals: number = Config.decimalPrecision ): number {
 
     return Math.round ( number * 10 ** decimals ) / 10 ** decimals;
 

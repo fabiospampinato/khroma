@@ -3,6 +3,7 @@
 import {RGBA} from "../types";
 import Abstract from "./abstract";
 import Utils from "../utils";
+import { HSL as _HSL } from "../types";
 
 /* HSL */
 
@@ -30,13 +31,13 @@ class HSL extends Abstract {
     };
   }
 
-  output ( { r, g, b, a }: RGBA ): string {
+  output ( rgba: RGBA ): string {
 
-    const [ h, s, l ] = this.rgb2hsl ( r, g, b );
+    const { h, s, l } = this.rgb2hsl ( rgba );
 
-    if ( a < 1 ) { // HSLA
+    if ( rgba.a < 1 ) { // HSLA
 
-      return `hsla(${h}, ${s}, ${l}, ${a})`;
+      return `hsla(${h}, ${s}, ${l}, ${rgba.a})`;
 
     } else { // HSL
 
@@ -55,29 +56,34 @@ class HSL extends Abstract {
    * 
    * Source: https://gist.github.com/mjackson/5311256
    */
-  rgb2hsl( r: number, g: number, b: number ): number[] {
-    r /= 255, g /= 255, b /= 255;
+  rgb2hsl( { r, g, b }: RGBA ): _HSL {
+    r /= 255;
+    g /= 255;
+    b /= 255;
 
-    var max = Math.max(r, g, b), min = Math.min(r, g, b);
-    var h: number, s: number, l = (max + min) / 2;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h: number = 0;
+    let s: number = 0;
+    const l = (max + min) / 2;
 
-    if (max == min) {
-      h = s = 0; // achromatic
-    } else {
-      var d = max - min;
+    if (max !== min) { // not achromatic
+      const d = max - min;
       s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
 
       switch (max) {
         case r: h = (g - b) / d + (g < b ? 6 : 0); break;
         case g: h = (b - r) / d + 2; break;
         case b: h = (r - g) / d + 4; break;
-        default: h = 0;
       }
 
       h /= 6;
     }
 
-    return [ Utils.frac2deg ( h ), Utils.frac2per ( s ), Utils.frac2per ( l ) ].map ( num => Utils.roundDec ( num, 1 ) );
+    return {
+      h: Utils.roundDec ( Utils.frac2deg ( h ) ),
+      s: Utils.roundDec ( Utils.frac2per ( s ) ),
+      l: Utils.roundDec ( Utils.frac2per ( l ) )
+    }
   }
 
   /**
@@ -89,12 +95,12 @@ class HSL extends Abstract {
    * Source: https://gist.github.com/mjackson/5311256
    */
   hsl2rgb(h: string, s: string, l: string) {
-    var r: number, g: number, b: number;
-    const _h: number = this.convertHue ( h );
+    let r: number, g: number, b: number;
+    const _h: number = this.hue2frac ( h );
     const _s: number = Utils.clamp ( Utils.per2frac ( s ), 0, 1 );
     const _l: number = Utils.clamp ( Utils.per2frac ( l ), 0, 1 );
 
-    if (_s == 0) {
+    if (_s === 0) {
       r = g = b = _l; // achromatic
     } else {
       const hue2rgb = (p: number, q: number, t: number) => {
@@ -106,8 +112,8 @@ class HSL extends Abstract {
         return p;
       }
 
-      var q = _l < 0.5 ? _l * (1 + _s) : _l + _s - _l * _s;
-      var p = 2 * _l - q;
+      const q = _l < 0.5 ? _l * (1 + _s) : _l + _s - _l * _s;
+      const p = 2 * _l - q;
 
       r = hue2rgb(p, q, _h + 1/3);
       g = hue2rgb(p, q, _h);
@@ -118,7 +124,7 @@ class HSL extends Abstract {
 
   }
 
-  convertHue ( hue: string ): number {
+  hue2frac ( hue: string ): number {
 
     const match = hue.match ( /(.+?)(deg|grad|rad|turn)/ );
 
