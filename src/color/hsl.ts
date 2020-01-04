@@ -19,7 +19,7 @@ class HSL extends Abstract {
 
     const [ , h, s, l, a ] = match;
 
-    const [ r, g, b ] = this.hsl2rgb ( h, s, l );
+    const { r, g, b } = this.hsl2rgb ( h, s, l );
 
     const formatAlpha = ( num: string | number = 1 ): number => Utils.clamp ( Number ( num ) || Utils.per2frac ( num ), 0, 1 );
 
@@ -52,7 +52,7 @@ class HSL extends Abstract {
    * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
    * Assumes r, g, and b are contained in the set [0, 255]
    * @returns h as a degree [0, 360], s and l as a percentage [0, 100],
-   * all rounded to the tenths place
+   * all rounded to 10 decimal places
    * 
    * Source: https://gist.github.com/mjackson/5311256
    */
@@ -94,7 +94,7 @@ class HSL extends Abstract {
    *
    * Source: https://gist.github.com/mjackson/5311256
    */
-  hsl2rgb(h: string, s: string, l: string) {
+  hsl2rgb ( h: string, s: string, l: string ): RGBA {
     let r: number, g: number, b: number;
     const _h: number = this.hue2frac ( h );
     const _s: number = Utils.clamp ( Utils.per2frac ( s ), 0, 1 );
@@ -120,7 +120,12 @@ class HSL extends Abstract {
       b = hue2rgb(p, q, _h - 1/3);
     }
 
-    return [ Math.round ( r * 255 ), Math.round ( g * 255 ), Math.round ( b * 255 ) ];
+    return {
+      r: Math.round ( r * 255 ),
+      g: Math.round ( g * 255 ),
+      b: Math.round ( b * 255 ),
+      a: 1
+    };
 
   }
 
