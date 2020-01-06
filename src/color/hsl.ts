@@ -19,16 +19,16 @@ class HSL extends Abstract {
 
     const [ , h, s, l, a ] = match;
 
-    const [ r, g, b ] = this.hsl2rgb ( h, s, l );
+    const rgba = this.hsl2rgb ( { 
+      h: this.hue2deg ( h ), 
+      s: Utils.clamp ( parseFloat ( s ), 0, 100 ), 
+      l: Utils.clamp ( parseFloat ( l ), 0, 100 )
+    } );
 
-    const formatAlpha = ( num: string | number = 1 ): number => Utils.clamp ( Number ( num ) || Utils.per2frac ( num ), 0, 1 );
+    rgba.a = a ? Utils.clamp ( Number ( a ) || Utils.per2frac ( a ), 0, 1 ) : 1;
 
-    return {
-      r,
-      g,
-      b,
-      a: formatAlpha ( a )
-    };
+    return rgba
+
   }
 
   output ( rgba: RGBA ): string {
@@ -52,7 +52,7 @@ class HSL extends Abstract {
    * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
    * Assumes r, g, and b are contained in the set [0, 255]
    * @returns h as a degree [0, 360], s and l as a percentage [0, 100],
-   * all rounded to the tenths place
+   * all rounded to 10 decimal places
    * 
    * Source: https://gist.github.com/mjackson/5311256
    */
@@ -89,57 +89,61 @@ class HSL extends Abstract {
   /**
    * Converts an HSL color value to RGB. Conversion formula
    * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
-   * Assumes h, s, and l are contained in the set [0, 1]
    * @returns r, g, and b as numbers [0, 255].
    *
    * Source: https://gist.github.com/mjackson/5311256
    */
-  hsl2rgb(h: string, s: string, l: string) {
+  hsl2rgb ( { h, s, l }: _HSL ): RGBA {
     let r: number, g: number, b: number;
-    const _h: number = this.hue2frac ( h );
-    const _s: number = Utils.clamp ( Utils.per2frac ( s ), 0, 1 );
-    const _l: number = Utils.clamp ( Utils.per2frac ( l ), 0, 1 );
+    h /= 360;
+    s /= 100;
+    l /= 100;
 
-    if (_s === 0) {
-      r = g = b = _l; // achromatic
+    if (s === 0) {
+      r = g = b = l; // achromatic
     } else {
-      const hue2rgb = (p: number, q: number, t: number) => {
+      const hue2rgb = ( p: number, q: number, t: number ) => {
         if (t < 0) t += 1;
         if (t > 1) t -= 1;
         if (t < 1/6) return p + (q - p) * 6 * t;
         if (t < 1/2) return q;
         if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
         return p;
-      }
+      };
 
-      const q = _l < 0.5 ? _l * (1 + _s) : _l + _s - _l * _s;
-      const p = 2 * _l - q;
+      const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      const p = 2 * l - q;
 
-      r = hue2rgb(p, q, _h + 1/3);
-      g = hue2rgb(p, q, _h);
-      b = hue2rgb(p, q, _h - 1/3);
+      r = hue2rgb(p, q, h + 1/3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1/3);
     }
 
-    return [ Math.round ( r * 255 ), Math.round ( g * 255 ), Math.round ( b * 255 ) ];
+    return {
+      r: Math.round ( r * 255 ),
+      g: Math.round ( g * 255 ),
+      b: Math.round ( b * 255 ),
+      a: 1
+    };
 
   }
 
-  hue2frac ( hue: string ): number {
+  hue2deg ( hue: string ): number {
 
     const match = hue.match ( /(.+?)(deg|grad|rad|turn)/ );
 
-    if ( !match ) return Utils.deg2frac ( hue );
+    if ( !match ) return parseFloat ( hue );
     
     const [ , number, unit ] = match;
 
     const converter = {
-      'deg': Utils.deg2frac,
-      'grad': Utils.grad2frac,
-      'rad': Utils.rad2frac,
-      'turn': Utils.turn2frac
+      'deg': parseFloat,
+      'grad': Utils.grad2deg,
+      'rad': Utils.rad2deg,
+      'turn': Utils.turn2deg
     }
 
-    return converter [ unit ] ( number );
+    return converter [ unit ] ( number ) % 360;
 
   }
 

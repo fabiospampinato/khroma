@@ -11,6 +11,7 @@ import blue from './blue';
 import hue from './hue';
 import lightness from './lightness';
 import saturation from './saturation';
+import darken from './darken';
 
 /* EXPORT */
 
@@ -25,4 +26,5 @@ export {
   hue,
   lightness,
   saturation,
+  darken
 };

@@ -48,6 +48,8 @@ const Utils = {
    * | hex  | hexadecimal | 00~FF |
    */
 
+  /* PERCENT */
+
   per2dec ( per: number | string ): number {
     
     return typeof per === 'number' ? 
@@ -69,6 +71,8 @@ const Utils = {
     return Utils.dec2hex ( Utils.per2dec ( per ) );
     
   },
+
+  /* FRACTION */
   
   frac2dec ( frac: number ): number {
 
@@ -94,6 +98,8 @@ const Utils = {
 
   },
 
+  /* DECIMAL */
+
   dec2per ( dec: number ): number {
 
     return ( dec / 255 * 100 );
@@ -112,6 +118,8 @@ const Utils = {
 
   },
 
+  /* HEX */
+
   hex2per ( hex: string ): number {
 
     return Utils.dec2per ( Utils.hex2dec ( hex ) );
@@ -124,6 +132,14 @@ const Utils = {
 
   },
 
+  hex2frac ( hex: string ): number {
+
+    return parseInt ( hex, 16 ) / 255;
+
+  },
+
+  /* DEGREE */
+
   deg2frac ( deg: number | string ) {
 
     return typeof deg === 'number' ? 
@@ -132,11 +148,21 @@ const Utils = {
 
   },
 
+  /* GRADIAN */
+
   grad2frac ( grad: number | string ) {
 
     return Number ( grad ) / 400;
 
   },
+
+  grad2deg ( grad: number | string ) {
+
+    return Number ( grad ) * 0.9;
+
+  },
+
+  /* RADIAN */
 
   rad2frac ( rad: number | string ) {
 
@@ -144,15 +170,23 @@ const Utils = {
 
   },
 
+  rad2deg ( rad: number | string ) {
+
+    return Number ( rad ) * 180 / Math.PI;
+
+  },
+
+  /* TURN */
+
   turn2frac ( turn: number | string ) {
 
     return Number ( turn );
 
   },
-  
-  hex2frac ( hex: string ): number {
 
-    return parseInt ( hex, 16 ) / 255;
+  turn2deg ( turn: number | string ) {
+
+    return Number ( turn ) * 360;
 
   }
 
