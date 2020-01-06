@@ -20,7 +20,7 @@ function darken ( color: string, amount: string ): string {
 
   hsl.l = Utils.clamp ( hsl.l - parseFloat ( amount ), 0, 100);
 
-  return Color.output ( HSL.hsl2rgb ( hsl.h.toString(), hsl.s.toString(), hsl.l.toString() ) );
+  return Color.output ( HSL.hsl2rgb ( hsl ) );
 
 }
 

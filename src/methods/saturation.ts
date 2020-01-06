@@ -1,5 +1,6 @@
 
 /* IMPORT */
+
 import Color from '../color';
 import HSL from '../color/hsl';
 

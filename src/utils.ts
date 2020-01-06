@@ -156,6 +156,12 @@ const Utils = {
 
   },
 
+  grad2deg ( grad: number | string ) {
+
+    return Number ( grad ) * 0.9;
+
+  },
+
   /* RADIAN */
 
   rad2frac ( rad: number | string ) {
@@ -164,11 +170,23 @@ const Utils = {
 
   },
 
+  rad2deg ( rad: number | string ) {
+
+    return Number ( rad ) * 180 / Math.PI;
+
+  },
+
   /* TURN */
 
   turn2frac ( turn: number | string ) {
 
     return Number ( turn );
+
+  },
+
+  turn2deg ( turn: number | string ) {
+
+    return Number ( turn ) * 360;
 
   }
 
