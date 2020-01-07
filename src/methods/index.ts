@@ -13,6 +13,7 @@ import lightness from './lightness';
 import saturation from './saturation';
 import darken from './darken';
 import lighten from './lighten';
+import desaturate from './desaturate';
 
 /* EXPORT */
 
@@ -29,4 +30,5 @@ export {
   saturation,
   darken,
   lighten,
+  desaturate,
 };
