@@ -2,12 +2,13 @@
 /* IMPORT */
 
 import Color from '../color';
+import Utils from '../utils';
 
 /* RED */
 
 function red ( color: string ): number {
 
-  return Color.parse ( color ).r;
+  return Utils.roundDec ( Color.parse ( color ).r, 0 );
 
 };
 

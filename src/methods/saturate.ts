@@ -14,7 +14,7 @@ function saturate ( color: string, amount: string ): string {
   const hsl = HSL.rgb2hsl ( Color.parse ( color ) );
 
   hsl.s = Utils.clamp ( hsl.s + parseFloat ( amount ), 0, 100);
-
+  
   return Color.output ( HSL.hsl2rgb ( hsl ) );
 
 }
