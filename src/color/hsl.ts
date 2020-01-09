@@ -3,7 +3,7 @@
 import {RGBA} from "../types";
 import Abstract from "./abstract";
 import Utils from "../utils";
-import { HSL as _HSL } from "../types";
+import { HSLType } from "../types";
 
 /* HSL */
 
@@ -33,7 +33,7 @@ class HSL extends Abstract {
 
   output ( rgba: RGBA ): string {
 
-    const { h, s, l } = this.rgb2hsl ( rgba );
+    const [ h, s, l ] = Object.values ( this.rgb2hsl ( rgba ) ).map ( Utils.roundDec );
 
     if ( rgba.a < 1 ) { // HSLA
 
@@ -51,12 +51,11 @@ class HSL extends Abstract {
    * Converts an RGB color value to HSL. Conversion formula
    * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
    * Assumes r, g, and b are contained in the set [0, 255]
-   * @returns h as a degree [0, 360], s and l as a percentage [0, 100],
-   * all rounded to 10 decimal places
+   * @returns h as a degree [0, 360], s and l as a percentage [0, 100]
    * 
    * Source: https://gist.github.com/mjackson/5311256
    */
-  rgb2hsl( { r, g, b }: RGBA ): _HSL {
+  rgb2hsl( { r, g, b }: RGBA ): HSLType {
     r /= 255;
     g /= 255;
     b /= 255;
@@ -80,9 +79,9 @@ class HSL extends Abstract {
     }
 
     return {
-      h: Utils.roundDec ( Utils.frac2deg ( h ) ),
-      s: Utils.roundDec ( Utils.frac2per ( s ) ),
-      l: Utils.roundDec ( Utils.frac2per ( l ) )
+      h: Utils.frac2deg ( h ),
+      s: Utils.frac2per ( s ),
+      l: Utils.frac2per ( l )
     }
   }
 
@@ -93,7 +92,7 @@ class HSL extends Abstract {
    *
    * Source: https://gist.github.com/mjackson/5311256
    */
-  hsl2rgb ( { h, s, l }: _HSL ): RGBA {
+  hsl2rgb ( { h, s, l }: HSLType ): RGBA {
     let r: number, g: number, b: number;
     h /= 360;
     s /= 100;
@@ -120,9 +119,9 @@ class HSL extends Abstract {
     }
 
     return {
-      r: Math.round ( r * 255 ),
-      g: Math.round ( g * 255 ),
-      b: Math.round ( b * 255 ),
+      r: r * 255,
+      g: g * 255,
+      b: b * 255,
       a: 1
     };
 

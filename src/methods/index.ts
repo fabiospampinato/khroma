@@ -12,6 +12,7 @@ import hue from './hue';
 import lightness from './lightness';
 import saturation from './saturation';
 import darken from './darken';
+import saturate from './saturate';
 import lighten from './lighten';
 import desaturate from './desaturate';
 
@@ -29,6 +30,7 @@ export {
   lightness,
   saturation,
   darken,
+  saturate,
   lighten,
   desaturate,
 };

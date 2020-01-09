@@ -76,7 +76,7 @@ const Utils = {
   
   frac2dec ( frac: number ): number {
 
-    return Math.round ( 255 * frac );
+    return 255 * frac;
 
   },
 
@@ -88,7 +88,7 @@ const Utils = {
 
   frac2deg ( frac: number ): number {
 
-    return Math.round ( 360 * frac );
+    return 360 * frac;
 
   },
 

@@ -8,7 +8,7 @@ type RGBA = {
   a: number // Alpha - 0~1
 };
 
-type HSL = {
+type HSLType = {
   h: number, // Hue - 0~360
   s: number, // Saturation - 0~100
   l: number  // Lightness  - 0~100 
@@ -16,4 +16,4 @@ type HSL = {
 
 /* EXPORT */
 
-export {RGBA, HSL};
+export {RGBA, HSLType};
