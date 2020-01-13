@@ -42,7 +42,7 @@
   ☐ document units
   ✔ move hsl-rgb conversion functions to the HSL class
 ☐ implement more methods
-  ☐ get
+  ✔ get
     ✔ red
       ✔ test
     ✔ green
@@ -69,11 +69,11 @@
   ☐ edit (popular)
     ✔ opacify
       ☐ fade-in (alias)
-    ☐ darken
-    ☐ desaturate
-    ☐ lighten
-    ☐ saturate
-    ☐ transparentize
+    ✔ darken
+    ✔ desaturate
+    ✔ lighten
+    ✔ saturate
+    ✔ transparentize
       ☐ fade-out (alias)
   ☐ edit (niche)
     ☐ adjust-color

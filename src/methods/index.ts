@@ -15,12 +15,20 @@ import darken from './darken';
 import saturate from './saturate';
 import lighten from './lighten';
 import desaturate from './desaturate';
+import hsla from './hsla';
+import hsl from './hsla'; // alias
 
 /* EXPORT */
 
 export {
+  /* EDIT */
   opacify,
   transparentize,
+  darken,
+  lighten,
+  saturate,
+  desaturate,
+  /* GET */
   alpha,
   opacity,
   red,
@@ -29,8 +37,7 @@ export {
   hue,
   lightness,
   saturation,
-  darken,
-  saturate,
-  lighten,
-  desaturate,
+  /* CREATE */
+  hsla,
+  hsl,
 };
