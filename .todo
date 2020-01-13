@@ -62,8 +62,8 @@
       ✔ rounding? yes
     ✔ rounding should be configurable
   ☐ create
-    ☐ hsl
-    ☐ hsla
+    ✔ hsl
+    ✔ hsla
     ☐ rgb
     ☐ rgba
   ☐ edit (popular)

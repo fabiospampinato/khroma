@@ -17,6 +17,8 @@ import lighten from './lighten';
 import desaturate from './desaturate';
 import hsla from './hsla';
 import hsl from './hsla'; // alias
+import rgba from './rgba';
+import rgb from './rgba'; // alias
 
 /* EXPORT */
 
@@ -40,4 +42,6 @@ export {
   /* CREATE */
   hsla,
   hsl,
+  rgba,
+  rgb,
 };
