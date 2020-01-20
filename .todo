@@ -41,6 +41,7 @@
 ☐ Utils
   ☐ document units
   ✔ move hsl-rgb conversion functions to the HSL class
+☐ make units types? (for documentation purposes, might clarify some things)
 ☐ implement more methods
   ✔ get
     ✔ red
@@ -76,7 +77,7 @@
     ✔ transparentize
       ☐ fade-out (alias)
   ☐ edit (niche)
-    ☐ adjust-color
+    ✔ adjust-colors
     ☐ adjust-hue
     ☐ change-color
     ☐ complement
