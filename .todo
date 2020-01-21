@@ -77,9 +77,9 @@
     ✔ transparentize
       ☐ fade-out (alias)
   ☐ edit (niche)
-    ✔ adjust-colors
-    ☐ adjust-hue
-    ☐ change-color
+    ✔ adjust
+    ✘ adjust-hue (as the Sass documentation mentions: adjust-hue is redundant with adjust
+    ✔ change-color
     ☐ complement
     ☐ grayscale
     ☐ invert

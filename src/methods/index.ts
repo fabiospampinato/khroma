@@ -20,6 +20,7 @@ import hsl from './hsla'; // alias
 import rgba from './rgba';
 import rgb from './rgba'; // alias
 import adjust from './adjust';
+import change from './change';
 
 /* EXPORT */
 
@@ -32,6 +33,7 @@ export {
   saturate,
   desaturate,
   adjust,
+  change,
   /* GET */
   alpha,
   opacity,
