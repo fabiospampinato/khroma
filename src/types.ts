@@ -14,6 +14,16 @@ type HSLType = {
   l: number  // Lightness  - 0~100 
 }
 
+type Channels = {
+  r?: number, // Red
+  g?: number, // Green
+  b?: number, // Blue
+  h?: number, // Hue
+  s?: number, // Saturation
+  l?: number, // Lightness
+  a?: number  // Alpha
+}
+
 /* EXPORT */
 
-export {RGBA, HSLType};
+export {RGBA, HSLType, Channels};
