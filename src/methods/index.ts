@@ -21,6 +21,7 @@ import rgba from './rgba';
 import rgb from './rgba'; // alias
 import adjust from './adjust';
 import change from './change';
+import grayscale from './grayscale';
 
 /* EXPORT */
 
@@ -34,6 +35,7 @@ export {
   desaturate,
   adjust,
   change,
+  grayscale,
   /* GET */
   alpha,
   opacity,
