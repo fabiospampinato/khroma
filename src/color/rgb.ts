@@ -35,11 +35,11 @@ class RGB extends Abstract {
 
     if ( rgba.a < 1 ) { // RGBA
 
-      return `rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, ${rgba.a})`;
+      return `rgba(${Utils.roundDec ( rgba.r, 0 )}, ${Utils.roundDec ( rgba.g, 0 )}, ${Utils.roundDec ( rgba.b, 0 )}, ${Utils.roundDec ( rgba.a )})`;
 
     } else { // RGB
 
-      return `rgb(${rgba.r}, ${rgba.g}, ${rgba.b})`;
+      return `rgb(${Utils.roundDec ( rgba.r, 0 )}, ${Utils.roundDec ( rgba.g, 0 )}, ${Utils.roundDec ( rgba.b, 0 )})`;
 
     }
 

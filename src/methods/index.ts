@@ -23,6 +23,7 @@ import adjust from './adjust';
 import change from './change';
 import complement from './complement';
 import grayscale from './grayscale';
+import mix from './mix';
 
 /* EXPORT */
 
@@ -38,6 +39,7 @@ export {
   change,
   complement,
   grayscale,
+  mix,
   /* GET */
   alpha,
   opacity,
