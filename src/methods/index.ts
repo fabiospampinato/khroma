@@ -25,6 +25,7 @@ import complement from './complement';
 import grayscale from './grayscale';
 import mix from './mix';
 import invert from './invert';
+import scale from './scale';
 
 /* EXPORT */
 
@@ -42,6 +43,7 @@ export {
   grayscale,
   mix,
   invert,
+  scale,
   /* GET */
   alpha,
   opacity,
