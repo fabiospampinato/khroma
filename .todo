@@ -62,11 +62,11 @@
       ✔ test
       ✔ rounding? yes
     ✔ rounding should be configurable
-  ☐ create
+  ✔ create
     ✔ hsl
     ✔ hsla
-    ☐ rgb
-    ☐ rgba
+    ✔ rgb
+    ✔ rgba
   ☐ edit (popular)
     ✔ opacify
       ☐ fade-in (alias)
@@ -80,10 +80,10 @@
     ✔ adjust
     ✘ adjust-hue (as the Sass documentation mentions: adjust-hue is redundant with adjust
     ✔ change-color
-    ☐ complement
-    ☐ grayscale
-    ☐ invert
-    ☐ scale-color
-  ☐ others
-    ☐ mix
+    ✔ complement
+    ✔ grayscale
+    ✔ invert
+    ✔ scale-color
+  ✔ others
+    ✔ mix
 ☐ set up style guide with ESLint
