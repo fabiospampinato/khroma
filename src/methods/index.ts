@@ -16,7 +16,9 @@ import lightness from './lightness';
 import darken from './darken';
 import lighten from './lighten';
 import opacify from './opacify';
+import fadeIn from './opacify'; // alias
 import transparentize from './transparentize';
+import fadeOut from './transparentize'; // alias
 import saturate from './saturate';
 import desaturate from './desaturate';
 import grayscale from './grayscale';
@@ -51,7 +53,9 @@ export {
   darken,
   lighten,
   opacify,
+  fadeIn,
   transparentize,
+  fadeOut,
   saturate,
   desaturate,
   grayscale,
