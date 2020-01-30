@@ -26,6 +26,7 @@ import grayscale from './grayscale';
 import mix from './mix';
 import invert from './invert';
 import scale from './scale';
+import luminance from './luminance';
 
 /* EXPORT */
 
@@ -58,4 +59,6 @@ export {
   hsl,
   rgba,
   rgb,
+  /* EXTRAS */
+  luminance,
 };
