@@ -28,6 +28,7 @@ import invert from './invert';
 import scale from './scale';
 import luminance from './luminance';
 import isLight from './is_light';
+import isDark from './is_dark';
 
 /* EXPORT */
 
@@ -63,4 +64,5 @@ export {
   /* EXTRAS */
   luminance,
   isLight,
+  isDark,
 };
