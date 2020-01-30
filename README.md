@@ -26,4 +26,4 @@ import {} from 'sass.js';
 
 ## License
 
-MIT © Fabio Spampinato
+MIT © Fabio Spampinato, Andrew Maney
