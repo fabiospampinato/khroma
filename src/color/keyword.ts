@@ -149,6 +149,7 @@ class Keyword extends Abstract {
     tan: '#d2b48c',
     teal: '#008080',
     thistle: '#d8bfd8',
+    transparent: '#00000000',
     turquoise: '#40e0d0',
     violet: '#ee82ee',
     wheat: '#f5deb3',
