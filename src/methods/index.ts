@@ -27,6 +27,7 @@ import mix from './mix';
 import invert from './invert';
 import scale from './scale';
 import luminance from './luminance';
+import isLight from './is_light';
 
 /* EXPORT */
 
@@ -61,4 +62,5 @@ export {
   rgb,
   /* EXTRAS */
   luminance,
+  isLight,
 };
