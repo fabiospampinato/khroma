@@ -1,68 +1,68 @@
 
 /* IMPORT */
 
-import opacify from './opacify';
-import transparentize from './transparentize';
-import alpha from './alpha';
-import opacity from './alpha'; // alias
+import rgb from './rgba'; // alias
+import rgba from './rgba';
+import hsl from './hsla'; // alias
+import hsla from './hsla';
 import red from './red';
 import green from './green';
 import blue from './blue';
+import alpha from './alpha';
+import opacity from './alpha'; // alias
 import hue from './hue';
-import lightness from './lightness';
 import saturation from './saturation';
+import lightness from './lightness';
 import darken from './darken';
-import saturate from './saturate';
 import lighten from './lighten';
+import opacify from './opacify';
+import transparentize from './transparentize';
+import saturate from './saturate';
 import desaturate from './desaturate';
-import hsla from './hsla';
-import hsl from './hsla'; // alias
-import rgba from './rgba';
-import rgb from './rgba'; // alias
+import grayscale from './grayscale';
+import invert from './invert';
+import complement from './complement';
+import scale from './scale';
 import adjust from './adjust';
 import change from './change';
-import complement from './complement';
-import grayscale from './grayscale';
 import mix from './mix';
-import invert from './invert';
-import scale from './scale';
 import luminance from './luminance';
-import isLight from './is_light';
 import isDark from './is_dark';
+import isLight from './is_light';
 
 /* EXPORT */
 
 export {
-  /* EDIT */
-  opacify,
-  transparentize,
-  darken,
-  lighten,
-  saturate,
-  desaturate,
-  adjust,
-  change,
-  complement,
-  grayscale,
-  mix,
-  invert,
-  scale,
+  /* CREATE */
+  rgb,
+  rgba,
+  hsl,
+  hsla,
   /* GET */
-  alpha,
-  opacity,
   red,
   green,
   blue,
+  alpha,
+  opacity,
   hue,
-  lightness,
   saturation,
-  /* CREATE */
-  hsla,
-  hsl,
-  rgba,
-  rgb,
+  lightness,
+  /* EDIT */
+  darken,
+  lighten,
+  opacify,
+  transparentize,
+  saturate,
+  desaturate,
+  grayscale,
+  invert,
+  complement,
+  scale,
+  adjust,
+  change,
+  mix,
   /* EXTRAS */
   luminance,
-  isLight,
   isDark,
+  isLight
 };
