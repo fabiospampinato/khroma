@@ -9,7 +9,7 @@ import Hex from './hex';
 
 class Keyword extends Abstract {
 
-  colors = { //TODO: Add transparent //TODO: Make this more performant, pre-parsing colors
+  colors = { //TODO: Make this more performant, pre-parsing colors
     aliceblue: '#f0f8ff',
     antiquewhite: '#faebd7',
     aqua: '#00ffff',
