@@ -16,19 +16,19 @@ describe ( 'lighten', it => {
       [['hsl(0, 0, 0)', 75], '#bfbfbf'],
       [['hsl(0, 0, 0)', 100], '#ffffff'],
       [['hsl(0, 0, 50)', 100], '#ffffff'],
-      [['hsl(0, 0, 100)', 100], '#ffffff'],
+      [['hsl(0, 0, 100)', 100], '#ffffff']
     ];
 
-    tests.forEach ( ([ args, result ]) => {
-      t.is ( lighten ( ...args ), result );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( lighten ( ...args ), output );
     });
 
   });
 
-  it ( 'expects an amount between 0% and 100%', t => {
+  it ( 'throws with out of range arguments', t => {
 
-    t.throws ( () => lighten ( '#000', 200 ) );
     t.throws ( () => lighten ( '#000', -10 ) );
+    t.throws ( () => lighten ( '#000', 200 ) );
 
   });
 

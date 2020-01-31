@@ -11,25 +11,25 @@ describe ( 'invert', it => {
   it ( 'inverts colors', t => {
 
     const tests = [
-      [ [ '#b37399' ], '#4c8c66' ],
-      [ [ 'black' ], '#ffffff' ],
-      [ [ '#550e0c', 20 ], '#663b3a' ],
+      [['#b37399'], '#4c8c66'],
+      [['black'], '#ffffff'],
+      [['#550e0c', 20 ], '#663b3a']
     ];
 
-    tests.forEach ( ( [ args, result ] ) => {
-      t.is ( invert ( ...args ), result );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( invert ( ...args ), output );
     });
 
   });
 
-  it ( 'throws an error for OOB weights', t => {
+  it ( 'throws with out of range arguments', t => {
 
     const tests = [
-      [ '#000', -1 ],
-      [ '#000', 101 ],
+      ['#000', -1 ],
+      ['#000', 101 ]
     ];
 
-    tests.forEach ( ( args ) => {
+    tests.forEach ( args => {
       t.throws ( () => invert ( ...args ) );
     });
 

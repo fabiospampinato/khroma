@@ -16,19 +16,19 @@ describe ( 'saturate', it => {
       [['hsl(0, 0, 50)', 75], '#df2020'],
       [['hsl(0, 0, 50)', 100], '#ff0000'],
       [['hsl(0, 50, 50)', 100], '#ff0000'],
-      [['hsl(0, 100, 50)', 100], '#ff0000'],
+      [['hsl(0, 100, 50)', 100], '#ff0000']
     ];
 
-    tests.forEach ( ([ args, result ]) => {
-      t.is ( saturate ( ...args ), result );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( saturate ( ...args ), output );
     });
 
   });
 
-  it ( 'expects an amount between 0% and 100%', t => {
+  it ( 'throws with out of range arguments', t => {
 
-    t.throws ( () => saturate ( '#000', 200 ) );
     t.throws ( () => saturate ( '#000', -10 ) );
+    t.throws ( () => saturate ( '#000', 200 ) );
 
   });
 

@@ -8,17 +8,17 @@ import {rgba} from '../../dist';
 
 describe ( 'rgba', it => {
 
-  it ( 'creates a color with the given channels', t => {
+  it ( 'creates a color with the given components', t => {
 
     const tests = [
-      [ [0, 0, 0, 0], 'rgba(0, 0, 0, 0)'],
-      [ [255, 255, 255, 0.5], 'rgba(255, 255, 255, 0.5)'],
-      [ [0, 0, 0, 1], '#000000'],
-      [ [128, 128, 128, 1], '#808080'],
+      [[0, 0, 0, 0], 'rgba(0, 0, 0, 0)'],
+      [[255, 255, 255, 0.5], 'rgba(255, 255, 255, 0.5)'],
+      [[0, 0, 0, 1], '#000000'],
+      [[128, 128, 128, 1], '#808080']
     ];
 
-    tests.forEach ( ( [ args, result ] ) => {
-      t.is ( rgba ( ...args ), result );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( rgba ( ...args ), output );
     });
 
   });
@@ -34,8 +34,8 @@ describe ( 'rgba', it => {
       [['#ffcc0066', .5], 'rgba(255, 204, 0, 0.5)']
     ];
 
-    tests.forEach ( ([ args, result ]) => {
-      t.is ( rgba ( ...args ), result );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( rgba ( ...args ), output );
     });
 
   });
@@ -43,12 +43,12 @@ describe ( 'rgba', it => {
   it ( 'allows ommiting alpha channel', t => {
 
     const tests = [
-      [ [0, 0, 0], '#000000'],
-      [ [255, 255, 255], '#ffffff'],
+      [[0, 0, 0], '#000000'],
+      [[255, 255, 255], '#ffffff']
     ];
 
-    tests.forEach ( ( [ args, result ] ) => {
-      t.is ( rgba ( ...args ), result );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( rgba ( ...args ), output );
     });
 
   });

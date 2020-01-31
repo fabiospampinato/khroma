@@ -17,16 +17,16 @@ describe ( 'transparentize', it => {
       [['rgba(0, 0, 0, 0.5)', 0.1], 'rgba(0, 0, 0, 0.4)']
     ];
 
-    tests.forEach ( ([ args, result ]) => {
-      t.is ( transparentize ( ...args ), result );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( transparentize ( ...args ), output );
     });
 
   });
 
-  it ( 'expects an amount between 0 and 1', t => {
+  it ( 'throws with out of range arguments', t => {
 
-    t.throws ( () => transparentize ( '#000000', 2 ) );
     t.throws ( () => transparentize ( '#000000', -1 ) );
+    t.throws ( () => transparentize ( '#000000', 2 ) );
 
   });
 

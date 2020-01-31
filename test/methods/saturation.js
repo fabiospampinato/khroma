@@ -15,13 +15,13 @@ describe ( 'saturation', it => {
       ['rgb(10, 20, 30)', '50%'],
       ['rgb(0, 0, 0)', '0%'],
       ['#102030', '50%'],
-      ['#ff0000', '100%'],
-    ]
+      ['#ff0000', '100%']
+    ];
 
-    tests.forEach ( ([ color, expected ]) => {
-      t.is ( saturation ( color ), expected );
+    tests.forEach ( ([ color, output ]) => {
+      t.is ( saturation ( color ), output );
     });
 
   });
-  
+
 });

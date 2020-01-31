@@ -19,8 +19,8 @@ describe ( 'luminance', it => {
       ['#ffffff', 1]
     ];
 
-    tests.forEach ( ([ color, expected ]) => {
-      t.is ( luminance ( color ), expected );
+    tests.forEach ( ([ color, output ]) => {
+      t.is ( luminance ( color ), output );
     });
 
   });

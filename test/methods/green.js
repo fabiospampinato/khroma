@@ -13,13 +13,13 @@ describe ( 'green', it => {
     const tests = [
       ['rgb(10, 20, 30)', 20],
       ['#102030', 32],
-      ['hsl(10, 20, 30)', 66],
-    ]
+      ['hsl(10, 20, 30)', 66]
+    ];
 
-    tests.forEach ( ([ color, expected ]) => {
-      t.is ( green ( color ), expected );
+    tests.forEach ( ([ color, output ]) => {
+      t.is ( green ( color ), output );
     });
 
   });
-  
+
 });

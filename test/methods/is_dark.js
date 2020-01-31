@@ -19,8 +19,8 @@ describe ( 'isDark', it => {
       ['#ffffff', false]
     ];
 
-    tests.forEach ( ([ color, expected ]) => {
-      t.is ( isDark ( color ), expected );
+    tests.forEach ( ([ color, output ]) => {
+      t.is ( isDark ( color ), output );
     });
 
   });

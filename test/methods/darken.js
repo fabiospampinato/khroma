@@ -15,19 +15,19 @@ describe ( 'darken', it => {
       [['hsl(0, 0, 100%)', 50], '#808080'],
       [['hsl(0, 0, 100%)', 75], '#404040'],
       [['hsl(0, 0, 100%)', 100], '#000000'],
-      [['hsl(0, 0, 50%)', 100], '#000000'],
+      [['hsl(0, 0, 50%)', 100], '#000000']
     ];
 
-    tests.forEach ( ([ args, result ]) => {
-      t.is ( darken ( ...args ), result );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( darken ( ...args ), output );
     });
 
   });
 
-  it ( 'expects an amount between 0% and 100%', t => {
+  it ( 'throws with out of range arguments', t => {
 
-    t.throws ( () => darken ( '#000', 200 ) );
     t.throws ( () => darken ( '#000', -10 ) );
+    t.throws ( () => darken ( '#000', 200 ) );
 
   });
 
