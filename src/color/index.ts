@@ -46,3 +46,4 @@ const Color = {
 /* EXPORT */
 
 export default Color;
+export {Keyword, Hex, RGB, HSL};
