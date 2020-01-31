@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-const {rgb, rgba, hsl, hsla, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, luminance, isDark, isLight} = require ( '../dist' ),
+const {hex, rgb, rgba, hsl, hsla, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, luminance, isDark, isLight} = require ( '../dist' ),
       {default: Color} = require ( '../dist/color' ),
       benchmark = require ( 'benchloop' );
 
@@ -134,6 +134,13 @@ benchmark.group ( 'parse', () => {
 });
 
 benchmark.group ( 'create', () => {
+
+  benchmark ({
+    name: 'hex',
+    fn: () => {
+      hex ( 255, 204, 0 );
+    }
+  });
 
   benchmark ({
     name: 'rgb',

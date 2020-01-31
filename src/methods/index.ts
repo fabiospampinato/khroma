@@ -1,6 +1,7 @@
 
 /* IMPORT */
 
+import hex from './hex';
 import rgb from './rgba'; // alias
 import rgba from './rgba';
 import hsl from './hsla'; // alias
@@ -36,6 +37,7 @@ import mix from './mix';
 
 export {
   /* CREATE */
+  hex,
   rgb,
   rgba,
   hsl,
