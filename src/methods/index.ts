@@ -13,6 +13,9 @@ import opacity from './alpha'; // alias
 import hue from './hue';
 import saturation from './saturation';
 import lightness from './lightness';
+import luminance from './luminance';
+import isDark from './is_dark';
+import isLight from './is_light';
 import darken from './darken';
 import lighten from './lighten';
 import opacify from './opacify';
@@ -28,9 +31,6 @@ import scale from './scale';
 import adjust from './adjust';
 import change from './change';
 import mix from './mix';
-import luminance from './luminance';
-import isDark from './is_dark';
-import isLight from './is_light';
 
 /* EXPORT */
 
@@ -40,7 +40,7 @@ export {
   rgba,
   hsl,
   hsla,
-  /* GET */
+  /* COMPONENTS */
   red,
   green,
   blue,
@@ -49,6 +49,10 @@ export {
   hue,
   saturation,
   lightness,
+  /* INSPECT */
+  luminance,
+  isDark,
+  isLight,
   /* EDIT */
   darken,
   lighten,
@@ -64,9 +68,5 @@ export {
   scale,
   adjust,
   change,
-  mix,
-  /* EXTRAS */
-  luminance,
-  isDark,
-  isLight
+  mix
 };
