@@ -87,7 +87,7 @@ describe ( 'scale', it => {
     ];
 
     tests.forEach ( args => {
-      t.throws ( () => scale ( ...args ), /cannot set.*same time/i );
+      t.throws ( () => scale ( ...args ), /cannot.*at the same time/i );
     });
 
   });

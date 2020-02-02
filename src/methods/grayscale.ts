@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-import Channels from '../color/channels';
+import Channels from '../channels';
 import change from './change';
 
 /* GRAYSCALE */

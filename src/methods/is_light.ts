@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-import Channels from '../color/channels';
+import Channels from '../channels';
 import luminance from './luminance';
 
 /* IS LIGHT */

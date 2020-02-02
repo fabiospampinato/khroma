@@ -2,8 +2,8 @@
 /* IMPORT */
 
 import _ from '../utils';
+import Channels from '../channels';
 import Color from '../color';
-import Channels from '../color/channels';
 import adjust from './adjust';
 import {CHANNELS} from '../types';
 

@@ -2,8 +2,8 @@
 /* IMPORT */
 
 import _ from '../utils';
-import {RGBA, HSLA} from '../types';
-import Channels from './channels';
+import Channels from '../channels';
+import {TYPE, RGBA, HSLA} from '../types';
 import Hex from './hex';
 import Keyword from './keyword';
 import RGB from './rgb';
@@ -50,7 +50,7 @@ const Color = {
 
     if ( !_.is.channels ( channels ) ) return Color.output ( new Channels ( channels ) );
 
-    if ( !channels.isRGB || channels.setted === 2 ) { //UGLY
+    if ( channels.type.is ( TYPE.HSL ) || _.is.undefined ( channels.data.r ) ) {
 
       return HSL.output ( channels );
 

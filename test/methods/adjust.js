@@ -81,7 +81,7 @@ describe ( 'adjust', it => {
     ];
 
     tests.forEach ( args => {
-      t.throws ( () => adjust ( ...args ), /cannot set.*same time/i );
+      t.throws ( () => adjust ( ...args ), /cannot.*at the same time/i );
     });
 
   });

@@ -2,8 +2,8 @@
 /* IMPORT */
 
 import _ from '../utils';
+import Channels from '../channels';
 import Color from '../color';
-import Channels from '../color/channels';
 import change from './change';
 
 /* RGBA */

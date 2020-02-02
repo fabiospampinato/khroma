@@ -1,8 +1,8 @@
 
 /* IMPORT */
 
+import Channels from '../channels';
 import Color from '../color';
-import Channels from '../color/channels';
 import rgba from './rgba';
 
 /* MIX */

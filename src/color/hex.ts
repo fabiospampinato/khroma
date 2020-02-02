@@ -2,8 +2,8 @@
 /* IMPORT */
 
 import _ from '../utils';
+import Channels from '../channels';
 import {RGBA, HSLA} from '../types';
-import Channels from './channels';
 
 /* HEX */
 

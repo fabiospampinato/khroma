@@ -74,7 +74,7 @@ describe ( 'change', it => {
     ];
 
     tests.forEach ( args => {
-      t.throws ( () => change ( ...args ), /cannot set.*same time/i );
+      t.throws ( () => change ( ...args ), /cannot.*at the same time/i );
     });
 
   });
