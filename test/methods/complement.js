@@ -8,7 +8,7 @@ import {complement} from '../../dist';
 
 describe ( 'complement', it => {
 
-  it ( 'returns the complementary color', t => {
+  it ( 'gets the complement of the color', t => {
 
     const tests = [
       ['#6b717f', 'hsl(42, 8.547008547%, 45.8823529412%)'],

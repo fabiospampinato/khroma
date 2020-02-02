@@ -8,7 +8,7 @@ import {transparentize} from '../../dist';
 
 describe ( 'transparentize', it => {
 
-  it ( 'works', t => {
+  it ( 'decreases the opacity channel of the color', t => {
 
     const tests = [
       [['#000000', 1], 'rgba(0, 0, 0, 0)'],

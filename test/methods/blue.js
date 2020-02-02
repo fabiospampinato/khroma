@@ -8,7 +8,7 @@ import {blue} from '../../dist';
 
 describe ( 'blue', it => {
 
-  it ( 'works', t => {
+  it ( 'gets the blue channel of the color', t => {
 
     const tests = [
       ['rgb(10, 20, 30)', 30],

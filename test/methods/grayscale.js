@@ -8,7 +8,7 @@ import {grayscale} from '../../dist';
 
 describe ( 'grayscale', it => {
 
-  it ( 'returns a gray color with the same lightness', t => {
+  it ( 'gets the grayscale version of the color', t => {
 
     const tests = [
       ['#6b717f', 'hsl(222, 0%, 45.8823529412%)'],

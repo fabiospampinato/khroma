@@ -8,7 +8,7 @@ import {opacify} from '../../dist';
 
 describe ( 'opacify', it => {
 
-  it ( 'works', t => {
+  it ( 'increases the opacity channel of the color', t => {
 
     const tests = [
       [['#000000', 1], '#000000'],

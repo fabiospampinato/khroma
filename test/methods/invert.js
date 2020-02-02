@@ -8,7 +8,7 @@ import {invert} from '../../dist';
 
 describe ( 'invert', it => {
 
-  it ( 'inverts colors', t => {
+  it ( 'gets the inverse of the color', t => {
 
     const tests = [
       [['#b37399'], '#4c8c66'],

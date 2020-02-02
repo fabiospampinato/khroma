@@ -8,7 +8,7 @@ import {saturation} from '../../dist';
 
 describe ( 'saturation', it => {
 
-  it ( 'works', t => {
+  it ( 'gets the saturation channel of the color', t => {
 
     const tests = [
       ['hsl(10, 20%, 30%)', 20],

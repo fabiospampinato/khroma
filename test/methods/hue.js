@@ -8,7 +8,7 @@ import {hue} from '../../dist';
 
 describe ( 'hue', it => {
 
-  it ( 'works', t => {
+  it ( 'gets the hue channel of the color', t => {
 
     const tests = [
       ['hsl(10, 20%, 30%)', 10],

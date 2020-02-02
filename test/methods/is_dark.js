@@ -8,7 +8,7 @@ import {isDark} from '../../dist';
 
 describe ( 'isDark', it => {
 
-  it ( 'works', t => {
+  it ( 'checks if the provided color is a dark color', t => {
 
     const tests = [
       ['#000000', true],

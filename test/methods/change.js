@@ -9,7 +9,7 @@ import Color from '../../dist/color';
 
 describe ( 'change', it => {
 
-  it ( 'changes RGBA values', t => {
+  it ( 'sets a new value for any RGBA channel of the color', t => {
 
     const tests = [
       [['rgb(100, 100, 100)', { r: 0 }], 'rgb(0, 100, 100)'],
@@ -30,7 +30,7 @@ describe ( 'change', it => {
 
   });
 
-  it ( 'changes HSLA values', t => {
+  it ( 'sets a new value for any HSLA channel of the color', t => {
 
     const tests = [
       [['hsl(50, 50%, 50%)', { h: 100 }], 'hsl(100, 50%, 50%)'],
@@ -51,7 +51,7 @@ describe ( 'change', it => {
 
   });
 
-  it ( 'changes alpha', t => {
+  it ( 'sets a new value for the alpha channel of the color', t => {
 
     const tests = [
       [['rgba(0, 0, 0, 0)', { a: 0.5 }], 'rgba(0, 0, 0, 0.5)'],

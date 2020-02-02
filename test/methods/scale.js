@@ -9,7 +9,7 @@ import Color from '../../dist/color';
 
 describe ( 'scale', it => {
 
-  it ( 'scales RGB channels', t => {
+  it ( 'scales any RGBA channels of the color', t => {
 
     const tests = [
       [['rgb(0, 0, 0)', { r: 100 }], 'rgb(255, 0, 0)'],
@@ -34,7 +34,7 @@ describe ( 'scale', it => {
 
   });
 
-  it ( 'scales HSL channels', t => {
+  it ( 'scales any HSLA channels of the color', t => {
 
     const tests = [
       [['hsl(0, 50%, 50%)', { h: 100 }], 'hsl(0, 50%, 50%)'], // Wraps becuase 360deg = 0deg
@@ -59,7 +59,7 @@ describe ( 'scale', it => {
 
   });
 
-  it ( 'scales alpha', t => {
+  it ( 'scales the alpha channel', t => {
 
     const tests = [
       [['rgba(0, 0, 0, 0)', { a: 0 }], 'rgba(0, 0, 0, 0)'],

@@ -8,7 +8,7 @@ import {isLight} from '../../dist';
 
 describe ( 'isLight', it => {
 
-  it ( 'works', t => {
+  it ( 'checks if the provided color is a light color', t => {
 
     const tests = [
       ['#000000', false],

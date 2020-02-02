@@ -8,7 +8,7 @@ import {luminance} from '../../dist';
 
 describe ( 'luminance', it => {
 
-  it ( 'works', t => {
+  it ( 'gets the relative luminance of the color', t => {
 
     const tests = [
       ['#000000', 0],

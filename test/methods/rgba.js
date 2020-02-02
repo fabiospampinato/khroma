@@ -8,7 +8,7 @@ import {rgba} from '../../dist';
 
 describe ( 'rgba', it => {
 
-  it ( 'creates a color with the given channels', t => {
+  it ( 'creates a new color given its rgba channels', t => {
 
     const tests = [
       [[0, 0, 0, 0], 'rgba(0, 0, 0, 0)'],
@@ -42,7 +42,7 @@ describe ( 'rgba', it => {
 
   });
 
-  it ( 'allows ommiting alpha channel', t => {
+  it ( 'allows ommiting the alpha channel', t => {
 
     const tests = [
       [[0, 0, 0], '#000000'],

@@ -8,7 +8,7 @@ import {hsla} from '../../dist';
 
 describe ( 'hsla', it => {
 
-  it ( 'creates a color with the given channels', t => {
+  it ( 'creates a new color given its hsla channels.', t => {
 
     const tests = [
       [[0, 0, 0, 0], 'hsla(0, 0%, 0%, 0)'],
@@ -25,7 +25,7 @@ describe ( 'hsla', it => {
 
   });
 
-  it ( 'allows ommiting alpha channel', t => {
+  it ( 'allows ommiting the alpha channel', t => {
 
     const tests = [
       [[0, 0, 0], 'hsl(0, 0%, 0%)'],

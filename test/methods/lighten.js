@@ -8,7 +8,7 @@ import {lighten} from '../../dist';
 
 describe ( 'lighten', it => {
 
-  it ( 'works', t => {
+  it ( 'increases the lightness channel of the color', t => {
 
     const tests = [
       [['hsl(0, 0%, 0%)', 0], 'hsl(0, 0%, 0%)'],

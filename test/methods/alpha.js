@@ -8,7 +8,7 @@ import {alpha} from '../../dist';
 
 describe ( 'alpha', it => {
 
-  it ( 'works', t => {
+  it ( 'gets the alpha channel of the color', t => {
 
     const tests = [
       ['rgba(10, 20, 30)', 1],
