@@ -1,15 +1,18 @@
 
 /* IMPORT */
 
-import {RGBA} from '../types';
-import Abstract from './abstract';
+import _ from '../utils';
+import {RGBA, HSLA} from '../types';
+import Channels from './channels';
 import Hex from './hex';
 
 /* KEYWORD */
 
-class Keyword extends Abstract {
+const Keyword = {
 
-  colors = { //TODO: Make this more performant, pre-parsing colors
+  /* VARIABLES */
+
+  colors: { //TODO: Make this more performant, pre-parsing colors (is it more performant? we would need to clone objects...)
     aliceblue: '#f0f8ff',
     antiquewhite: '#faebd7',
     aqua: '#00ffff',
@@ -157,27 +160,28 @@ class Keyword extends Abstract {
     whitesmoke: '#f5f5f5',
     yellow: '#ffff00',
     yellowgreen: '#9acd32'
-  };
+  },
 
-  parse ( color: string ): RGBA | undefined {
+  /* API */
+
+  parse: ( color: string | Channels ): Channels | void => {
+
+    if ( _.is.channels ( color ) ) return color;
 
     color = color.toLowerCase ();
 
-    if ( !( color in this.colors ) ) return;
+    const hex = Keyword.colors[color];
 
-    return Hex.parse ( this.colors[color] );
+    if ( !hex ) return;
 
-  }
+    return Hex.parse ( hex );
 
-  output ( rgba: RGBA ): string | undefined { //TODO
+  },
 
-    return undefined;
-
-  }
+  output: ( channels: Channels | RGBA | HSLA ): void => {} //TODO: Implement this, however the library itself doesn't use this
 
 };
 
 /* EXPORT */
 
-export default new Keyword ();
-
+export default Keyword;

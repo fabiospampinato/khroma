@@ -1,20 +1,21 @@
 
 /* IMPORT */
 
+import _ from '../utils';
 import Color from '../color';
-import Utils from '../utils';
+import Channels from '../color/channels';
 
 /* LUMINANCE */
 
-//URL: https://planetcalc.com/7779
+//SOURCE: https://planetcalc.com/7779
 
-function luminance ( color: string ): number {
+function luminance ( color: string | Channels ): number {
 
-  const rgba = Color.parse ( color ),
-        gamma2linear = ( x, y = x / 255 ) => y > .03928 ? Math.pow ( ( ( y + .055 ) / 1.055 ), 2.4 ) : y / 12.92,
-        luminance = .2126 * gamma2linear ( rgba.r ) + .7152 * gamma2linear ( rgba.g ) + .0722 * gamma2linear ( rgba.b );
+  const {r, g, b} = Color.parse ( color ),
+        channel2linear = ( x: number, y: number = x / 255 ) => y > .03928 ? Math.pow ( ( ( y + .055 ) / 1.055 ), 2.4 ) : y / 12.92,
+        luminance = .2126 * channel2linear ( r ) + .7152 * channel2linear ( g ) + .0722 * channel2linear ( b );
 
-  return Utils.roundDec ( luminance );
+  return _.lang.round ( luminance );
 
 }
 

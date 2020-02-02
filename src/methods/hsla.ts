@@ -1,21 +1,16 @@
 
 /* IMPORT */
 
+import _ from '../utils';
 import Color from '../color';
-import HSL from '../color/hsl';
-import Utils from '../utils';
 
 /* HSLA */
 
-function hsla ( h: number, s: number, l: number, a = 1 ): string {
+function hsla ( h: number, s: number, l: number, a: number = 1 ): string {
 
-  const hsl = {
-    h,
-    s: Utils.clamp ( s, 0, 100 ),
-    l: Utils.clamp ( l, 0, 100 )
-  };
+  const hsla = _.channels.clamp ({ h, s, l, a });
 
-  return Color.output ( { ...HSL.hsl2rgb ( hsl ), a } );
+  return Color.output ( hsla );
 
 }
 

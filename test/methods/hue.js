@@ -11,9 +11,9 @@ describe ( 'hue', it => {
   it ( 'works', t => {
 
     const tests = [
-      ['hsl(10, 20, 30)', '10deg'],
-      ['rgb(10, 20, 30)', '210deg'],
-      ['#102030', '210deg']
+      ['hsl(10, 20%, 30%)', 10],
+      ['rgb(10, 20, 30)', 210],
+      ['#102030', 210]
     ];
 
     tests.forEach ( ([ color, output ]) => {

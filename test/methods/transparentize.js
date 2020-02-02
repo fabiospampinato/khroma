@@ -23,11 +23,4 @@ describe ( 'transparentize', it => {
 
   });
 
-  it ( 'throws with out of range arguments', t => {
-
-    t.throws ( () => transparentize ( '#000000', -1 ) );
-    t.throws ( () => transparentize ( '#000000', 2 ) );
-
-  });
-
 });

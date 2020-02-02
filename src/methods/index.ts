@@ -1,16 +1,19 @@
 
 /* IMPORT */
 
-import hex from './hex';
-import rgb from './rgba'; // alias
+//TODO: Organize these better
+
+import hex from './rgba'; // Alias
+import rgb from './rgba'; // Alias
 import rgba from './rgba';
-import hsl from './hsla'; // alias
+import hsl from './hsla'; // Alias
 import hsla from './hsla';
+import channel from './channel';
 import red from './red';
 import green from './green';
 import blue from './blue';
 import alpha from './alpha';
-import opacity from './alpha'; // alias
+import opacity from './alpha'; // Alias
 import hue from './hue';
 import saturation from './saturation';
 import lightness from './lightness';
@@ -20,9 +23,9 @@ import isLight from './is_light';
 import darken from './darken';
 import lighten from './lighten';
 import opacify from './opacify';
-import fadeIn from './opacify'; // alias
+import fadeIn from './opacify'; // Alias
 import transparentize from './transparentize';
-import fadeOut from './transparentize'; // alias
+import fadeOut from './transparentize'; // Alias
 import saturate from './saturate';
 import desaturate from './desaturate';
 import grayscale from './grayscale';
@@ -42,7 +45,8 @@ export {
   rgba,
   hsl,
   hsla,
-  /* COMPONENTS */
+  /* CHANNEL */
+  channel,
   red,
   green,
   blue,
@@ -55,7 +59,7 @@ export {
   luminance,
   isDark,
   isLight,
-  /* EDIT */
+  /* EDIT - SINGLE CHANNEL */
   darken,
   lighten,
   opacify,
@@ -65,8 +69,9 @@ export {
   saturate,
   desaturate,
   grayscale,
-  invert,
   complement,
+  /* EDIT - ADVANCED */
+  invert,
   scale,
   adjust,
   change,

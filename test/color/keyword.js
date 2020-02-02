@@ -2,7 +2,7 @@
 /* IMPORT */
 
 import {describe} from 'ava-spec';
-import Color, {Hex} from '../../dist/color';
+import Color from '../../dist/color';
 
 /* KEYWORD */
 
@@ -17,7 +17,7 @@ describe ( 'Keyword', it => {
     ];
 
     tests.forEach ( ([ input, output ]) => {
-      t.is ( Hex.output ( Color.parse ( input ) ), output );
+      t.is ( Color.format.hex.output ( Color.parse ( input ) ), output );
     });
 
   });

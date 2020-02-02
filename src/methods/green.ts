@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Color from '../color';
-import Utils from '../utils';
+import Channels from '../color/channels';
+import channel from './channel';
 
 /* GREEN */
 
-function green ( color: string ): number {
+function green ( color: string | Channels ): number {
 
-  return Utils.roundDec ( Color.parse ( color ).g, 0 );
+  return channel ( color, 'g' );
 
-};
+}
 
 /* EXPORT */
 

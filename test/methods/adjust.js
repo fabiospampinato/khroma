@@ -3,7 +3,7 @@
 
 import {describe} from 'ava-spec';
 import {adjust} from '../../dist';
-import Color, {RGB, HSL} from '../../dist/color';
+import Color from '../../dist/color';
 
 /* ADJUST */
 
@@ -25,7 +25,7 @@ describe ( 'adjust', it => {
     ];
 
     tests.forEach ( ([ args, output ]) => {
-      t.is ( RGB.output ( Color.parse ( adjust ( ...args ) ) ), output );
+      t.is ( Color.format.rgb.output ( Color.parse ( adjust ( ...args ) ) ), output );
     });
 
   });
@@ -33,22 +33,23 @@ describe ( 'adjust', it => {
   it ( 'adjust HSL values', t => {
 
     const tests = [
-      [['hsl(0, 50, 50)', { h: 100 }], 'hsl(100, 49.8, 50)'],
-      [['hsl(0, 50, 50)', { s: 25 }], 'hsl(0, 74.9, 50)'],
-      [['hsl(0, 50, 50)', { l: 25 }], 'hsl(0, 50, 74.9)'],
-      [['hsl(0, 50, 50)', { h: 100, s: 25  }], 'hsl(100, 74.9, 50)'],
-      [['hsl(0, 50, 50)', { h: 100, s: 25, l: 25  }], 'hsl(100, 75, 74.9)'],
-      [['hsl(100, 50, 50)', { h: -100 }], 'hsl(0, 49.8, 50)'],
-      [['hsl(0, 50, 50)', { s: -25 }], 'hsl(0, 24.7, 50)'],
-      [['hsl(0, 50, 50)', { l: -25 }], 'hsl(0, 50, 25.1)'],
-      [['hsl(300, 50, 50)', { h: 100 }], 'hsl(40, 49.8, 50)'],
-      [['hsl(0, 50, 50)', { h: -100 }], 'hsl(260, 49.8, 50)'],
-      [['hsl(0, 100, 50)', { s: 25 }], 'hsl(0, 100, 50)'],
-      [['hsl(0, 0, 50)', { s: -25 }], 'hsl(0, 0, 50.2)']
+      [['hsl(0, 50%, 50%)', { h: 100 }], 'hsl(100, 50%, 50%)'],
+      [['hsl(0, 50%, 50%)', { s: 25 }], 'hsl(0, 75%, 50%)'],
+      [['hsl(0, 50%, 50%)', { l: 25 }], 'hsl(0, 50%, 75%)'],
+      [['hsl(0, 50%, 50%)', { h: 100, s: 25 }], 'hsl(100, 75%, 50%)'],
+      [['hsl(0, 50%, 50%)', { h: 100, s: 25, l: 25 }], 'hsl(100, 75%, 75%)'],
+      [['hsl(100, 50%, 50%)', { h: -100 }], 'hsl(0, 50%, 50%)'],
+      [['hsl(0, 50%, 50%)', { s: -25 }], 'hsl(0, 25%, 50%)'],
+      [['hsl(0, 50%, 50%)', { l: -25 }], 'hsl(0, 50%, 25%)'],
+      [['hsl(300, 50%, 50%)', { h: 100 }], 'hsl(40, 50%, 50%)'],
+      [['hsl(0, 50%, 50%)', { h: -100 }], 'hsl(-100, 50%, 50%)'],
+      [['hsl(0, 100%, 50%)', { s: 25 }], 'hsl(0, 100%, 50%)'],
+      [['hsl(0, 0%, 50%)', { s: -25 }], 'hsl(0, 0%, 50%)'],
+      [['hsla(0, 0%, 50%, .5)', { s: -25 }], 'hsla(0, 0%, 50%, 0.5)']
     ];
 
     tests.forEach ( ([ args, output ]) => {
-      t.is ( HSL.output ( Color.parse ( adjust ( ...args ) ) ), output );
+      t.is ( Color.format.hsl.output ( Color.parse ( adjust ( ...args ) ) ), output );
     });
 
   });
@@ -57,7 +58,7 @@ describe ( 'adjust', it => {
 
     const tests = [
       [['rgba(0, 0, 0, 0)', { a: 0.5 }], 'rgba(0, 0, 0, 0.5)'],
-      [['hsla(0, 0, 0, 0)', { a: 0.5 }], 'rgba(0, 0, 0, 0.5)'],
+      [['hsla(0, 0%, 0%, 0)', { a: 0.5 }], 'hsla(0, 0%, 0%, 0.5)'],
       [['rgba(0, 0, 0, 0)', { a: 1 }], '#000000'],
       [['rgba(0, 0, 0, 1)', { a: -0.5 }], 'rgba(0, 0, 0, 0.5)'],
       [['rgba(0, 0, 0, 1)', { a: -1 }], 'rgba(0, 0, 0, 0)'],
@@ -71,7 +72,7 @@ describe ( 'adjust', it => {
 
   });
 
-  it ( 'throws an Error when adjusting RGB and HSL properties at the same time', t => {
+  it ( 'throws when setting RGB and HSL channels at the same time', t => {
 
     const tests = [
       ['#000', { r: 0, h: 0 }],
@@ -80,30 +81,7 @@ describe ( 'adjust', it => {
     ];
 
     tests.forEach ( args => {
-      t.throws ( () => adjust ( ...args ), 'Cannot adjust an RGB property at the same time as an HSL property' );
-    });
-
-  });
-
-  it ( 'throws with out of range arguments', t => {
-
-    const tests = [
-      ['#000', { r:  256 }],
-      ['#000', { r: -256 }],
-      ['#000', { g:  256 }],
-      ['#000', { g: -256 }],
-      ['#000', { b:  256 }],
-      ['#000', { b: -256 }],
-      ['#000', { l:  101 }],
-      ['#000', { l: -101 }],
-      ['#000', { s:  101 }],
-      ['#000', { s: -101 }],
-      ['#000', { a:  1.01 }],
-      ['#000', { a: -1.01 }]
-    ];
-
-    tests.forEach ( args => {
-      t.throws ( () => adjust ( ...args ) );
+      t.throws ( () => adjust ( ...args ), /cannot set.*same time/i );
     });
 
   });

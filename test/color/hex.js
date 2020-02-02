@@ -2,7 +2,7 @@
 /* IMPORT */
 
 import {describe} from 'ava-spec';
-import Color, {Hex} from '../../dist/color';
+import Color from '../../dist/color';
 
 /* HEX */
 
@@ -18,9 +18,10 @@ describe ( 'Hex', it => {
       ['#a2B', '#aa22bb'],
       /* RGBA */
       ['#0000', '#00000000'],
-      ['#ffff', '#ffffff'],
-      ['#a2b', '#aa22bb'],
-      ['#a2B', '#aa22bb'],
+      ['#fffF', '#ffffff'],
+      ['#fff8', '#ffffff88'],
+      ['#a2bf', '#aa22bb'],
+      ['#a2Bf', '#aa22bb'],
       /* RRGGBB */
       ['#000000', '#000000'],
       ['#FFFFFF', '#ffffff'],
@@ -35,7 +36,7 @@ describe ( 'Hex', it => {
     ];
 
     tests.forEach ( ([ input, output ]) => {
-      t.is ( Hex.output ( Color.parse ( input ) ), output );
+      t.is ( Color.format.hex.output ( Color.parse ( input ) ), output );
     });
 
   });
@@ -47,6 +48,7 @@ describe ( 'Hex', it => {
       '#0',
       '#00',
       '#ggg',
+      '#zzz',
       'fff',
       '#0 0 0',
       '# 000',

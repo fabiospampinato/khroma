@@ -2,25 +2,17 @@
 /* IMPORT */
 
 import Color from '../color';
-import Utils from '../utils';
+import Channels from '../color/channels';
 import mix from './mix';
 
 /* INVERT */
 
-function invert ( color: string, weight = 100 ): string {
+function invert ( color: string | Channels, weight: number = 100 ): string {
 
-  Utils.checkRange ( weight, 0, 100 );
+  const {r, g, b, a} = Color.parse ( color ),
+        inverse = new Channels ({ r: 255 - r, g: 255 - g, b: 255 - b, a });
 
-  const rgba = Color.parse ( color );
-
-  const inverse = {
-    r: 255 - rgba.r,
-    g: 255 - rgba.g,
-    b: 255 - rgba.b,
-    a: rgba.a
-  };
-
-  return mix ( Color.output ( inverse ), color, weight );
+  return mix ( inverse, color, weight );
 
 }
 

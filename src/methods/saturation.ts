@@ -1,15 +1,14 @@
 
 /* IMPORT */
 
-import Color from '../color';
-import HSL from '../color/hsl';
-import Utils from '../utils';
+import Channels from '../color/channels';
+import channel from './channel';
 
 /* SATURATION */
 
-function saturation ( color: string ): string {
+function saturation ( color: string | Channels ): number {
 
-  return `${ Utils.roundDec ( HSL.rgb2hsl ( Color.parse ( color ) ).s ) }%`;
+  return channel ( color, 's' );
 
 }
 

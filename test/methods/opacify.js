@@ -22,11 +22,4 @@ describe ( 'opacify', it => {
 
   });
 
-  it ( 'throws with out of range arguments', t => {
-
-    t.throws ( () => opacify ( '#000000', -1 ) );
-    t.throws ( () => opacify ( '#000000', 2 ) );
-
-  });
-
 });

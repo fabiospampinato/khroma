@@ -2,10 +2,8 @@
 /* CONFIG */
 
 const Config = {
-
-  decimalPrecision: 10,
-
-}
+  precision: 10 // Number of decimal digits to preserve
+};
 
 /* EXPORT */
 

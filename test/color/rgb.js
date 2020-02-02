@@ -2,7 +2,7 @@
 /* IMPORT */
 
 import {describe} from 'ava-spec';
-import Color, {RGB} from '../../dist/color';
+import Color from '../../dist/color';
 
 /* RGB */
 
@@ -13,30 +13,30 @@ describe ( 'RGB', it => {
     const tests = [
       /* DECIAML 0~255 */
       ['rgb(1, 20, 255)', 'rgb(1, 20, 255)'],
-      ['rgb(1.99, 20.5, 255)', 'rgb(2, 21, 255)'],
+      ['rgb(1.99, 20.5, 255)', 'rgb(1.99, 20.5, 255)'],
       ['rgb(300, 255, -100)', 'rgb(255, 255, 0)'],
       /* PERCENTAGE 0~100 */
-      ['rgb(10%, 20%, 30%)', 'rgb(26, 51, 77)'],
-      ['rgb(10.5%, 20.7%, 30%)', 'rgb(27, 53, 77)'],
+      ['rgb(10%, 20%, 30%)', 'rgb(25.5, 51, 76.5)'],
+      ['rgb(10.5%, 20.7%, 30%)', 'rgb(26.775, 52.785, 76.5)'],
       ['rgb(100% 200% -30%)', 'rgb(255, 255, 0)'],
       /* WITH COMMAS AND WEIRD SPACES */
       ['rgb(  1 , 20 , 255  )', 'rgb(1, 20, 255)'],
       ['rgb(1,20,255)', 'rgb(1, 20, 255)'],
       ['rgb( 1,20,255 )', 'rgb(1, 20, 255)'],
       /* WITHOUT COMMAS */
-      ['rgb(10% 20% 30%)', 'rgb(26, 51, 77)'],
+      ['rgb(10% 20% 30%)', 'rgb(25.5, 51, 76.5)'],
       ['rgb(1 20 255)', 'rgb(1, 20, 255)'],
       ['rgb(   1    20     255   )', 'rgb(1, 20, 255)'],
       /* MIXED UNITS */
-      ['rgb(10% 20 30%)', 'rgb(26, 20, 77)'],
-      ['rgb(1 25.5 25.5)', 'rgb(1, 26, 26)'],
+      ['rgb(10% 20 30%)', 'rgb(25.5, 20, 76.5)'],
+      ['rgb(1 25.5 25.5)', 'rgb(1, 25.5, 25.5)'],
       /* WEIRD CASING */
       ['RGB(1, 20, 255)', 'rgb(1, 20, 255)'],
       ['rGb(1, 20, 255)', 'rgb(1, 20, 255)']
     ];
 
     tests.forEach ( ([ input, output ]) => {
-      t.is ( RGB.output ( Color.parse ( input ) ), output );
+      t.is ( Color.format.rgb.output ( Color.parse ( input ) ), output );
     });
 
   });

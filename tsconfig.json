@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "inlineSourceMap": false,
     "jsx": "react",
-    "lib": ["dom", "scripthost", "es2015", "es2016", "es2017", "es2018"],
+    "lib": ["dom", "scripthost", "es2015", "es2016", "es2017", "es2018", "es2019", "es2020"],
     "module": "commonjs",
     "moduleResolution": "node",
     "newLine": "LF",

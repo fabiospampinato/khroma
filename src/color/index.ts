@@ -1,7 +1,9 @@
 
 /* IMPORT */
 
-import {RGBA} from '../types';
+import _ from '../utils';
+import {RGBA, HSLA} from '../types';
+import Channels from './channels';
 import Hex from './hex';
 import Keyword from './keyword';
 import RGB from './rgb';
@@ -9,17 +11,32 @@ import HSL from './hsl';
 
 /* COLOR */
 
-const formats = [Hex, Keyword, RGB, HSL];
+const formats = [Keyword, Hex, RGB, HSL]; // Sorted with performance in mind
 
 const Color = {
 
-  parse ( color: string ): RGBA {
+  /* VARIABLES */
+
+  format: {
+    keyword: Keyword,
+    hex: Hex,
+    rgb: RGB,
+    rgba: RGB,
+    hsl: HSL,
+    hsla: HSL
+  },
+
+  /* API */
+
+  parse: ( color: string | Channels ): Channels => {
+
+    if ( _.is.channels ( color ) ) return color;
 
     for ( let i = 0, l = formats.length; i < l; i++ ) {
 
-      const rgba = formats[i].parse ( color );
+      const channels = formats[i].parse ( color );
 
-      if ( rgba ) return rgba;
+      if ( channels ) return channels;
 
     }
 
@@ -27,15 +44,23 @@ const Color = {
 
   },
 
-  output ( rgba: RGBA ): string { //TODO: Maybe return keyword rgba if possible
+  output: ( channels: Channels | RGBA | HSLA ): string => {
 
-    if ( rgba.a < 1 ) { // RGB
+    // SASS returns a keyword if possible, but we avoid doing that as it's slower and doesn't really add any value
 
-      return RGB.output ( rgba );
+    if ( !_.is.channels ( channels ) ) return Color.output ( new Channels ( channels ) );
 
-    } else { // HEX
+    if ( !channels.isRGB || channels.setted === 2 ) { //UGLY
 
-      return Hex.output ( rgba );
+      return HSL.output ( channels );
+
+    } else if ( channels.a < 1 ) { //TODO: Output rgba also if any channel is a float
+
+      return RGB.output ( channels );
+
+    } else {
+
+      return Hex.output ( channels );
 
     }
 
@@ -46,4 +71,3 @@ const Color = {
 /* EXPORT */
 
 export default Color;
-export {Keyword, Hex, RGB, HSL};

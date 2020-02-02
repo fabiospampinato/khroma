@@ -1,11 +1,14 @@
 
 /* IMPORT */
 
-const {hex, rgb, rgba, hsl, hsla, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, luminance, isDark, isLight} = require ( '../dist' ),
+const {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, luminance, isDark, isLight} = require ( '../dist' ),
       {default: Color} = require ( '../dist/color' ),
       benchmark = require ( 'benchloop' );
 
 /* BENCHMARK */
+
+//TODO: Reorganize
+//TODO: Squeeze some more performance out of this library
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
   log: 'compact',
@@ -24,28 +27,28 @@ benchmark.group ( 'parse', () => {
   benchmark.group ( 'hex', () => {
 
     benchmark ({
-      name: 'RGB',
+      name: 'rgb',
       fn: () => {
         Color.parse ( '#fc0' );
       }
     });
 
     benchmark ({
-      name: 'RGBA',
+      name: 'rgba',
       fn: () => {
         Color.parse ( '#fc08' );
       }
     });
 
     benchmark ({
-      name: 'RRGGBB',
+      name: 'rrggbb',
       fn: () => {
         Color.parse ( '#ffcc00' );
       }
     });
 
     benchmark ({
-      name: 'RRGGBBAA',
+      name: 'rrggbbaa',
       fn: () => {
         Color.parse ( '#ffcc0088' );
       }
@@ -90,42 +93,50 @@ benchmark.group ( 'parse', () => {
     benchmark ({
       name: 'hsl',
       fn: () => {
-        Color.parse ( 'hsl(150, 50, 50)' );
+        Color.parse ( 'hsl(150, 50%, 50%)' );
       }
     });
 
     benchmark ({
       name: 'hsla',
       fn: () => {
-        Color.parse ( 'hsla(150, 50, 50, .5)' );
+        Color.parse ( 'hsla(150, 50%, 50%, .5)' );
       }
     });
 
     benchmark ({
-      name: 'hsla:percentage',
+      name: 'hsla:deg',
       fn: () => {
-        Color.parse ( 'hsl(0deg, 50%, 50%, .5)' );
+        Color.parse ( 'hsla(0deg, 50%, 50%, .5)' );
       }
     });
 
     benchmark ({
       name: 'hsla:scientific',
       fn: () => {
-        Color.parse ( 'hsla(1e2, 2e1, .5e2, +.25e2%)' );
+        Color.parse ( 'hsla(1e2, 2e1%, .5e2%, +.25e2%)' );
       }
     });
 
     benchmark ({
       name: 'hsla:grad',
       fn: () => {
-        Color.parse ( 'hsl(0grad, 50%, 50%, .5)' );
+        Color.parse ( 'hsla(0grad, 50%, 50%, .5)' );
       }
     });
 
     benchmark ({
+      name: 'hsla:rad',
+      fn: () => {
+        Color.parse ( 'hsla(3.14rad, 50%, 50%, .5)' );
+      }
+    });
+
+
+    benchmark ({
       name: 'hsla:turn',
       fn: () => {
-        Color.parse ( 'hsl(1turn, 50%, 50%, .5)' );
+        Color.parse ( 'hsla(1turn, 50%, 50%, .5)' );
       }
     });
 
@@ -173,6 +184,13 @@ benchmark.group ( 'create', () => {
 });
 
 benchmark.group ( 'get', () => {
+
+  benchmark ({
+    name: 'channel',
+    fn: () => {
+      channel ( '#ffcc00', 'r' );
+    }
+  });
 
   benchmark ({
     name: 'red',

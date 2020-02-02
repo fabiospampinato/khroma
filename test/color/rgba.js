@@ -2,7 +2,7 @@
 /* IMPORT */
 
 import {describe} from 'ava-spec';
-import Color, {RGB} from '../../dist/color';
+import Color from '../../dist/color';
 
 /* RGBA */
 
@@ -37,20 +37,20 @@ describe ( 'RGBA', it => {
       ['rgba(51, 170, 51 / 40%)', 'rgba(51, 170, 51, 0.4)'],
       ['rgba(51,170,51/40%)', 'rgba(51, 170, 51, 0.4)'],
       /* SCIENTIFIC NOTATION */
-      ['rgba(1e2, .5e1, .5e0, +.25e2%)', 'rgba(100, 5, 1, 0.25)'],
-      ['rgba(1e2, .5e1, .5e0, +.25e1%)', 'rgba(100, 5, 1, 0.025)'],
-      ['rgba(1e2, .5e1, .5e0, +.25e0%)', 'rgba(100, 5, 1, 0.0025)'],
-      ['rgba(1e2, .5e1, .5e0, .25e0)', 'rgba(100, 5, 1, 0.25)'],
-      ['rgba(1e2, .5e1, .5e0, .25e1)', 'rgb(100, 5, 1)'],
+      ['rgba(1e2, .5e1, .5e0, +.25e2%)', 'rgba(100, 5, 0.5, 0.25)'],
+      ['rgba(1e2, .5e1, .5e0, +.25e1%)', 'rgba(100, 5, 0.5, 0.025)'],
+      ['rgba(1e2, .5e1, .5e0, +.25e0%)', 'rgba(100, 5, 0.5, 0.0025)'],
+      ['rgba(1e2, .5e1, .5e0, .25e0)', 'rgba(100, 5, 0.5, 0.25)'],
+      ['rgba(1e2, .5e1, .5e0, .25e1)', 'rgb(100, 5, 0.5)'],
       /* MIXED UNITS */
-      ['rgba(1, 10%, .5e0, +.25e2%)', 'rgba(1, 26, 1, 0.25)'],
+      ['rgba(1, 10%, .5e0, +.25e2%)', 'rgba(1, 25.5, 0.5, 0.25)'],
       /* WEIRD CASING */
       ['RGBA(1, 20, 255, 0.5)', 'rgba(1, 20, 255, 0.5)'],
       ['rgbA(1, 20, 255, 0.5)', 'rgba(1, 20, 255, 0.5)']
     ];
 
     tests.forEach ( ([ input, output ]) => {
-      t.is ( RGB.output ( Color.parse ( input ) ), output );
+      t.is ( Color.format.rgba.output ( Color.parse ( input ) ), output );
     });
 
   });

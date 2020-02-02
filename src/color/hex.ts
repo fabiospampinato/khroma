@@ -1,63 +1,65 @@
 
 /* IMPORT */
 
-import {RGBA} from '../types';
-import Utils from '../utils';
-import Abstract from './abstract';
+import _ from '../utils';
+import {RGBA, HSLA} from '../types';
+import Channels from './channels';
 
 /* HEX */
 
-class Hex extends Abstract {
+const Hex = {
 
-  re = /#((?:[a-f0-9]){3,4}|(?:[a-f0-9]{2}){3,4})$/i
+  /* VARIABLES */
 
-  parse ( color: string ): RGBA | undefined {
+  re: /#((?:[a-f0-9]{2}){2,4}|[a-f0-9]{3})$/i,
 
-    const match = color.match ( this.re );
+  /* HELPERS */
+
+  _getPartAtIndex: ( hex: string, length: number, index: number ): number => {
+
+    let char = hex.slice ( index * length, ( index + 1 ) * length ) || 'ff';
+
+    if ( char.length < 2 ) char = `${char}${char}`;
+
+    return _.unit.hex2dec ( char );
+
+  },
+
+  /* API */
+
+  parse: ( color: string | Channels ): Channels | void => {
+
+    if ( _.is.channels ( color ) ) return color;
+
+    const match = color.match ( Hex.re );
 
     if ( !match ) return;
 
-    /* 
-     * We know the hex code will be in one of these forms: RGB, RGBA, RRGGBB, RRGGBBAA
-     * The following loop splits up the hex code into the appropriate channels.
-     */
+    const hex = match[1],
+          length = hex.length > 4 ? 2 : 1;
 
-    const hex = match[1];
-
-    const increment = Math.floor ( hex.length / 3 );
-
-    const colors: string[] = [];
-
-    for ( let i = 0; i < hex.length; i += increment ) {
-
-      colors.push ( hex.slice ( i, i + increment ) )
-
-    }
-
-    const [ r, g, b, a ] = colors;
-
-    const formatColor = ( color: string ): number => Utils.hex2dec ( Utils.padStart ( color, color, 2 ) )
-
-    const formatAlpha = ( alpha: string ): number => Utils.hex2frac ( Utils.padStart ( alpha, alpha, 2 ) );
-
-    return {
-      r: formatColor ( r ),
-      g: formatColor ( g ),
-      b: formatColor ( b ),
-      a: formatAlpha ( a || 'ff' )
+    const rgba = {
+      r: Hex._getPartAtIndex ( hex, length, 0 ),
+      g: Hex._getPartAtIndex ( hex, length, 1 ),
+      b: Hex._getPartAtIndex ( hex, length, 2 ),
+      a: Hex._getPartAtIndex ( hex, length, 3 ) / 255
     };
 
-  }
+    return new Channels ( rgba );
 
-  output ( rgba: RGBA ): string {
+  },
 
-    if ( rgba.a < 1 ) { // #RRGGBBAA
+  output: ( channels: Channels | RGBA | HSLA ): string => {
 
-      return `#${Utils.dec2hex ( rgba.r )}${Utils.dec2hex ( rgba.g )}${Utils.dec2hex ( rgba.b )}${Utils.frac2hex ( rgba.a )}`;
+    if ( !_.is.channels ( channels ) ) return Hex.output ( new Channels ( channels ) );
+
+    if ( channels.a < 1 ) { // #RRGGBBAA
+
+      return `#${_.unit.dec2hex ( channels.r )}${_.unit.dec2hex ( channels.g )}${_.unit.dec2hex ( channels.b )}${_.unit.frac2hex ( channels.a )}`;
 
     } else { // #RRGGBB
 
-      return `#${Utils.dec2hex ( rgba.r )}${Utils.dec2hex ( rgba.g )}${Utils.dec2hex ( rgba.b )}`;
+      return `#${_.unit.dec2hex ( channels.r )}${_.unit.dec2hex ( channels.g )}${_.unit.dec2hex ( channels.b )}`;
 
     }
 
@@ -67,4 +69,4 @@ class Hex extends Abstract {
 
 /* EXPORT */
 
-export default new Hex ();
+export default Hex;

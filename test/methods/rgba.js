@@ -8,13 +8,15 @@ import {rgba} from '../../dist';
 
 describe ( 'rgba', it => {
 
-  it ( 'creates a color with the given components', t => {
+  it ( 'creates a color with the given channels', t => {
 
     const tests = [
       [[0, 0, 0, 0], 'rgba(0, 0, 0, 0)'],
       [[255, 255, 255, 0.5], 'rgba(255, 255, 255, 0.5)'],
       [[0, 0, 0, 1], '#000000'],
-      [[128, 128, 128, 1], '#808080']
+      [[128, 128, 128, 1], '#808080'],
+      [[-1, -1, -1, -1], 'rgba(0, 0, 0, 0)'],
+      [[1000, 1000, 1000, 1000], '#ffffff']
     ];
 
     tests.forEach ( ([ args, output ]) => {

@@ -1,15 +1,14 @@
 
 /* IMPORT */
 
-import Color from '../color';
-import HSL from '../color/hsl';
-import Utils from '../utils';
+import Channels from '../color/channels';
+import channel from './channel';
 
 /* LIGHTNESS */
 
-function lightness ( color: string ): string {
+function lightness ( color: string | Channels ): number {
 
-  return `${ Utils.roundDec ( HSL.rgb2hsl ( Color.parse ( color ) ).l ) }%`;
+  return channel ( color, 'l' );
 
 }
 

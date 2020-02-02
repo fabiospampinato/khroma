@@ -22,17 +22,4 @@ describe ( 'invert', it => {
 
   });
 
-  it ( 'throws with out of range arguments', t => {
-
-    const tests = [
-      ['#000', -1 ],
-      ['#000', 101 ]
-    ];
-
-    tests.forEach ( args => {
-      t.throws ( () => invert ( ...args ) );
-    });
-
-  });
-
 });

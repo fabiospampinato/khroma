@@ -13,7 +13,7 @@ describe ( 'blue', it => {
     const tests = [
       ['rgb(10, 20, 30)', 30],
       ['#102030', 48],
-      ['hsl(10, 20, 30)', 61]
+      ['hsl(10, 20%, 30%)', 61.2]
     ];
 
     tests.forEach ( ([ color, output ]) => {
