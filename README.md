@@ -12,30 +12,28 @@ npm install --save sass.js
 
 //TODO
 
-## Methods
+## Functions
 
 //TODO: Write documentation
 //TODO: Use each method's description in tests instead of "works"
 
-| Create        | Channels                  | Inspect                 | Edit                              |
-| ------------- | ------------------------- | ----------------------- | --------------------------------- |
-| [hex](#hex)   | [channel](#channel)       | [luminance](#luminance) | [darken](#darken)                 |
-| [rgb](#rgb)   | [red](#red)               | [isDark](#isdark)       | [lighten](#lighten)               |
-| [rgba](#rgba) | [green](#green)           | [isLight](#islight)     | [opacify](#opacify)               |
-| [hsl](#hsl)   | [blue](#blue)             |                         | [fadeIn](#fadein)                 |
-| [hsla](#hsla) | [alpha](#alpha)           |                         | [transparentize](#transparentize) |
-|               | [opacity](#opacity)       |                         | [fadeOut](#fadeout)               |
-|               | [hue](#hue)               |                         | [saturate](#saturate)             |
-|               | [saturation](#saturation) |                         | [desaturate](#desaturate)         |
-|               | [lightness](#lightness)   |                         | [grayscale](#grayscale)           |
-|               |                           |                         | [invert](#invert)                 |
-|               |                           |                         | [complement](#complement)         |
-|               |                           |                         | [scale](#scale)                   |
-|               |                           |                         | [adjust](#adjust)                 |
-|               |                           |                         | [change](#change)                 |
-|               |                           |                         | [mix](#mix)                       |
+| Create        | Get <sub>channel</sub>    | Get <sub>more</sub>     | Edit <sub>channel</sub>           | Edit <sub>more</sub> |
+| ------------- | ------------------------- | ----------------------- | --------------------------------- | -------------------- |
+| [hex](#hex)   | [channel](#channel)       | [luminance](#luminance) | [saturate](#saturate)             | [adjust](#adjust)    |
+| [rgb](#rgb)   | [red](#red)               | [isDark](#isdark)       | [desaturate](#desaturate)         | [change](#change)    |
+| [rgba](#rgba) | [green](#green)           | [isLight](#islight)     | [lighten](#lighten)               | [invert](#invert)    |
+| [hsl](#hsl)   | [blue](#blue)             |                         | [darken](#darken)                 | [mix](#mix)          |
+| [hsla](#hsla) | [hue](#hue)               |                         | [opacify](#opacify)               | [scale](#scale)      |
+|               | [saturation](#saturation) |                         | [fadeIn](#fadein)                 |                      |
+|               | [lightness](#lightness)   |                         | [transparentize](#transparentize) |                      |
+|               | [alpha](#alpha)           |                         | [fadeOut](#fadeout)               |                      |
+|               | [opacity](#opacity)       |                         | [rgba](#rgba)                     |                      |
+|               |                           |                         | [complement](#complement)         |                      |
+|               |                           |                         | [grayscale](#grayscale)           |                      |
 
 ### Create
+
+These functions create a new color from the provided channels.
 
 #### `hex`
 #### `rgb`
@@ -43,41 +41,53 @@ npm install --save sass.js
 #### `hsl`
 #### `hsla`
 
-### Channels
+### Get <sub>channel</sub>
+
+These functions retrieve a single channel from the provided color.
 
 #### `channel`
 #### `red`
 #### `green`
 #### `blue`
-#### `alpha`
-#### `opacity`
 #### `hue`
 #### `saturation`
 #### `lightness`
+#### `alpha`
+#### `opacity`
 
-### Inspect
+### Get <sub>more</sub>
+
+These functions retrieve some other information from the provided color.
 
 #### `luminance`
 #### `isDark`
 #### `isLight`
 
-### Edit
+### Edit <sub>channel</sub>
 
-#### `darken`
+These functions change a single channel of the provided color.
+
+#### `saturate`
+#### `desaturate`
 #### `lighten`
+#### `darken`
 #### `opacify`
 #### `fadeIn`
 #### `transparentize`
 #### `fadeOut`
-#### `saturate`
-#### `desaturate`
-#### `grayscale`
-#### `invert`
+#### `rgba`
 #### `complement`
-#### `scale`
+#### `grayscale`
+
+### Edit <sub>more</sub>
+
+These functions can change more than a single channel at once of the provided color.
+
 #### `adjust`
 #### `change`
+#### `invert`
 #### `mix`
+#### `scale`
 
 ## License
 

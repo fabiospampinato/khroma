@@ -7,7 +7,6 @@ const {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturat
 
 /* BENCHMARK */
 
-//TODO: Reorganize
 //TODO: Squeeze some more performance out of this library
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
@@ -183,7 +182,7 @@ benchmark.group ( 'create', () => {
 
 });
 
-benchmark.group ( 'get', () => {
+benchmark.group ( 'get.channel', () => {
 
   benchmark ({
     name: 'channel',
@@ -214,13 +213,6 @@ benchmark.group ( 'get', () => {
   });
 
   benchmark ({
-    name: 'alpha',
-    fn: () => {
-      alpha ( '#ffcc00' );
-    }
-  });
-
-  benchmark ({
     name: 'hue',
     fn: () => {
       hue ( '#ffcc00' );
@@ -241,111 +233,16 @@ benchmark.group ( 'get', () => {
     }
   });
 
-});
-
-benchmark.group ( 'edit', () => {
-
   benchmark ({
-    name: 'rgba',
+    name: 'alpha',
     fn: () => {
-      rgba ( '#ffcc00', .5 );
-    }
-  });
-
-  benchmark ({
-    name: 'darken',
-    fn: () => {
-      darken ( '#ffcc00', 50 );
-    }
-  });
-
-  benchmark ({
-    name: 'lighten',
-    fn: () => {
-      lighten ( '#ffcc00', 50 );
-    }
-  });
-
-  benchmark ({
-    name: 'opacify',
-    fn: () => {
-      opacify ( '#ffcc00', .5 );
-    }
-  });
-
-  benchmark ({
-    name: 'transparentize',
-    fn: () => {
-      transparentize ( '#ffcc00', .5 );
-    }
-  });
-
-  benchmark ({
-    name: 'saturate',
-    fn: () => {
-      saturate ( '#ffcc00', 50 );
-    }
-  });
-
-  benchmark ({
-    name: 'desaturate',
-    fn: () => {
-      desaturate ( '#ffcc00', 50 );
-    }
-  });
-
-  benchmark ({
-    name: 'grayscale',
-    fn: () => {
-      grayscale ( '#ffcc00' );
-    }
-  });
-
-  benchmark ({
-    name: 'invert',
-    fn: () => {
-      invert ( '#ffcc00', 50 );
-    }
-  });
-
-  benchmark ({
-    name: 'complement',
-    fn: () => {
-      complement ( '#ffcc00' );
-    }
-  });
-
-  benchmark ({
-    name: 'scale',
-    fn: () => {
-      scale ( '#ffcc00', { r: 50, g: 50, b: 50 } );
-    }
-  });
-
-  benchmark ({
-    name: 'adjust',
-    fn: () => {
-      adjust ( '#ffcc00', { a: -.5 } );
-    }
-  });
-
-  benchmark ({
-    name: 'change',
-    fn: () => {
-      change ( '#ffcc00', { a: .5 } );
-    }
-  });
-
-  benchmark ({
-    name: 'mix',
-    fn: () => {
-      mix ( '#ffcc00', '#000000', 50 );
+      alpha ( '#ffcc00' );
     }
   });
 
 });
 
-benchmark.group ( 'extras', () => {
+benchmark.group ( 'get.more', () => {
 
   benchmark ({
     name: 'luminance',
@@ -365,6 +262,112 @@ benchmark.group ( 'extras', () => {
     name: 'isLight',
     fn: () => {
       isLight ( '#ffcc00' );
+    }
+  });
+
+});
+
+benchmark.group ( 'edit.channel', () => {
+
+  benchmark ({
+    name: 'saturate',
+    fn: () => {
+      saturate ( '#ffcc00', 50 );
+    }
+  });
+
+  benchmark ({
+    name: 'desaturate',
+    fn: () => {
+      desaturate ( '#ffcc00', 50 );
+    }
+  });
+
+  benchmark ({
+    name: 'lighten',
+    fn: () => {
+      lighten ( '#ffcc00', 50 );
+    }
+  });
+
+  benchmark ({
+    name: 'darken',
+    fn: () => {
+      darken ( '#ffcc00', 50 );
+    }
+  });
+
+  benchmark ({
+    name: 'opacify',
+    fn: () => {
+      opacify ( '#ffcc00', .5 );
+    }
+  });
+
+  benchmark ({
+    name: 'transparentize',
+    fn: () => {
+      transparentize ( '#ffcc00', .5 );
+    }
+  });
+
+  benchmark ({
+    name: 'rgba',
+    fn: () => {
+      rgba ( '#ffcc00', .5 );
+    }
+  });
+
+  benchmark ({
+    name: 'complement',
+    fn: () => {
+      complement ( '#ffcc00' );
+    }
+  });
+
+  benchmark ({
+    name: 'grayscale',
+    fn: () => {
+      grayscale ( '#ffcc00' );
+    }
+  });
+
+});
+
+benchmark.group ( 'edit.more', () => {
+
+  benchmark ({
+    name: 'adjust',
+    fn: () => {
+      adjust ( '#ffcc00', { a: -.5 } );
+    }
+  });
+
+  benchmark ({
+    name: 'change',
+    fn: () => {
+      change ( '#ffcc00', { a: .5 } );
+    }
+  });
+
+  benchmark ({
+    name: 'invert',
+    fn: () => {
+      invert ( '#ffcc00', 50 );
+    }
+  });
+
+  benchmark ({
+    name: 'mix',
+    fn: () => {
+      mix ( '#ffcc00', '#000000', 50 );
+    }
+  });
+
+  benchmark ({
+    name: 'scale',
+    fn: () => {
+      scale ( '#ffcc00', { r: 50, g: 50, b: 50 } );
     }
   });
 
