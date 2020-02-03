@@ -41,6 +41,16 @@ const Channel = {
 
   /* CONVERSION */
 
+  //SOURCE: https://planetcalc.com/7779
+
+  toLinear: ( c: number ): number => {
+
+    const n = c / 255;
+
+    return c > .03928 ? Math.pow ( ( ( n + .055 ) / 1.055 ), 2.4 ) : n / 12.92;
+
+  },
+
   //SOURCE: https://gist.github.com/mjackson/5311256
 
   hue2rgb: ( p: number, q: number, t: number ): number => {
