@@ -1,5 +1,5 @@
 {
-  "name": "sass.js",
+  "name": "khroma",
   "description": "A collection of functions for manipulating CSS colors, inspired by SASS.",
   "version": "1.0.0",
   "main": "dist/index.js",
@@ -25,7 +25,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/fabiospampinato/sass.js/issues"
+    "url": "https://github.com/fabiospampinato/khroma/issues"
   },
   "license": "MIT",
   "author": {
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fabiospampinato/sass.js.git"
+    "url": "https://github.com/fabiospampinato/khroma.git"
   },
   "keywords": [
     "sass",

@@ -1,4 +1,4 @@
-# SASS.js //TODO: Find new name
+# [Khrôma](https://en.wiktionary.org/wiki/%CF%87%CF%81%E1%BF%B6%CE%BC%CE%B1#Noun)
 
 A collection of functions for manipulating CSS colors, inspired by SASS.
 
@@ -12,13 +12,13 @@ A collection of functions for manipulating CSS colors, inspired by SASS.
 ## Install
 
 ```sh
-npm install --save sass.js
+npm install --save khroma
 ```
 
 ## Usage
 
 ```ts
-import {red, isDark, darken, change} from 'sass.js';
+import {red, isDark, darken, change} from 'khroma';
 
 red ( '#ffffff' ); // => 255
 isDark ( 'white' ); // => false
