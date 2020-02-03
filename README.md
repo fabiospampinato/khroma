@@ -5,7 +5,7 @@ A collection of functions for manipulating CSS colors, inspired by SASS.
 ## Features
 
 - **Small**: the entire library weighs ~5kb (min + gzip) and has no dependencies.
-- **Fast**: in our benchmark suite methods are executed at ~0.0025ms per call on a mid-2014 MBP.
+- **Fast**: in our benchmark suite functions are executed at ~0.0025ms per call on a mid-2014 MBP.
 - **Flexible**: All valid CSS colors are supported.
 - **SASS-like**: if you're familiar with SASS you should feel right at home.
 
