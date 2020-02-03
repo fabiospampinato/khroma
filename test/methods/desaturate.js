@@ -10,7 +10,7 @@ describe ( 'desaturate', it => {
 
   it ( 'decreases the saturation channel of the color', t => {
 
-    const tests = [T
+    const tests = [
       [['hsl(0, 100%, 50%)', 0], 'hsl(0, 100%, 50%)'],
       [['hsl(0, 100%, 50%)', 50], 'hsl(0, 50%, 50%)'],
       [['hsl(0, 100%, 50%)', 75], 'hsl(0, 25%, 50%)'],

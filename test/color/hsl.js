@@ -58,7 +58,7 @@ describe ( 'HSL', it => {
     ];
 
     tests.forEach ( ([ input, output ]) => {
-      t.is ( Color.format.hsl.output ( Color.parse ( input ) ), output );
+      t.is ( Color.format.hsl.stringify ( Color.parse ( input ) ), output );
     });
 
   });

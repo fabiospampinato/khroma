@@ -2,13 +2,13 @@
 /* IMPORT */
 
 import Channels from '../channels';
-import adjust from './adjust';
+import adjustChannel from './adjust_channel';
 
 /* DARKEN */
 
 function darken ( color: string | Channels, amount: number ): string {
 
-  return adjust ( color, { l: - amount } );
+  return adjustChannel ( color, 'l', - amount );
 
 }
 

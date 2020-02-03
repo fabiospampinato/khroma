@@ -19,6 +19,12 @@ const Is = {
 
   },
 
+  string: ( x: any ): x is string => {
+
+    return typeof x === 'string';
+
+  },
+
   undefined: ( x: any ): x is undefined => {
 
     return x === undefined;

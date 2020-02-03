@@ -15,6 +15,8 @@ function adjust ( color: string | Channels, channels: Partial<CHANNELS> ): strin
 
   for ( const c in channels ) {
 
+    if ( !channels[c] ) continue;
+
     changes[c] = ch[c] + channels[c];
 
   }

@@ -11,13 +11,17 @@ class Channels {
 
   /* VARIABLES */
 
+  color?: string;
+  changed: boolean;
   data: CHANNELS; //TSC: It should really be "Partial<CHANNELS>", but TS gets excessively noisy
   type: Type;
 
   /* CONSTRUCTOR */
 
-  constructor ( data: RGBA | HSLA | CHANNELS ) {
+  constructor ( data: RGBA | HSLA | CHANNELS, color?: string ) {
 
+    this.color = color;
+    this.changed = false;
     this.data = data as CHANNELS; //TSC
     this.type = new Type ();
 
@@ -87,35 +91,42 @@ class Channels {
 
   set r ( r: number ) {
     this.type.set ( TYPE.RGB );
+    this.changed = true;
     this.data.r = r;
   }
 
   set g ( g: number ) {
     this.type.set ( TYPE.RGB );
+    this.changed = true;
     this.data.g = g;
   }
 
   set b ( b: number ) {
     this.type.set ( TYPE.RGB );
+    this.changed = true;
     this.data.b = b;
   }
 
   set h ( h: number ) {
     this.type.set ( TYPE.HSL );
+    this.changed = true;
     this.data.h = h;
   }
 
   set s ( s: number ) {
     this.type.set ( TYPE.HSL );
+    this.changed = true;
     this.data.s = s;
   }
 
   set l ( l: number ) {
     this.type.set ( TYPE.HSL );
+    this.changed = true;
     this.data.l = l;
   }
 
   set a ( a: number ) {
+    this.changed = true;
     this.data.a = a;
   }
 

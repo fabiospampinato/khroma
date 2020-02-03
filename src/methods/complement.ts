@@ -2,13 +2,13 @@
 /* IMPORT */
 
 import Channels from '../channels';
-import adjust from './adjust';
+import adjustChannel from './adjust_channel';
 
 /* COMPLEMENT */
 
 function complement ( color: string | Channels ): string {
 
-  return adjust ( color, { h: 180 } );
+  return adjustChannel ( color, 'h', 180 );
 
 }
 

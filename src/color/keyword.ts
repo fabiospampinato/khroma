@@ -1,9 +1,7 @@
 
 /* IMPORT */
 
-import _ from '../utils';
 import Channels from '../channels';
-import {RGBA, HSLA} from '../types';
 import Hex from './hex';
 
 /* KEYWORD */
@@ -164,9 +162,7 @@ const Keyword = {
 
   /* API */
 
-  parse: ( color: string | Channels ): Channels | void => {
-
-    if ( _.is.channels ( color ) ) return color;
+  parse: ( color: string ): Channels | void => {
 
     color = color.toLowerCase ();
 
@@ -178,9 +174,9 @@ const Keyword = {
 
   },
 
-  output: ( channels: Channels | RGBA | HSLA ): string | void => {
+  stringify: ( channels: Channels ): string | void => {
 
-    const hex = Hex.output ( channels );
+    const hex = Hex.stringify ( channels );
 
     for ( const name in Keyword.colors ) {
 

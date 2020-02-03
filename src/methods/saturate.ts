@@ -2,13 +2,13 @@
 /* IMPORT */
 
 import Channels from '../channels';
-import adjust from './adjust';
+import adjustChannel from './adjust_channel';
 
 /* SATURATE */
 
 function saturate ( color: string | Channels, amount: number ): string {
 
-  return adjust ( color, { s: amount } );
+  return adjustChannel ( color, 's', amount );
 
 }
 

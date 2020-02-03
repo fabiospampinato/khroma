@@ -2,13 +2,13 @@
 /* IMPORT */
 
 import Channels from '../channels';
-import adjust from './adjust';
+import adjustChannel from './adjust_channel';
 
 /* TRANSPARENTIZE */
 
 function transparentize ( color: string | Channels, amount: number ): string {
 
-  return adjust ( color, { a: - amount } );
+  return adjustChannel ( color, 'a', - amount );
 
 }
 

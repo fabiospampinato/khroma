@@ -7,8 +7,6 @@ const {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturat
 
 /* BENCHMARK */
 
-//TODO: Squeeze some more performance out of this library
-
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
   log: 'compact',
   iterations: 2500
@@ -19,7 +17,7 @@ benchmark.group ( 'parse', () => {
   benchmark ({
     name: 'keyword',
     fn: () => {
-      Color.parse ( 'red' );
+      Color.parse ( 'blue' );
     }
   });
 

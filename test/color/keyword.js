@@ -17,7 +17,7 @@ describe ( 'Keyword', it => {
     ];
 
     tests.forEach ( ([ input, output ]) => {
-      t.is ( Color.format.hex.output ( Color.parse ( input ) ), output );
+      t.is ( Color.format.hex.stringify ( Color.parse ( input ) ), output );
     });
 
   });

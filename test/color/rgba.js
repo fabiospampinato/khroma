@@ -50,7 +50,7 @@ describe ( 'RGBA', it => {
     ];
 
     tests.forEach ( ([ input, output ]) => {
-      t.is ( Color.format.rgba.output ( Color.parse ( input ) ), output );
+      t.is ( Color.format.rgba.stringify ( Color.parse ( input ) ), output );
     });
 
   });

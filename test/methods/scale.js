@@ -29,7 +29,7 @@ describe ( 'scale', it => {
     ];
 
     tests.forEach ( ([ args, ouptut ]) => {
-      t.is ( Color.format.rgb.output ( Color.parse ( scale ( ...args ) ) ), ouptut );
+      t.is ( Color.format.rgb.stringify ( Color.parse ( scale ( ...args ) ) ), ouptut );
     });
 
   });
@@ -54,7 +54,7 @@ describe ( 'scale', it => {
     ];
 
     tests.forEach ( ([ args, output ]) => {
-      t.is ( Color.format.hsl.output ( Color.parse ( scale ( ...args ) ) ), output );
+      t.is ( Color.format.hsl.stringify ( Color.parse ( scale ( ...args ) ) ), output );
     });
 
   });
@@ -81,9 +81,9 @@ describe ( 'scale', it => {
   it ( 'throws when setting RGB and HSL channels at the same time', t => {
 
     const tests = [
-      ['#000', { r: 0, h: 0 }],
-      ['#000', { g: 0, l: 0 }],
-      ['#000', { b: 0, s: 0 }]
+      ['#000', { r: 10, h: 10 }],
+      ['#000', { g: 10, l: 10 }],
+      ['#000', { b: 10, s: 10 }]
     ];
 
     tests.forEach ( args => {

@@ -3,7 +3,6 @@
 
 import _ from '../utils';
 import Channels from '../channels';
-import {RGBA, HSLA} from '../types';
 
 /* HSL */
 
@@ -11,8 +10,8 @@ const HSL = {
 
   /* VARIABLES */
 
-  re: /hsla?\(\s*?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?(?:deg|grad|rad|turn)?)\s*?(?:,|\s)\s*?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?%)\s*?(?:,|\s)\s*?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?%)(?:\s*?(?:,|\/)\s*?\+?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?(%)?))?\s*?\)/i,
-  hueRe: /(.+?)(deg|grad|rad|turn)/i,
+  re: /^hsla?\(\s*?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?(?:deg|grad|rad|turn)?)\s*?(?:,|\s)\s*?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?%)\s*?(?:,|\s)\s*?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?%)(?:\s*?(?:,|\/)\s*?\+?(-?(?:\d+(?:\.\d+)?|(?:\.\d+))(?:e-?\d+)?(%)?))?\s*?\)$/i,
+  hueRe: /^(.+?)(deg|grad|rad|turn)$/i,
 
   /* HELPERS */
 
@@ -38,9 +37,11 @@ const HSL = {
 
   /* API */
 
-  parse: ( color: string | Channels ): Channels | void => {
+  parse: ( color: string ): Channels | void => {
 
-    if ( _.is.channels ( color ) ) return color;
+    const charCode = color.charCodeAt ( 0 );
+
+    if ( charCode !== 104 && charCode !== 72 ) return; // 'h'/'H'
 
     const match = color.match ( HSL.re );
 
@@ -48,20 +49,16 @@ const HSL = {
 
     const [, h, s, l, a, isAlphaPercentage] = match;
 
-    const hsla = {
+    return new Channels ({
       h: HSL._hue2deg ( h ),
       s: _.channel.clamp.s ( parseFloat ( s ) ),
       l: _.channel.clamp.l ( parseFloat ( l ) ),
       a: a ? _.channel.clamp.a ( isAlphaPercentage ? parseFloat ( a ) / 100 : parseFloat ( a ) ) : 1
-    };
-
-    return new Channels ( hsla );
+    }, color );
 
   },
 
-  output: ( channels: Channels | RGBA | HSLA ): string => {
-
-    if ( !_.is.channels ( channels ) ) return HSL.output ( new Channels ( channels ) );
+  stringify: ( channels: Channels ): string => {
 
     if ( channels.a < 1 ) { // HSLA
 

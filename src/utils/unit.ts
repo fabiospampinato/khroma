@@ -17,12 +17,6 @@ const Unit = {
 
     return hex.length > 1 ? hex : `0${hex}`;
 
-  },
-
-  hex2dec ( hex: string ): number {
-
-    return parseInt ( hex, 16 );
-
   }
 
 };

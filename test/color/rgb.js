@@ -36,7 +36,7 @@ describe ( 'RGB', it => {
     ];
 
     tests.forEach ( ([ input, output ]) => {
-      t.is ( Color.format.rgb.output ( Color.parse ( input ) ), output );
+      t.is ( Color.format.rgb.stringify ( Color.parse ( input ) ), output );
     });
 
   });

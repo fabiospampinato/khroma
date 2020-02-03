@@ -25,7 +25,7 @@ describe ( 'change', it => {
     ];
 
     tests.forEach ( ([ args, output ]) => {
-      t.is ( Color.format.rgb.output ( Color.parse ( change ( ...args ) ) ), output );
+      t.is ( Color.format.rgb.stringify ( Color.parse ( change ( ...args ) ) ), output );
     });
 
   });
@@ -46,7 +46,7 @@ describe ( 'change', it => {
     ];
 
     tests.forEach ( ([ args, output ]) => {
-      t.is ( Color.format.hsl.output ( Color.parse ( change ( ...args ) ) ), output );
+      t.is ( Color.format.hsl.stringify ( Color.parse ( change ( ...args ) ) ), output );
     });
 
   });

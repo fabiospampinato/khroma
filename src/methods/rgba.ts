@@ -14,9 +14,10 @@ function rgba ( r: string | Channels | number, g: number, b: number = 0, a: numb
 
   if ( !_.is.number ( r ) ) return change ( r, { a: g } );
 
-  const rgba = _.channels.clamp ({ r, g, b, a });
+  const rgba = _.channels.clamp ({ r, g, b, a }),
+        channels = new Channels ( rgba );
 
-  return Color.output ( rgba );
+  return Color.stringify ( channels );
 
 }
 

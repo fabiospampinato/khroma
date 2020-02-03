@@ -4,8 +4,8 @@
 import _ from '../utils';
 import Channels from '../channels';
 import Color from '../color';
-import adjust from './adjust';
 import {CHANNELS} from '../types';
+import adjust from './adjust';
 
 /* SCALE */
 

@@ -18,7 +18,7 @@ function change ( color: string | Channels, channels: Partial<CHANNELS> ): strin
 
   }
 
-  return Color.output ( ch );
+  return Color.stringify ( ch );
 
 }
 
