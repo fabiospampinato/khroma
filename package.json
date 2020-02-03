@@ -1,6 +1,6 @@
 {
   "name": "sass.js",
-  "description": "A port of SASS' functions for manipulating colors.",
+  "description": "A collection of functions for manipulating CSS colors, inspired by SASS.",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,7 +39,12 @@
   "keywords": [
     "sass",
     "color",
-    "manipulation"
+    "manipulation",
+    "manipulate",
+    "css",
+    "hex",
+    "rgb",
+    "hsl"
   ],
   "dependencies": {},
   "devDependencies": {
