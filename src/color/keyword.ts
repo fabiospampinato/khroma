@@ -12,7 +12,7 @@ const Keyword = {
 
   /* VARIABLES */
 
-  colors: { //TODO: Make this more performant, pre-parsing colors (is it more performant? we would need to clone objects...)
+  colors: {
     aliceblue: '#f0f8ff',
     antiquewhite: '#faebd7',
     aqua: '#00ffff',
@@ -178,7 +178,17 @@ const Keyword = {
 
   },
 
-  output: ( channels: Channels | RGBA | HSLA ): void => {} //TODO: Implement this, however the library itself doesn't use this
+  output: ( channels: Channels | RGBA | HSLA ): string | void => {
+
+    const hex = Hex.output ( channels );
+
+    for ( const name in Keyword.colors ) {
+
+      if ( Keyword.colors[name] === hex ) return name;
+
+    }
+
+  }
 
 };
 
