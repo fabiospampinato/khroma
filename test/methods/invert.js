@@ -13,7 +13,7 @@ describe ( 'invert', it => {
     const tests = [
       [['#b37399'], '#4c8c66'],
       [['black'], '#ffffff'],
-      [['#550e0c', 20 ], '#663b3a']
+      [['#550e0c', 20 ], 'rgb(102, 59.4, 58.2)']
     ];
 
     tests.forEach ( ([ args, output ]) => {

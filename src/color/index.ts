@@ -54,7 +54,7 @@ const Color = {
 
       return HSL.output ( channels );
 
-    } else if ( channels.a < 1 ) { //TODO: Output rgba also if any channel is a float
+    } else if ( channels.a < 1 || !Number.isInteger ( channels.r ) || !Number.isInteger ( channels.g ) || !Number.isInteger ( channels.b ) ) {
 
       return RGB.output ( channels );
 
