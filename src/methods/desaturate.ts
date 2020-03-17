@@ -8,7 +8,7 @@ import adjustChannel from './adjust_channel';
 
 function desaturate ( color: string | Channels, amount: number ): string {
 
-  return adjustChannel ( color, 's', - amount );
+  return adjustChannel ( color, 's', -amount );
 
 }
 

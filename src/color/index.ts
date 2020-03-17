@@ -28,7 +28,7 @@ const Color = {
 
   parse: ( color: string | Channels ): Channels => {
 
-    if ( _.is.channels ( color ) ) return color;
+    if ( typeof color !== 'string' ) return color;
 
     const channels = Hex.parse ( color ) || RGB.parse ( color ) || HSL.parse ( color ) || Keyword.parse ( color ); // Color providers ordered with performance in mind
 
@@ -44,7 +44,7 @@ const Color = {
 
     if ( !channels.changed && channels.color ) return channels.color;
 
-    if ( channels.type.is ( TYPE.HSL ) || _.is.undefined ( channels.data.r ) ) {
+    if ( channels.type.is ( TYPE.HSL ) || channels.data.r === undefined ) {
 
       return HSL.stringify ( channels );
 

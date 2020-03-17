@@ -3,6 +3,8 @@
 
 import _ from '../utils';
 import Channels from '../channels';
+import ChannelsReusable from '../channels/reusable';
+import {DEC2HEX} from '../consts';
 
 /* HEX */
 
@@ -32,7 +34,7 @@ const Hex = {
           bitsOffset = hasAlpha ? 0 : -1,
           mask = isFullLength ? 255 : 15;
 
-    return new Channels ({
+    return ChannelsReusable.set ({
       r: ( ( dec >> ( bits * ( bitsOffset + 3 ) ) ) & mask ) * multiplier,
       g: ( ( dec >> ( bits * ( bitsOffset + 2 ) ) ) & mask ) * multiplier,
       b: ( ( dec >> ( bits * ( bitsOffset + 1 ) ) ) & mask ) * multiplier,
@@ -45,11 +47,11 @@ const Hex = {
 
     if ( channels.a < 1 ) { // #RRGGBBAA
 
-      return `#${_.unit.dec2hex ( channels.r )}${_.unit.dec2hex ( channels.g )}${_.unit.dec2hex ( channels.b )}${_.unit.frac2hex ( channels.a )}`;
+      return `#${DEC2HEX[Math.round ( channels.r )]}${DEC2HEX[Math.round ( channels.g )]}${DEC2HEX[Math.round ( channels.b )]}${_.unit.frac2hex ( channels.a )}`;
 
     } else { // #RRGGBB
 
-      return `#${_.unit.dec2hex ( channels.r )}${_.unit.dec2hex ( channels.g )}${_.unit.dec2hex ( channels.b )}`;
+      return `#${DEC2HEX[Math.round ( channels.r )]}${DEC2HEX[Math.round ( channels.g )]}${DEC2HEX[Math.round ( channels.b )]}`;
 
     }
 

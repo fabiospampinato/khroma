@@ -8,7 +8,7 @@ import adjustChannel from './adjust_channel';
 
 function transparentize ( color: string | Channels, amount: number ): string {
 
-  return adjustChannel ( color, 'a', - amount );
+  return adjustChannel ( color, 'a', -amount );
 
 }
 

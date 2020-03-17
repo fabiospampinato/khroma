@@ -23,6 +23,12 @@ class Type {
 
   }
 
+  reset (): void {
+
+    this.type = TYPE.ALL;
+
+  }
+
   is ( type: TYPE ): boolean {
 
     return this.type === type;

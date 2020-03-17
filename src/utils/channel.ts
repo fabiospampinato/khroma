@@ -2,7 +2,6 @@
 /* IMPORT */
 
 import {RGB, HSL} from '../types';
-import Lang from './lang';
 
 /* CHANNEL */
 
@@ -30,13 +29,13 @@ const Channel = {
   },
 
   clamp: {
-    r: ( r: number ) => Lang.clamp ( r, Channel.min.r, Channel.max.r ),
-    g: ( g: number ) => Lang.clamp ( g, Channel.min.g, Channel.max.g ),
-    b: ( b: number ) => Lang.clamp ( b, Channel.min.b, Channel.max.b ),
-    h: ( h: number ) => h % Channel.max.h,
-    s: ( s: number ) => Lang.clamp ( s, Channel.min.s, Channel.max.s ),
-    l: ( l: number ) => Lang.clamp ( l, Channel.min.l, Channel.max.l ),
-    a: ( a: number ) => Lang.clamp ( a, Channel.min.a, Channel.max.a )
+    r: ( r: number ) => r >= 255 ? 255 : ( r < 0 ? 0 : r ),
+    g: ( g: number ) => g >= 255 ? 255 : ( g < 0 ? 0 : g ),
+    b: ( b: number ) => b >= 255 ? 255 : ( b < 0 ? 0 : b ),
+    h: ( h: number ) => h % 360,
+    s: ( s: number ) => s >= 100 ? 100 : ( s < 0 ? 0 : s ),
+    l: ( l: number ) => l >= 100 ? 100 : ( l < 0 ? 0 : l ),
+    a: ( a: number ) => a >= 1 ? 1 : ( a < 0 ? 0 : a )
   },
 
   /* CONVERSION */

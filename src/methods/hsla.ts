@@ -2,15 +2,19 @@
 /* IMPORT */
 
 import _ from '../utils';
-import Channels from '../channels';
+import ChannelsReusable from '../channels/reusable';
 import Color from '../color';
 
 /* HSLA */
 
 function hsla ( h: number, s: number, l: number, a: number = 1 ): string {
 
-  const hsla = _.channels.clamp ({ h, s, l, a }),
-        channels = new Channels ( hsla );
+  const channels = ChannelsReusable.set ({
+    h: _.channel.clamp.h ( h ),
+    s: _.channel.clamp.s ( s ),
+    l: _.channel.clamp.l ( l ),
+    a: _.channel.clamp.a ( a )
+  });
 
   return Color.stringify ( channels );
 

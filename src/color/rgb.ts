@@ -3,6 +3,7 @@
 
 import _ from '../utils';
 import Channels from '../channels';
+import ChannelsReusable from '../channels/reusable';
 
 /* RGB */
 
@@ -26,7 +27,7 @@ const RGB = {
 
     const [, r, isRedPercentage, g, isGreenPercentage, b, isBluePercentage, a, isAlphaPercentage] = match;
 
-    return new Channels ({
+    return ChannelsReusable.set ({
       r: _.channel.clamp.r ( isRedPercentage ? parseFloat ( r ) * 2.55 : parseFloat ( r ) ),
       g: _.channel.clamp.g ( isGreenPercentage ? parseFloat ( g ) * 2.55 : parseFloat ( g ) ),
       b: _.channel.clamp.b ( isBluePercentage ? parseFloat ( b ) * 2.55 : parseFloat ( b ) ),

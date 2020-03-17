@@ -1,23 +1,11 @@
 
-/* IMPORT */
-
-import Config from '../config';
-
 /* LANG */
 
 const Lang = {
 
-  clamp: ( number: number, lower: number, upper: number ): number => {
+  round: ( number: number ): number => { // 10 digits rounding
 
-    return Math.min ( upper, Math.max ( lower, number ) );
-
-  },
-
-  round: ( number: number ): number => {
-
-    const exp = 10 ** Config.precision;
-
-    return Math.round ( number * exp ) / exp;
+    return Math.round ( number * 10000000000 ) / 10000000000;
 
   }
 

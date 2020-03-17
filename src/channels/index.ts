@@ -27,58 +27,71 @@ class Channels {
 
   }
 
+  /* API */
+
+  set ( data: RGBA | HSLA | CHANNELS, color?: string ): this {
+
+    this.color = color;
+    this.changed = false;
+    this.data = data as CHANNELS; //TSC
+    this.type.type = TYPE.ALL;
+
+    return this;
+
+  }
+
   /* HELPERS */
 
   _ensureHSL () {
 
-    if ( _.is.undefined ( this.data.h ) ) this.data.h = _.channel.rgb2hsl ( this.data, 'h' );
-    if ( _.is.undefined ( this.data.s ) ) this.data.s = _.channel.rgb2hsl ( this.data, 's' );
-    if ( _.is.undefined ( this.data.l ) ) this.data.l = _.channel.rgb2hsl ( this.data, 'l' );
+    if (this.data.h === undefined ) this.data.h = _.channel.rgb2hsl ( this.data, 'h' );
+    if (this.data.s === undefined ) this.data.s = _.channel.rgb2hsl ( this.data, 's' );
+    if (this.data.l === undefined ) this.data.l = _.channel.rgb2hsl ( this.data, 'l' );
 
   }
 
   _ensureRGB () {
 
-    if ( _.is.undefined ( this.data.r ) ) this.data.r = _.channel.hsl2rgb ( this.data, 'r' );
-    if ( _.is.undefined ( this.data.g ) ) this.data.g = _.channel.hsl2rgb ( this.data, 'g' );
-    if ( _.is.undefined ( this.data.b ) ) this.data.b = _.channel.hsl2rgb ( this.data, 'b' );
+    if (this.data.r === undefined ) this.data.r = _.channel.hsl2rgb ( this.data, 'r' );
+    if (this.data.g === undefined ) this.data.g = _.channel.hsl2rgb ( this.data, 'g' );
+    if (this.data.b === undefined ) this.data.b = _.channel.hsl2rgb ( this.data, 'b' );
 
   }
 
   /* GETTERS */
 
   get r (): number {
-    if ( !this.type.is ( TYPE.HSL ) && !_.is.undefined ( this.data.r ) ) return this.data.r;
+    if ( !this.type.is ( TYPE.HSL ) && this.data.r !== undefined ) return this.data.r;
     this._ensureHSL ();
     return _.channel.hsl2rgb ( this.data, 'r' );
   }
 
   get g (): number {
-    if ( !this.type.is ( TYPE.HSL ) && !_.is.undefined ( this.data.g ) ) return this.data.g;
+    if ( !this.type.is ( TYPE.HSL ) && this.data.g !== undefined ) return this.data.g;
     this._ensureHSL ();
     return _.channel.hsl2rgb ( this.data, 'g' );
   }
 
   get b (): number {
-    if ( !this.type.is ( TYPE.HSL ) && !_.is.undefined ( this.data.b ) ) return this.data.b;
+    if ( !this.type.is ( TYPE.HSL ) && this.data.b !== undefined ) return this.data.b;
     this._ensureHSL ();
     return _.channel.hsl2rgb ( this.data, 'b' );
   }
 
   get h (): number {
-    if ( !this.type.is ( TYPE.RGB ) && !_.is.undefined ( this.data.h ) ) return this.data.h;
+    if ( !this.type.is ( TYPE.RGB ) && this.data.h !== undefined ) return this.data.h;
     this._ensureRGB ();
     return _.channel.rgb2hsl ( this.data, 'h' );
   }
 
   get s (): number {
-    if ( !this.type.is ( TYPE.RGB ) && !_.is.undefined ( this.data.s ) ) return this.data.s;
+    if ( !this.type.is ( TYPE.RGB ) && this.data.s !== undefined ) return this.data.s;
     this._ensureRGB ();
     return _.channel.rgb2hsl ( this.data, 's' );
   }
 
   get l (): number {
-    if ( !this.type.is ( TYPE.RGB ) && !_.is.undefined ( this.data.l ) ) return this.data.l;
+    if ( !this.type.is ( TYPE.RGB ) && this.data.l !== undefined ) return this.data.l;
     this._ensureRGB ();
     return _.channel.rgb2hsl ( this.data, 'l' );
   }

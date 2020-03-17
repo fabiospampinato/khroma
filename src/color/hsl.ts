@@ -3,6 +3,7 @@
 
 import _ from '../utils';
 import Channels from '../channels';
+import ChannelsReusable from '../channels/reusable';
 
 /* HSL */
 
@@ -49,7 +50,7 @@ const HSL = {
 
     const [, h, s, l, a, isAlphaPercentage] = match;
 
-    return new Channels ({
+    return ChannelsReusable.set ({
       h: HSL._hue2deg ( h ),
       s: _.channel.clamp.s ( parseFloat ( s ) ),
       l: _.channel.clamp.l ( parseFloat ( l ) ),

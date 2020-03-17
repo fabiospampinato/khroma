@@ -8,7 +8,7 @@ import adjustChannel from './adjust_channel';
 
 function darken ( color: string | Channels, amount: number ): string {
 
-  return adjustChannel ( color, 'l', - amount );
+  return adjustChannel ( color, 'l', -amount );
 
 }
 

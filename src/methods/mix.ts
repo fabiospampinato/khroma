@@ -11,18 +11,18 @@ import rgba from './rgba';
 
 function mix ( color1: string | Channels, color2: string | Channels, weight: number = 50 ): string {
 
-  const channels1 = Color.parse ( color1 ),
-        channels2 = Color.parse ( color2 ),
+  const {r: r1, g: g1, b: b1, a: a1} = Color.parse ( color1 ),
+        {r: r2, g: g2, b: b2, a: a2} = Color.parse ( color2 ),
         weightScale = weight / 100,
         weightNormalized = ( weightScale * 2 ) - 1,
-        alphaDelta = channels1.a - channels2.a,
+        alphaDelta = a1 - a2,
         weight1combined = ( ( weightNormalized * alphaDelta ) === -1 ) ? weightNormalized : ( weightNormalized + alphaDelta ) / ( 1 + weightNormalized * alphaDelta ),
         weight1 = ( weight1combined + 1 ) / 2,
         weight2 = 1 - weight1,
-        r = ( channels1.r * weight1 ) + ( channels2.r * weight2 ),
-        g = ( channels1.g * weight1 ) + ( channels2.g * weight2 ),
-        b = ( channels1.b * weight1 ) + ( channels2.b * weight2 ),
-        a = ( channels1.a * weightScale ) + ( channels2.a * ( 1 - weightScale ) );
+        r = ( r1 * weight1 ) + ( r2 * weight2 ),
+        g = ( g1 * weight1 ) + ( g2 * weight2 ),
+        b = ( b1 * weight1 ) + ( b2 * weight2 ),
+        a = ( a1 * weightScale ) + ( a2 * ( 1 - weightScale ) );
 
   return rgba ( r, g, b, a );
 

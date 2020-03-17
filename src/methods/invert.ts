@@ -9,8 +9,11 @@ import mix from './mix';
 
 function invert ( color: string | Channels, weight: number = 100 ): string {
 
-  const {r, g, b, a} = Color.parse ( color ),
-        inverse = new Channels ({ r: 255 - r, g: 255 - g, b: 255 - b, a });
+  const inverse = Color.parse ( color );
+
+  inverse.r = 255 - inverse.r;
+  inverse.g = 255 - inverse.g;
+  inverse.b = 255 - inverse.b;
 
   return mix ( inverse, color, weight );
 
