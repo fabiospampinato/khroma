@@ -35,7 +35,7 @@ These are all the provided functions, for each of them below you can find a shor
 | [hex](#hex)   | [channel](#channel)       | [luminance](#luminance) | [saturate](#saturate)             | [adjust](#adjust)    |
 | [rgb](#rgb)   | [red](#red)               | [isDark](#isdark)       | [desaturate](#desaturate)         | [change](#change)    |
 | [rgba](#rgba) | [green](#green)           | [isLight](#islight)     | [lighten](#lighten)               | [invert](#invert)    |
-| [hsl](#hsl)   | [blue](#blue)             |                         | [darken](#darken)                 | [mix](#mix)          |
+| [hsl](#hsl)   | [blue](#blue)             | [isValid](#isvalid)     | [darken](#darken)                 | [mix](#mix)          |
 | [hsla](#hsla) | [hue](#hue)               |                         | [opacify](#opacify)               | [scale](#scale)      |
 |               | [saturation](#saturation) |                         | [fadeIn](#fadein)                 |                      |
 |               | [lightness](#lightness)   |                         | [transparentize](#transparentize) |                      |
@@ -237,6 +237,20 @@ function isLight ( color: string ): number;
 isLight ( 'black' ); // => false
 isLight ( 'white' ); // => true
 isLight ( '#ffcc00' ); // => true
+```
+
+#### `isValid`
+
+Checks if the provided color is a valid color.
+
+```ts
+function isLight ( color: string ): boolean;
+```
+
+```ts
+isValid ( 'black' ); // => true
+isLight ( '#ffcc00' ); // => true
+isValid ( '#wtf' ); // => false
 ```
 
 ### Edit <sub>channel</sub>

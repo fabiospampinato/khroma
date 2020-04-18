@@ -18,6 +18,7 @@ import opacity from './alpha'; // Alias
 import luminance from './luminance';
 import isDark from './is_dark';
 import isLight from './is_light';
+import isValid from './is_valid';
 import saturate from './saturate';
 import desaturate from './desaturate';
 import lighten from './lighten';
@@ -57,6 +58,7 @@ export {
   luminance,
   isDark,
   isLight,
+  isValid,
   /* EDIT - CHANNEL */
   saturate,
   desaturate,
