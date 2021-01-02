@@ -4,6 +4,7 @@
   "version": "1.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "benchmark": "node tasks/benchmark.js",
     "clean:dist": "rimraf dist",
