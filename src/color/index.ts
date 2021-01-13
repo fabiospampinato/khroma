@@ -24,6 +24,32 @@ const Color = {
     hsla: HSL
   },
 
+  /* CONVERSION API */
+
+  toKeyword: ( color: string ): string | void => {
+
+    return Keyword.stringify ( Color.parse ( color ) );
+
+  },
+
+  toHex: ( color: string ): string => {
+
+    return Hex.stringify ( Color.parse ( color ) );
+
+  },
+
+  toRgba: ( color: string ): string => {
+
+    return RGB.stringify ( Color.parse ( color ) );
+
+  },
+
+  toHsla: ( color: string ): string => {
+
+    return HSL.stringify ( Color.parse ( color ) );
+
+  },
+
   /* API */
 
   parse: ( color: string | Channels ): Channels => {
