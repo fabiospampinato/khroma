@@ -141,6 +141,40 @@ benchmark.group ( 'parse', () => {
 
 });
 
+benchmark.group ( 'stringify', () => {
+
+  const channels = Color.parse ( '#ff00ff' );
+
+  benchmark ({
+    name: 'keyword',
+    fn: () => {
+      Color.toKeyword ( channels );
+    }
+  });
+
+  benchmark ({
+    name: 'hex',
+    fn: () => {
+      Color.toHex ( channels );
+    }
+  });
+
+  benchmark ({
+    name: 'rgba',
+    fn: () => {
+      Color.toRgba ( channels );
+    }
+  });
+
+  benchmark ({
+    name: 'hsla',
+    fn: () => {
+      Color.toHsla ( channels );
+    }
+  });
+
+});
+
 benchmark.group ( 'create', () => {
 
   benchmark ({
