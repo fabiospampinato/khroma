@@ -6,6 +6,10 @@ import rgb from './rgba'; // Alias
 import rgba from './rgba';
 import hsl from './hsla'; // Alias
 import hsla from './hsla';
+import toKeyword from './to_keyword';
+import toHex from './to_hex';
+import toRgba from './to_rgba';
+import toHsla from './to_hsla';
 import channel from './channel';
 import red from './red';
 import green from './green';
@@ -44,6 +48,11 @@ export {
   rgba,
   hsl,
   hsla,
+  /* CONVERT */
+  toKeyword,
+  toHex,
+  toRgba,
+  toHsla,
   /* GET - CHANNEL */
   channel,
   red,

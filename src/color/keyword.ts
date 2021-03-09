@@ -174,7 +174,7 @@ const Keyword = {
 
   },
 
-  stringify: ( channels: Channels ): string | void => {
+  stringify: ( channels: Channels ): string | undefined => {
 
     const hex = Hex.stringify ( channels );
 

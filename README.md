@@ -30,19 +30,19 @@ change ( 'rgb(255, 255, 255)', { a: 0.5 } ); // => 'rgba(255, 255, 255, 0.5)'
 
 These are all the provided functions, for each of them below you can find a short description, its interface and examples.
 
-| Create        | Get <sub>channel</sub>    | Get <sub>more</sub>     | Edit <sub>channel</sub>           | Edit <sub>more</sub> |
-| ------------- | ------------------------- | ----------------------- | --------------------------------- | -------------------- |
-| [hex](#hex)   | [channel](#channel)       | [luminance](#luminance) | [saturate](#saturate)             | [adjust](#adjust)    |
-| [rgb](#rgb)   | [red](#red)               | [isDark](#isdark)       | [desaturate](#desaturate)         | [change](#change)    |
-| [rgba](#rgba) | [green](#green)           | [isLight](#islight)     | [lighten](#lighten)               | [invert](#invert)    |
-| [hsl](#hsl)   | [blue](#blue)             | [isValid](#isvalid)     | [darken](#darken)                 | [mix](#mix)          |
-| [hsla](#hsla) | [hue](#hue)               |                         | [opacify](#opacify)               | [scale](#scale)      |
-|               | [saturation](#saturation) |                         | [fadeIn](#fadein)                 |                      |
-|               | [lightness](#lightness)   |                         | [transparentize](#transparentize) |                      |
-|               | [alpha](#alpha)           |                         | [fadeOut](#fadeout)               |                      |
-|               | [opacity](#opacity)       |                         | [rgba](#rgba-alt) (alt)           |                      |
-|               |                           |                         | [complement](#complement)         |                      |
-|               |                           |                         | [grayscale](#grayscale)           |                      |
+| Create        | Convert                 | Get <sub>channel</sub>    | Get <sub>more</sub>     | Edit <sub>channel</sub>           | Edit <sub>more</sub> |
+| ------------- | ----------------------- | ------------------------- | ----------------------- | --------------------------------- | -------------------- |
+| [hex](#hex)   | [toKeyword](#tokeyword) | [channel](#channel)       | [luminance](#luminance) | [saturate](#saturate)             | [adjust](#adjust)    |
+| [rgb](#rgb)   | [toHex](#tohex)         | [red](#red)               | [isDark](#isdark)       | [desaturate](#desaturate)         | [change](#change)    |
+| [rgba](#rgba) | [toRgba](#torgba)       | [green](#green)           | [isLight](#islight)     | [lighten](#lighten)               | [invert](#invert)    |
+| [hsl](#hsl)   | [toHsla](#tohsla)       | [blue](#blue)             | [isValid](#isvalid)     | [darken](#darken)                 | [mix](#mix)          |
+| [hsla](#hsla) |                         | [hue](#hue)               |                         | [opacify](#opacify)               | [scale](#scale)      |
+|               |                         | [saturation](#saturation) |                         | [fadeIn](#fadein)                 |                      |
+|               |                         | [lightness](#lightness)   |                         | [transparentize](#transparentize) |                      |
+|               |                         | [alpha](#alpha)           |                         | [fadeOut](#fadeout)               |                      |
+|               |                         | [opacity](#opacity)       |                         | [rgba](#rgba-alt) (alt)           |                      |
+|               |                         |                           |                         | [complement](#complement)         |                      |
+|               |                         |                           |                         | [grayscale](#grayscale)           |                      |
 
 ### Create
 
@@ -84,6 +84,64 @@ function hsla ( h: number, s: number, l: number, a: number = 1 ): string;
 ```ts
 hsla ( 0, 50, 100 ); // => 'hsl(0, 50%, 100%)'
 hsla ( 10, 50, 100, 0.5 ); // => 'hsla(10, 50%, 100%, 0.5)'
+```
+
+### Convert
+
+These functions convert supported colors to a specific format.
+
+#### `toKeyword`
+
+Convert a color to the keyword format, when possible.
+
+```ts
+function toKeyword ( color: string ): string | undefined;
+```
+
+```ts
+channel ( '#ff0000' ); // => 'red'
+channel ( '#ffcc00' ); // => undefined
+```
+
+#### `toHex`
+
+Convert a color to the HEX format.
+
+```ts
+function toHex ( color: string ): string;
+```
+
+```ts
+channel ( 'red' ); // => '#ff0000'
+channel ( '#ff0000' ); // => '#ff0000'
+```
+
+#### `toRgba`
+
+Convert a color to the RGBA format.
+
+```ts
+function toRgba ( color: string ): string;
+```
+
+```ts
+channel ( 'red' ); // => 'rgb(255, 0, 0)'
+channel ( '#ff0000' ); // => 'rgb(255, 0, 0)'
+channel ( '#00000088' ); // => 'rgba(0, 0, 0, 0.5333333333)'
+```
+
+#### `toHsla`
+
+Convert a color to the HSLA format.
+
+```ts
+function toHsla ( color: string ): string;
+```
+
+```ts
+channel ( 'red' ); // => 'hsl(0, 100%, 50%)'
+channel ( '#ff0000' ); // => 'hsl(0, 100%, 50%)'
+channel ( 'rgb(255, 0, 0)' ); // => 'hsl(0, 100%, 50%)'
 ```
 
 ### Get <sub>channel</sub>
