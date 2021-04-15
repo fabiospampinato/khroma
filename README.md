@@ -32,11 +32,11 @@ These are all the provided functions, for each of them below you can find a shor
 
 | Create        | Convert                 | Get <sub>channel</sub>    | Get <sub>more</sub>     | Edit <sub>channel</sub>           | Edit <sub>more</sub> |
 | ------------- | ----------------------- | ------------------------- | ----------------------- | --------------------------------- | -------------------- |
-| [hex](#hex)   | [toKeyword](#tokeyword) | [channel](#channel)       | [luminance](#luminance) | [saturate](#saturate)             | [adjust](#adjust)    |
-| [rgb](#rgb)   | [toHex](#tohex)         | [red](#red)               | [isDark](#isdark)       | [desaturate](#desaturate)         | [change](#change)    |
-| [rgba](#rgba) | [toRgba](#torgba)       | [green](#green)           | [isLight](#islight)     | [lighten](#lighten)               | [invert](#invert)    |
-| [hsl](#hsl)   | [toHsla](#tohsla)       | [blue](#blue)             | [isValid](#isvalid)     | [darken](#darken)                 | [mix](#mix)          |
-| [hsla](#hsla) |                         | [hue](#hue)               |                         | [opacify](#opacify)               | [scale](#scale)      |
+| [hex](#hex)   | [toKeyword](#tokeyword) | [channel](#channel)       | [contrast](#contrast)   | [saturate](#saturate)             | [adjust](#adjust)    |
+| [rgb](#rgb)   | [toHex](#tohex)         | [red](#red)               | [luminance](#luminance) | [desaturate](#desaturate)         | [change](#change)    |
+| [rgba](#rgba) | [toRgba](#torgba)       | [green](#green)           | [isDark](#isdark)       | [lighten](#lighten)               | [invert](#invert)    |
+| [hsl](#hsl)   | [toHsla](#tohsla)       | [blue](#blue)             | [isLight](#islight)     | [darken](#darken)                 | [mix](#mix)          |
+| [hsla](#hsla) |                         | [hue](#hue)               | [isValid](#isvalid)     | [opacify](#opacify)               | [scale](#scale)      |
 |               |                         | [saturation](#saturation) |                         | [fadeIn](#fadein)                 |                      |
 |               |                         | [lightness](#lightness)   |                         | [transparentize](#transparentize) |                      |
 |               |                         | [alpha](#alpha)           |                         | [fadeOut](#fadeout)               |                      |
@@ -254,6 +254,22 @@ Alias for [`alpha`](#alpha).
 ### Get <sub>more</sub>
 
 These functions get some other information from the provided color.
+
+#### `contrast`
+
+Gets the contrast in luminance between two colors.
+
+Contrast values go between 1 and 10. 1 means same color, >= 4 means decent contrast, >= 7 means great contrast, 10 means great contrast.
+
+```ts
+function contrast ( color1: string, color2: string ): number;
+```
+
+```ts
+contrast ( '#000000', '#000000' ); // => 1
+contrast ( '#000000', '#ffffff' ); // => 10
+contrast ( '#888888', '#ffffff' ); // => 4.0617165366
+```
 
 #### `luminance`
 

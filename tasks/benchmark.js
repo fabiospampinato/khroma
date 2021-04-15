@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-const {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, luminance, isDark, isLight, toKeyword, toHex, toRgba, toHsla} = require ( '../dist' ),
+const {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, contrast, luminance, isDark, isLight, toKeyword, toHex, toRgba, toHsla} = require ( '../dist' ),
       {default: Color} = require ( '../dist/color' ),
       benchmark = require ( 'benchloop' );
 
@@ -275,6 +275,13 @@ benchmark.group ( 'get.channel', () => {
 });
 
 benchmark.group ( 'get.more', () => {
+
+  benchmark ({
+    name: 'contrast',
+    fn: () => {
+      contrast ( '#000000', '#ffffff' );
+    }
+  });
 
   benchmark ({
     name: 'luminance',

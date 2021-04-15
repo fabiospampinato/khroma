@@ -19,6 +19,7 @@ import saturation from './saturation';
 import lightness from './lightness';
 import alpha from './alpha';
 import opacity from './alpha'; // Alias
+import contrast from './contrast';
 import luminance from './luminance';
 import isDark from './is_dark';
 import isLight from './is_light';
@@ -64,6 +65,7 @@ export {
   alpha,
   opacity,
   /* GET - MORE */
+  contrast,
   luminance,
   isDark,
   isLight,
