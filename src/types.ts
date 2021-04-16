@@ -1,7 +1,7 @@
 
 /* ENUMS */
 
-enum TYPE {
+const enum TYPE {
   ALL = 0,
   RGB = 1,
   HSL = 2
