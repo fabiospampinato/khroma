@@ -5,7 +5,7 @@ const Lang = {
 
   clamp: ( number: number, lower: number, upper: number ): number => {
 
-    if ( lower > upper ) return Lang.clamp ( number, upper, lower );
+    if ( lower > upper ) return Math.min ( lower, Math.max ( upper, number ) );
 
     return Math.min ( upper, Math.max ( lower, number ) );
 

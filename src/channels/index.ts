@@ -44,56 +44,74 @@ class Channels {
 
   _ensureHSL () {
 
-    if (this.data.h === undefined ) this.data.h = _.channel.rgb2hsl ( this.data, 'h' );
-    if (this.data.s === undefined ) this.data.s = _.channel.rgb2hsl ( this.data, 's' );
-    if (this.data.l === undefined ) this.data.l = _.channel.rgb2hsl ( this.data, 'l' );
+    const data = this.data;
+    const {h, s, l} = data;
+
+    if ( h === undefined ) data.h = _.channel.rgb2hsl ( data, 'h' );
+    if ( s === undefined ) data.s = _.channel.rgb2hsl ( data, 's' );
+    if ( l === undefined ) data.l = _.channel.rgb2hsl ( data, 'l' );
 
   }
 
   _ensureRGB () {
 
-    if (this.data.r === undefined ) this.data.r = _.channel.hsl2rgb ( this.data, 'r' );
-    if (this.data.g === undefined ) this.data.g = _.channel.hsl2rgb ( this.data, 'g' );
-    if (this.data.b === undefined ) this.data.b = _.channel.hsl2rgb ( this.data, 'b' );
+    const data = this.data;
+    const {r, g, b} = data;
+
+    if ( r === undefined ) data.r = _.channel.hsl2rgb ( data, 'r' );
+    if ( g === undefined ) data.g = _.channel.hsl2rgb ( data, 'g' );
+    if ( b === undefined ) data.b = _.channel.hsl2rgb ( data, 'b' );
 
   }
 
   /* GETTERS */
 
   get r (): number {
-    if ( !this.type.is ( TYPE.HSL ) && this.data.r !== undefined ) return this.data.r;
+    const data = this.data;
+    const r = data.r;
+    if ( !this.type.is ( TYPE.HSL ) && r !== undefined ) return r;
     this._ensureHSL ();
-    return _.channel.hsl2rgb ( this.data, 'r' );
+    return _.channel.hsl2rgb ( data, 'r' );
   }
 
   get g (): number {
-    if ( !this.type.is ( TYPE.HSL ) && this.data.g !== undefined ) return this.data.g;
+    const data = this.data;
+    const g = data.g;
+    if ( !this.type.is ( TYPE.HSL ) && g !== undefined ) return g;
     this._ensureHSL ();
-    return _.channel.hsl2rgb ( this.data, 'g' );
+    return _.channel.hsl2rgb ( data, 'g' );
   }
 
   get b (): number {
-    if ( !this.type.is ( TYPE.HSL ) && this.data.b !== undefined ) return this.data.b;
+    const data = this.data;
+    const b = data.b;
+    if ( !this.type.is ( TYPE.HSL ) && b !== undefined ) return b;
     this._ensureHSL ();
-    return _.channel.hsl2rgb ( this.data, 'b' );
+    return _.channel.hsl2rgb ( data, 'b' );
   }
 
   get h (): number {
-    if ( !this.type.is ( TYPE.RGB ) && this.data.h !== undefined ) return this.data.h;
+    const data = this.data;
+    const h = data.h;
+    if ( !this.type.is ( TYPE.RGB ) && h !== undefined ) return h;
     this._ensureRGB ();
-    return _.channel.rgb2hsl ( this.data, 'h' );
+    return _.channel.rgb2hsl ( data, 'h' );
   }
 
   get s (): number {
-    if ( !this.type.is ( TYPE.RGB ) && this.data.s !== undefined ) return this.data.s;
+    const data = this.data;
+    const s = data.s;
+    if ( !this.type.is ( TYPE.RGB ) && s !== undefined ) return s;
     this._ensureRGB ();
-    return _.channel.rgb2hsl ( this.data, 's' );
+    return _.channel.rgb2hsl ( data, 's' );
   }
 
   get l (): number {
-    if ( !this.type.is ( TYPE.RGB ) && this.data.l !== undefined ) return this.data.l;
+    const data = this.data;
+    const l = data.l;
+    if ( !this.type.is ( TYPE.RGB ) && l !== undefined ) return l;
     this._ensureRGB ();
-    return _.channel.rgb2hsl ( this.data, 'l' );
+    return _.channel.rgb2hsl ( data, 'l' );
   }
 
   get a (): number {

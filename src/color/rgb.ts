@@ -38,13 +38,15 @@ const RGB = {
 
   stringify: ( channels: Channels ): string => {
 
-    if ( channels.a < 1 ) { // RGBA
+    const {r, g, b, a} = channels;
 
-      return `rgba(${_.lang.round ( channels.r )}, ${_.lang.round ( channels.g )}, ${_.lang.round ( channels.b )}, ${_.lang.round ( channels.a )})`;
+    if ( a < 1 ) { // RGBA
+
+      return `rgba(${_.lang.round ( r )}, ${_.lang.round ( g )}, ${_.lang.round ( b )}, ${_.lang.round ( a )})`;
 
     } else { // RGB
 
-      return `rgb(${_.lang.round ( channels.r )}, ${_.lang.round ( channels.g )}, ${_.lang.round ( channels.b )})`;
+      return `rgb(${_.lang.round ( r )}, ${_.lang.round ( g )}, ${_.lang.round ( b )})`;
 
     }
 

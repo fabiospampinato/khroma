@@ -45,13 +45,15 @@ const Hex = {
 
   stringify: ( channels: Channels ): string => {
 
-    if ( channels.a < 1 ) { // #RRGGBBAA
+    const {r, g, b, a} = channels;
 
-      return `#${DEC2HEX[Math.round ( channels.r )]}${DEC2HEX[Math.round ( channels.g )]}${DEC2HEX[Math.round ( channels.b )]}${_.unit.frac2hex ( channels.a )}`;
+    if ( a < 1 ) { // #RRGGBBAA
+
+      return `#${DEC2HEX[Math.round ( r )]}${DEC2HEX[Math.round ( g )]}${DEC2HEX[Math.round ( b )]}${DEC2HEX[Math.round ( a * 255 )]}`;
 
     } else { // #RRGGBB
 
-      return `#${DEC2HEX[Math.round ( channels.r )]}${DEC2HEX[Math.round ( channels.g )]}${DEC2HEX[Math.round ( channels.b )]}`;
+      return `#${DEC2HEX[Math.round ( r )]}${DEC2HEX[Math.round ( g )]}${DEC2HEX[Math.round ( b )]}`;
 
     }
 

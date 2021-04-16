@@ -61,13 +61,15 @@ const HSL = {
 
   stringify: ( channels: Channels ): string => {
 
-    if ( channels.a < 1 ) { // HSLA
+    const {h, s, l, a} = channels;
 
-      return `hsla(${_.lang.round ( channels.h )}, ${_.lang.round ( channels.s )}%, ${_.lang.round ( channels.l )}%, ${channels.a})`;
+    if ( a < 1 ) { // HSLA
+
+      return `hsla(${_.lang.round ( h )}, ${_.lang.round ( s )}%, ${_.lang.round ( l )}%, ${a})`;
 
     } else { // HSL
 
-      return `hsl(${_.lang.round ( channels.h )}, ${_.lang.round ( channels.s )}%, ${_.lang.round ( channels.l )}%)`;
+      return `hsl(${_.lang.round ( h )}, ${_.lang.round ( s )}%, ${_.lang.round ( l )}%)`;
 
     }
 
