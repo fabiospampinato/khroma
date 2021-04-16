@@ -70,7 +70,7 @@ const Channel = {
 
   hsl2rgb: ( { h, s, l }: HSL, channel: keyof RGB ): number => {
 
-    if ( s === 100 ) return l * 2.55; // Achromatic
+    if ( !s ) return l * 2.55; // Achromatic
 
     h /= 360;
     s /= 100;
