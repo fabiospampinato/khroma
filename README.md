@@ -99,8 +99,8 @@ function toKeyword ( color: string ): string | undefined;
 ```
 
 ```ts
-channel ( '#ff0000' ); // => 'red'
-channel ( '#ffcc00' ); // => undefined
+toKeyword ( '#ff0000' ); // => 'red'
+toKeyword ( '#ffcc00' ); // => undefined
 ```
 
 #### `toHex`
@@ -112,8 +112,8 @@ function toHex ( color: string ): string;
 ```
 
 ```ts
-channel ( 'red' ); // => '#ff0000'
-channel ( '#ff0000' ); // => '#ff0000'
+toHex ( 'red' ); // => '#ff0000'
+toHex ( '#ff0000' ); // => '#ff0000'
 ```
 
 #### `toRgba`
@@ -125,9 +125,9 @@ function toRgba ( color: string ): string;
 ```
 
 ```ts
-channel ( 'red' ); // => 'rgb(255, 0, 0)'
-channel ( '#ff0000' ); // => 'rgb(255, 0, 0)'
-channel ( '#00000088' ); // => 'rgba(0, 0, 0, 0.5333333333)'
+toRgba ( 'red' ); // => 'rgb(255, 0, 0)'
+toRgba ( '#ff0000' ); // => 'rgb(255, 0, 0)'
+toRgba ( '#00000088' ); // => 'rgba(0, 0, 0, 0.5333333333)'
 ```
 
 #### `toHsla`
@@ -139,9 +139,9 @@ function toHsla ( color: string ): string;
 ```
 
 ```ts
-channel ( 'red' ); // => 'hsl(0, 100%, 50%)'
-channel ( '#ff0000' ); // => 'hsl(0, 100%, 50%)'
-channel ( 'rgb(255, 0, 0)' ); // => 'hsl(0, 100%, 50%)'
+toHsla ( 'red' ); // => 'hsl(0, 100%, 50%)'
+toHsla ( '#ff0000' ); // => 'hsl(0, 100%, 50%)'
+toHsla ( 'rgb(255, 0, 0)' ); // => 'hsl(0, 100%, 50%)'
 ```
 
 ### Get <sub>channel</sub>
@@ -323,7 +323,7 @@ function isLight ( color: string ): boolean;
 
 ```ts
 isValid ( 'black' ); // => true
-isLight ( '#ffcc00' ); // => true
+isValid ( '#ffcc00' ); // => true
 isValid ( '#wtf' ); // => false
 ```
 
