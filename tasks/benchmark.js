@@ -1,11 +1,11 @@
 
 /* IMPORT */
 
-const {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, contrast, luminance, isDark, isLight, toKeyword, toHex, toRgba, toHsla} = require ( '../dist' ),
-      {default: Color} = require ( '../dist/color' ),
-      benchmark = require ( 'benchloop' );
+import benchmark from 'benchloop';
+import Color from '../dist/color/index.js';
+import {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, contrast, luminance, isDark, isLight, toKeyword, toHex, toRgba, toHsla} from '../dist/index.js';
 
-/* BENCHMARK */
+/* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
   log: 'compact',

@@ -1,11 +1,11 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import Channels from '../channels';
-import ChannelsReusable from '../channels/reusable';
+import _ from '~/utils';
+import ChannelsReusable from '~/channels/reusable';
+import type {Channels} from '~/types';
 
-/* HSL */
+/* MAIN */
 
 const HSL = {
 
@@ -16,7 +16,7 @@ const HSL = {
 
   /* HELPERS */
 
-  _hue2deg ( hue: string ): number {
+  _hue2deg: ( hue: string ): number => {
 
     const match = hue.match ( HSL.hueRe );
 

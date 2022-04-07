@@ -1,17 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import Color from '../color';
-import {CHANNELS} from '../types';
-import change from './change';
+import Color from '~/color';
+import change from '~/methods/change';
+import type {CHANNELS, Channels} from '~/types';
 
-/* ADJUST */
+/* MAIN */
 
-function adjust ( color: string | Channels, channels: Partial<CHANNELS> ): string {
+const adjust = ( color: string | Channels, channels: Partial<CHANNELS> ): string => {
 
-  const ch = Color.parse ( color ),
-        changes: Partial<CHANNELS> = {};
+  const ch = Color.parse ( color );
+  const changes: Partial<CHANNELS> = {};
 
   for ( const c in channels ) {
 
@@ -23,7 +22,7 @@ function adjust ( color: string | Channels, channels: Partial<CHANNELS> ): strin
 
   return change ( color, changes );
 
-}
+};
 
 /* EXPORT */
 

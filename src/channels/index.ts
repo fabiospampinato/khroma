@@ -1,11 +1,12 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import {TYPE, RGBA, HSLA, CHANNELS} from '../types';
-import Type from './type';
+import _ from '~/utils';
+import Type from '~/channels/type';
+import {TYPE} from '~/constants';
+import type {RGBA, HSLA, CHANNELS} from '~/types';
 
-/* CHANNELS */
+/* MAIN */
 
 class Channels {
 
@@ -42,7 +43,7 @@ class Channels {
 
   /* HELPERS */
 
-  _ensureHSL () {
+  _ensureHSL (): void {
 
     const data = this.data;
     const {h, s, l} = data;
@@ -53,7 +54,7 @@ class Channels {
 
   }
 
-  _ensureRGB () {
+  _ensureRGB (): void {
 
     const data = this.data;
     const {r, g, b} = data;

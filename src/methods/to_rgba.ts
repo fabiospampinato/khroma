@@ -1,15 +1,15 @@
 
 /* IMPORT */
 
-import Color from '../color';
+import Color from '~/color';
 
-/* TO RGBA */
+/* MAIN */
 
-function toRgba ( color: string ): string {
+const toRgba = ( color: string ): string => {
 
   return Color.format.rgba.stringify ( Color.parse ( color ) );
 
-}
+};
 
 /* EXPORT */
 

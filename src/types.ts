@@ -1,13 +1,9 @@
 
-/* ENUMS */
+/* IMPORT */
 
-const enum TYPE {
-  ALL = 0,
-  RGB = 1,
-  HSL = 2
-};
+import type Channels from './channels';
 
-/* TYPES */
+/* MAIN */
 
 type ALPHA = {
   a: number // Alpha (0~1)
@@ -35,4 +31,5 @@ type CHANNELS = Record<CHANNEL, number>;
 
 /* EXPORT */
 
-export {TYPE, ALPHA, RGB, RGBA, HSL, HSLA, CHANNEL, CHANNELS};
+export type {Channels};
+export type {ALPHA, RGB, RGBA, HSL, HSLA, CHANNEL, CHANNELS};

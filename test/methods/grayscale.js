@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {grayscale} from '../../dist';
+import {describe} from 'fava';
+import {grayscale} from '../../dist/index.js';
 
-/* GRAYSCALE */
+/* MAIN */
 
 describe ( 'grayscale', it => {
 

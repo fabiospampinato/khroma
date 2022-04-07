@@ -1,18 +1,17 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import Channels from '../channels';
-import Color from '../color';
-import {CHANNEL} from '../types';
+import _ from '~/utils';
+import Color from '~/color';
+import type {CHANNEL, Channels} from '~/types';
 
-/* CHANNEL */
+/* MAIN */
 
-function channel ( color: string | Channels, channel: CHANNEL ): number {
+const channel = ( color: string | Channels, channel: CHANNEL ): number => {
 
   return _.lang.round ( Color.parse ( color )[channel] );
 
-}
+};
 
 /* EXPORT */
 

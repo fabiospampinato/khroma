@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {complement} from '../../dist';
+import {describe} from 'fava';
+import {complement} from '../../dist/index.js';
 
-/* COMPLEMENT */
+/* MAIN */
 
 describe ( 'complement', it => {
 

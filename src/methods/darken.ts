@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import adjustChannel from './adjust_channel';
+import adjustChannel from '~/methods/adjust_channel';
+import type {Channels} from '~/types';
 
-/* DARKEN */
+/* MAIN */
 
-function darken ( color: string | Channels, amount: number ): string {
+const darken = ( color: string | Channels, amount: number ): string => {
 
   return adjustChannel ( color, 'l', -amount );
 
-}
+};
 
 /* EXPORT */
 

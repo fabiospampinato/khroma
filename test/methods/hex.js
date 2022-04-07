@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {hex} from '../../dist';
+import {describe} from 'fava';
+import {hex} from '../../dist/index.js';
 
-/* HEX */
+/* MAIN */
 
 describe ( 'hex', it => {
 

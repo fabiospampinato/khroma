@@ -1,11 +1,11 @@
 
 /* IMPORT */
 
-import channel from './channel';
-import lang from './lang';
-import unit from './unit';
+import channel from '~/utils/channel';
+import lang from '~/utils/lang';
+import unit from '~/utils/unit';
 
-/* UTILS */
+/* MAIN */
 
 const Utils = {
   channel,

@@ -1,11 +1,11 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import Channels from '../channels';
-import ChannelsReusable from '../channels/reusable';
+import _ from '~/utils';
+import ChannelsReusable from '~/channels/reusable';
+import type {Channels} from '~/types';
 
-/* RGB */
+/* MAIN */
 
 const RGB = {
 

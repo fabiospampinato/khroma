@@ -1,11 +1,11 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {adjust} from '../../dist';
-import Color from '../../dist/color';
+import {describe} from 'fava';
+import {adjust} from '../../dist/index.js';
+import Color from '../../dist/color/index.js';
 
-/* ADJUST */
+/* MAIN */
 
 describe ( 'adjust', it => {
 

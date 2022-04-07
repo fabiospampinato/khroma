@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {transparentize} from '../../dist';
+import {describe} from 'fava';
+import {transparentize} from '../../dist/index.js';
 
-/* TRANSPARENTIZE */
+/* MAIN */
 
 describe ( 'transparentize', it => {
 

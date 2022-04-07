@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import isLight from './is_light';
+import isLight from '~/methods/is_light';
+import type {Channels} from '~/types';
 
-/* IS DARK */
+/* MAIN */
 
-function isDark ( color: string | Channels ): boolean {
+const isDark = ( color: string | Channels ): boolean => {
 
   return !isLight ( color );
 
-}
+};
 
 /* EXPORT */
 

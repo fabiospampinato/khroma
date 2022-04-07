@@ -1,13 +1,13 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import Color from '../color';
-import mix from './mix';
+import Color from '~/color';
+import mix from '~/methods/mix';
+import type {Channels} from '~/types';
 
-/* INVERT */
+/* MAIN */
 
-function invert ( color: string | Channels, weight: number = 100 ): string {
+const invert = ( color: string | Channels, weight: number = 100 ): string => {
 
   const inverse = Color.parse ( color );
 
@@ -17,7 +17,7 @@ function invert ( color: string | Channels, weight: number = 100 ): string {
 
   return mix ( inverse, color, weight );
 
-}
+};
 
 /* EXPORT */
 

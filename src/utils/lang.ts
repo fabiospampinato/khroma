@@ -1,7 +1,9 @@
 
-/* LANG */
+/* MAIN */
 
 const Lang = {
+
+  /* API */
 
   clamp: ( number: number, lower: number, upper: number ): number => {
 

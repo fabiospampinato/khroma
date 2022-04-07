@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {desaturate} from '../../dist';
+import {describe} from 'fava';
+import {desaturate} from '../../dist/index.js';
 
-/* DESATURATE */
+/* MAIN */
 
 describe ( 'desaturate', it => {
 

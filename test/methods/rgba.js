@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {rgba} from '../../dist';
+import {describe} from 'fava';
+import {rgba} from '../../dist/index.js';
 
-/* RGBA */
+/* MAIN */
 
 describe ( 'rgba', it => {
 

@@ -1,15 +1,15 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import Channels from '../channels';
-import {TYPE} from '../types';
-import Hex from './hex';
-import Keyword from './keyword';
-import RGB from './rgb';
-import HSL from './hsl';
+import _ from '~/utils';
+import Hex from '~/color/hex';
+import HSL from '~/color/hsl';
+import Keyword from '~/color/keyword';
+import RGB from '~/color/rgb';
+import {TYPE} from '~/constants';
+import type {Channels} from '~/types';
 
-/* COLOR */
+/* MAIN */
 
 const Color = {
 

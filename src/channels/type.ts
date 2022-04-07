@@ -1,21 +1,25 @@
 
 /* IMPORT */
 
-import {TYPE} from '../types';
+import {TYPE} from '~/constants';
 
-/* TYPE */
+/* MAIN */
 
 class Type {
 
-  type: TYPE = TYPE.ALL;
+  /* VARIABLES */
 
-  get (): TYPE {
+  type: number = TYPE.ALL;
+
+  /* API */
+
+  get (): number {
 
     return this.type;
 
   }
 
-  set ( type: TYPE ): void {
+  set ( type: number ): void {
 
     if ( this.type && this.type !== type ) throw new Error ( 'Cannot change both RGB and HSL channels at the same time' );
 
@@ -29,7 +33,7 @@ class Type {
 
   }
 
-  is ( type: TYPE ): boolean {
+  is ( type: number ): boolean {
 
     return this.type === type;
 

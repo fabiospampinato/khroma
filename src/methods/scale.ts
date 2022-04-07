@@ -1,19 +1,18 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import Channels from '../channels';
-import Color from '../color';
-import {CHANNELS} from '../types';
-import adjust from './adjust';
+import _ from '~/utils';
+import Color from '~/color';
+import adjust from '~/methods/adjust';
+import type {CHANNELS, Channels} from '~/types';
 
-/* SCALE */
+/* MAIN */
 
-function scale ( color: string | Channels, channels: Partial<CHANNELS> ): string {
+const scale = ( color: string | Channels, channels: Partial<CHANNELS> ): string => {
 
-  const ch = Color.parse ( color ),
-        adjustments: Partial<CHANNELS> = {},
-        delta = ( amount: number, weight: number, max: number ) => weight > 0 ? ( max - amount ) * weight / 100 : amount * weight / 100;
+  const ch = Color.parse ( color );
+  const adjustments: Partial<CHANNELS> = {};
+  const delta = ( amount: number, weight: number, max: number ) => weight > 0 ? ( max - amount ) * weight / 100 : amount * weight / 100;
 
   for ( const c in channels ) {
 
@@ -23,7 +22,7 @@ function scale ( color: string | Channels, channels: Partial<CHANNELS> ): string
 
   return adjust ( color, adjustments );
 
-}
+};
 
 /* EXPORT */
 

@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {isLight} from '../../dist';
+import {describe} from 'fava';
+import {isLight} from '../../dist/index.js';
 
-/* IS LIGHT */
+/* MAIN */
 
 describe ( 'isLight', it => {
 

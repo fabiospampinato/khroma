@@ -1,11 +1,11 @@
 
 /* IMPORT */
 
-import Color from '../color';
+import Color from '~/color';
 
-/* IS VALID */
+/* MAIN */
 
-function isValid ( color: string ): boolean {
+const isValid = ( color: string ): boolean => {
 
   try {
 
@@ -19,7 +19,7 @@ function isValid ( color: string ): boolean {
 
   }
 
-}
+};
 
 /* EXPORT */
 

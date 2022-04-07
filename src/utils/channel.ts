@@ -1,9 +1,9 @@
 
 /* IMPORT */
 
-import {RGB, HSL} from '../types';
+import type {RGB, HSL} from '~/types';
 
-/* CHANNEL */
+/* MAIN */
 
 const Channel = {
 
@@ -76,8 +76,8 @@ const Channel = {
     s /= 100;
     l /= 100;
 
-    const q = ( l < .5 ) ? l * ( 1 + s ) : ( l + s ) - ( l * s ),
-          p = 2 * l - q;
+    const q = ( l < .5 ) ? l * ( 1 + s ) : ( l + s ) - ( l * s );
+    const p = 2 * l - q;
 
     switch ( channel ) {
       case 'r': return Channel.hue2rgb ( p, q, h + 1/3 ) * 255;
@@ -93,16 +93,16 @@ const Channel = {
     g /= 255;
     b /= 255;
 
-    const max = Math.max ( r, g, b ),
-          min = Math.min ( r, g, b ),
-          l = ( max + min ) / 2;
+    const max = Math.max ( r, g, b );
+    const min = Math.min ( r, g, b );
+    const l = ( max + min ) / 2;
 
     if ( channel === 'l' ) return l * 100;
 
     if ( max === min ) return 0; // Achromatic
 
-    const d = max - min,
-          s = ( l > .5 ) ? d / ( 2 - max - min ) : d / ( max + min );
+    const d = max - min;
+    const s = ( l > .5 ) ? d / ( 2 - max - min ) : d / ( max + min );
 
     if ( channel === 's' ) return s * 100;
 

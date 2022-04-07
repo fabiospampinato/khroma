@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import change from './change';
+import change from '~/methods/change';
+import type {Channels} from '~/types';
 
-/* GRAYSCALE */
+/* MAIN */
 
-function grayscale ( color: string | Channels ): string {
+const grayscale = ( color: string | Channels ): string => {
 
   return change ( color, { s: 0 } );
 
-}
+};
 
 /* EXPORT */
 

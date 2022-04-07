@@ -1,15 +1,15 @@
 
 /* IMPORT */
 
-import Color from '../color';
+import Color from '~/color';
 
-/* TO HEX */
+/* MAIN */
 
-function toHex ( color: string ): string {
+const toHex = ( color: string ): string => {
 
   return Color.format.hex.stringify ( Color.parse ( color ) );
 
-}
+};
 
 /* EXPORT */
 

@@ -1,12 +1,12 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import Channels from '../channels';
-import ChannelsReusable from '../channels/reusable';
-import {DEC2HEX} from '../consts';
+import _ from '~/utils';
+import ChannelsReusable from '~/channels/reusable';
+import {DEC2HEX} from '~/constants';
+import type {Channels} from '~/types';
 
-/* HEX */
+/* MAIN */
 
 const Hex = {
 
@@ -24,15 +24,15 @@ const Hex = {
 
     if ( !match ) return;
 
-    const hex = match[1],
-          dec = parseInt ( hex, 16 ),
-          length = hex.length,
-          hasAlpha = length % 4 === 0,
-          isFullLength = length > 4,
-          multiplier = isFullLength ? 1 : 17,
-          bits = isFullLength ? 8 : 4,
-          bitsOffset = hasAlpha ? 0 : -1,
-          mask = isFullLength ? 255 : 15;
+    const hex = match[1];
+    const dec = parseInt ( hex, 16 );
+    const length = hex.length;
+    const hasAlpha = length % 4 === 0;
+    const isFullLength = length > 4;
+    const multiplier = isFullLength ? 1 : 17;
+    const bits = isFullLength ? 8 : 4;
+    const bitsOffset = hasAlpha ? 0 : -1;
+    const mask = isFullLength ? 255 : 15;
 
     return ChannelsReusable.set ({
       r: ( ( dec >> ( bits * ( bitsOffset + 3 ) ) ) & mask ) * multiplier,

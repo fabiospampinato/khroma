@@ -1,17 +1,22 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import Channels from '../channels';
-import ChannelsReusable from '../channels/reusable';
-import Color from '../color';
-import change from './change';
+import _ from '~/utils';
+import ChannelsReusable from '~/channels/reusable';
+import Color from '~/color';
+import change from '~/methods/change';
+import type {Channels} from '~/types';
 
-/* RGBA */
+/* TYPES */
 
-function rgba ( color: string | Channels, opacity: number ): string;
-function rgba ( r: number, g: number, b: number, a: number ): string;
-function rgba ( r: string | Channels | number, g: number, b: number = 0, a: number = 1 ): string {  //TSC: `b` shouldn't have a default value
+type IRgba = {
+  ( color: string | Channels, opacity: number ): string,
+  ( r: number, g: number, b: number, a?: number ): string
+};
+
+/* MAIN */
+
+const rgba: IRgba = ( r: string | Channels | number, g: number, b: number = 0, a: number = 1 ): string => { //TSC: `b` shouldn't have a default value
 
   if ( typeof r !== 'number' ) return change ( r, { a: g } );
 
@@ -24,7 +29,7 @@ function rgba ( r: string | Channels | number, g: number, b: number = 0, a: numb
 
   return Color.stringify ( channels );
 
-}
+};
 
 /* EXPORT */
 

@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {opacify} from '../../dist';
+import {describe} from 'fava';
+import {opacify} from '../../dist/index.js';
 
-/* OPACIFY */
+/* MAIN */
 
 describe ( 'opacify', it => {
 

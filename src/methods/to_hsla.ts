@@ -1,15 +1,15 @@
 
 /* IMPORT */
 
-import Color from '../color';
+import Color from '~/color';
 
-/* TO HSLA */
+/* MAIN */
 
-function toHsla ( color: string ): string {
+const toHsla = ( color: string ): string => {
 
   return Color.format.hsla.stringify ( Color.parse ( color ) );
 
-}
+};
 
 /* EXPORT */
 

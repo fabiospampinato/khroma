@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import adjustChannel from './adjust_channel';
+import adjustChannel from '~/methods/adjust_channel';
+import type {Channels} from '~/types';
 
-/* DESATURATE */
+/* MAIN */
 
-function desaturate ( color: string | Channels, amount: number ): string {
+const desaturate = ( color: string | Channels, amount: number ): string => {
 
   return adjustChannel ( color, 's', -amount );
 
-}
+};
 
 /* EXPORT */
 

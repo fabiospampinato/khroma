@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import adjustChannel from './adjust_channel';
+import adjustChannel from '~/methods/adjust_channel';
+import type {Channels} from '~/types';
 
-/* COMPLEMENT */
+/* MAIN */
 
-function complement ( color: string | Channels ): string {
+const complement = ( color: string | Channels ): string => {
 
   return adjustChannel ( color, 'h', 180 );
 
-}
+};
 
 /* EXPORT */
 

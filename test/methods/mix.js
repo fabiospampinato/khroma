@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {mix} from '../../dist';
+import {describe} from 'fava';
+import {mix} from '../../dist/index.js';
 
-/* MIX */
+/* MAIN */
 
 describe ( 'mix', it => {
 

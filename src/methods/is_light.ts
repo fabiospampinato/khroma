@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import luminance from './luminance';
+import luminance from '~/methods/luminance';
+import type {Channels} from '~/types';
 
-/* IS LIGHT */
+/* MAIN */
 
-function isLight ( color: string | Channels ): boolean {
+const isLight = ( color: string | Channels ): boolean => {
 
   return luminance ( color ) >= .5;
 
-}
+};
 
 /* EXPORT */
 

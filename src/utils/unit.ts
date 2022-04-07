@@ -1,9 +1,11 @@
 
-/* UNIT */
+/* MAIN */
 
 const Unit = {
 
-  dec2hex ( dec: number ): string {
+  /* API */
+
+  dec2hex: ( dec: number ): string => {
 
     const hex = Math.round ( dec ).toString ( 16 );
 

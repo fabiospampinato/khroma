@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {isValid} from '../../dist';
+import {describe} from 'fava';
+import {isValid} from '../../dist/index.js';
 
-/* IS VALID */
+/* MAIN */
 
 describe ( 'isValid', it => {
 

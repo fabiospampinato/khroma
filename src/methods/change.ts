@@ -1,14 +1,13 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import Channels from '../channels';
-import Color from '../color';
-import {CHANNELS} from '../types';
+import _ from '~/utils';
+import Color from '~/color';
+import type {CHANNELS, Channels} from '~/types';
 
-/* CHANGE */
+/* MAIN */
 
-function change ( color: string | Channels, channels: Partial<CHANNELS> ): string {
+const change = ( color: string | Channels, channels: Partial<CHANNELS> ): string => {
 
   const ch = Color.parse ( color );
 
@@ -20,7 +19,7 @@ function change ( color: string | Channels, channels: Partial<CHANNELS> ): strin
 
   return Color.stringify ( ch );
 
-}
+};
 
 /* EXPORT */
 

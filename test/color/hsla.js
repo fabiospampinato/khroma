@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import Color from '../../dist/color';
+import {describe} from 'fava';
+import Color from '../../dist/color/index.js';
 
-/* HSLA */
+/* MAIN */
 
 describe ( 'HSLA', it => {
 

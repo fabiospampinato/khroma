@@ -1,13 +1,13 @@
 
 /* IMPORT */
 
-import _ from '../utils';
-import ChannelsReusable from '../channels/reusable';
-import Color from '../color';
+import _ from '~/utils';
+import ChannelsReusable from '~/channels/reusable';
+import Color from '~/color';
 
-/* HSLA */
+/* MAIN */
 
-function hsla ( h: number, s: number, l: number, a: number = 1 ): string {
+const hsla = ( h: number, s: number, l: number, a: number = 1 ): string => {
 
   const channels = ChannelsReusable.set ({
     h: _.channel.clamp.h ( h ),
@@ -18,7 +18,7 @@ function hsla ( h: number, s: number, l: number, a: number = 1 ): string {
 
   return Color.stringify ( channels );
 
-}
+};
 
 /* EXPORT */
 

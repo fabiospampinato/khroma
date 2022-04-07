@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import channel from './channel';
+import channel from '~/methods/channel';
+import type {Channels} from '~/types';
 
-/* BLUE */
+/* MAIN */
 
-function blue ( color: string | Channels ): number {
+const blue = ( color: string | Channels ): number => {
 
   return channel ( color, 'b' );
 
-}
+};
 
 /* EXPORT */
 

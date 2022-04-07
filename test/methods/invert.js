@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {invert} from '../../dist';
+import {describe} from 'fava';
+import {invert} from '../../dist/index.js';
 
-/* INVERT */
+/* MAIN */
 
 describe ( 'invert', it => {
 

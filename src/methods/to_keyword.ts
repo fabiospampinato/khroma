@@ -1,15 +1,15 @@
 
 /* IMPORT */
 
-import Color from '../color';
+import Color from '~/color';
 
-/* TO KEYWORD */
+/* MAIN */
 
-function toKeyword ( color: string ): string | undefined {
+const toKeyword = ( color: string ): string | undefined => {
 
   return Color.format.keyword.stringify ( Color.parse ( color ) );
 
-}
+};
 
 /* EXPORT */
 

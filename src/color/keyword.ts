@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import Hex from './hex';
+import Hex from '~/color/hex';
+import type {Channels} from '~/types';
 
-/* KEYWORD */
+/* MAIN */
 
 const Keyword = {
 
@@ -183,6 +183,8 @@ const Keyword = {
       if ( Keyword.colors[name] === hex ) return name;
 
     }
+
+    return;
 
   }
 

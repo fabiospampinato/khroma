@@ -1,16 +1,16 @@
 
 /* IMPORT */
 
-import Channels from '../channels';
-import adjustChannel from './adjust_channel';
+import adjustChannel from '~/methods/adjust_channel';
+import type {Channels} from '~/types';
 
-/* TRANSPARENTIZE */
+/* MAIN */
 
-function transparentize ( color: string | Channels, amount: number ): string {
+const transparentize = ( color: string | Channels, amount: number ): string => {
 
   return adjustChannel ( color, 'a', -amount );
 
-}
+};
 
 /* EXPORT */
 
