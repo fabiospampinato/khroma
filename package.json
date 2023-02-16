@@ -16,7 +16,7 @@
     "compile:watch": "tsex compile --watch",
     "test": "tsex test",
     "test:watch": "tsex test --watch",
-    "prepublishOnly": "npm run clean && npm run compile && npm run test"
+    "prepublishOnly": "tsex prepare"
   },
   "keywords": [
     "sass",
@@ -29,9 +29,9 @@
     "hsl"
   ],
   "devDependencies": {
-    "benchloop": "^1.3.2",
-    "fava": "^0.0.6",
-    "tsex": "^1.1.0",
-    "typescript": "^4.6.3"
+    "benchloop": "^2.0.0",
+    "fava": "^0.2.0",
+    "tsex": "^2.2.0",
+    "typescript": "^4.9.5"
   }
 }

@@ -8,7 +8,6 @@ import {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, satura
 /* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  log: 'compact',
   iterations: 2500
 });
 

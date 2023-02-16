@@ -1,4 +1,4 @@
-# [Khrôma](https://en.wiktionary.org/wiki/%CF%87%CF%81%E1%BF%B6%CE%BC%CE%B1#Noun)
+# [Khrôma](https://en.wiktionary.org/wiki/%CF%87%CF%81%E1%BF%B6%CE%BC%CE%B1)
 
 A collection of functions for manipulating CSS colors, inspired by SASS.
 
