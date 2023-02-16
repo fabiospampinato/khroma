@@ -8,7 +8,7 @@ import {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, satura
 /* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  iterations: 2500
+  iterations: 10_000
 });
 
 benchmark.group ( 'parse', () => {
