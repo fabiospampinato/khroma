@@ -7,7 +7,7 @@ import {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, satura
 
 /* MAIN */
 
-benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
+benchmark.config ({
   iterations: 10_000
 });
 
