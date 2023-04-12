@@ -2,6 +2,7 @@
   "name": "khroma",
   "repository": "github:fabiospampinato/khroma",
   "description": "A collection of functions for manipulating CSS colors, inspired by SASS.",
+  "license": "MIT",
   "version": "2.0.0",
   "type": "module",
   "sideEffects": false,
