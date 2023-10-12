@@ -23,6 +23,7 @@ import contrast from '~/methods/contrast';
 import luminance from '~/methods/luminance';
 import isDark from '~/methods/is_dark';
 import isLight from '~/methods/is_light';
+import isTransparent from '~/methods/is_transparent';
 import isValid from '~/methods/is_valid';
 import saturate from '~/methods/saturate';
 import desaturate from '~/methods/desaturate';
@@ -69,6 +70,7 @@ export {
   luminance,
   isDark,
   isLight,
+  isTransparent,
   isValid,
   /* EDIT - CHANNEL */
   saturate,

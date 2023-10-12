@@ -3,7 +3,7 @@
 
 import benchmark from 'benchloop';
 import Color from '../dist/color/index.js';
-import {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, contrast, luminance, isDark, isLight, toKeyword, toHex, toRgba, toHsla} from '../dist/index.js';
+import {hex, rgb, rgba, hsl, hsla, channel, red, green, blue, alpha, hue, saturation, lightness, darken, lighten, opacify, transparentize, saturate, desaturate, grayscale, invert, complement, scale, adjust, change, mix, contrast, luminance, isDark, isLight, isTransparent, toKeyword, toHex, toRgba, toHsla} from '../dist/index.js';
 
 /* MAIN */
 
@@ -300,6 +300,13 @@ benchmark.group ( 'get.more', () => {
     name: 'isLight',
     fn: () => {
       isLight ( '#ffcc00' );
+    }
+  });
+
+  benchmark ({
+    name: 'isTransparent',
+    fn: () => {
+      isTransparent ( '#ffcc00' );
     }
   });
 

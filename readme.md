@@ -30,19 +30,19 @@ change ( 'rgb(255, 255, 255)', { a: 0.5 } ); // => 'rgba(255, 255, 255, 0.5)'
 
 These are all the provided functions, for each of them below you can find a short description, its interface and examples.
 
-| Create        | Convert                 | Get <sub>channel</sub>    | Get <sub>more</sub>     | Edit <sub>channel</sub>           | Edit <sub>more</sub> |
-| ------------- | ----------------------- | ------------------------- | ----------------------- | --------------------------------- | -------------------- |
-| [hex](#hex)   | [toKeyword](#tokeyword) | [channel](#channel)       | [contrast](#contrast)   | [saturate](#saturate)             | [adjust](#adjust)    |
-| [rgb](#rgb)   | [toHex](#tohex)         | [red](#red)               | [luminance](#luminance) | [desaturate](#desaturate)         | [change](#change)    |
-| [rgba](#rgba) | [toRgba](#torgba)       | [green](#green)           | [isDark](#isdark)       | [lighten](#lighten)               | [invert](#invert)    |
-| [hsl](#hsl)   | [toHsla](#tohsla)       | [blue](#blue)             | [isLight](#islight)     | [darken](#darken)                 | [mix](#mix)          |
-| [hsla](#hsla) |                         | [hue](#hue)               | [isValid](#isvalid)     | [opacify](#opacify)               | [scale](#scale)      |
-|               |                         | [saturation](#saturation) |                         | [fadeIn](#fadein)                 |                      |
-|               |                         | [lightness](#lightness)   |                         | [transparentize](#transparentize) |                      |
-|               |                         | [alpha](#alpha)           |                         | [fadeOut](#fadeout)               |                      |
-|               |                         | [opacity](#opacity)       |                         | [rgba](#rgba-alt) (alt)           |                      |
-|               |                         |                           |                         | [complement](#complement)         |                      |
-|               |                         |                           |                         | [grayscale](#grayscale)           |                      |
+| Create        | Convert                 | Get <sub>channel</sub>    | Get <sub>more</sub>             | Edit <sub>channel</sub>           | Edit <sub>more</sub> |
+| ------------- | ----------------------- | ------------------------- | ------------------------------- | --------------------------------- | -------------------- |
+| [hex](#hex)   | [toKeyword](#tokeyword) | [channel](#channel)       | [contrast](#contrast)           | [saturate](#saturate)             | [adjust](#adjust)    |
+| [rgb](#rgb)   | [toHex](#tohex)         | [red](#red)               | [luminance](#luminance)         | [desaturate](#desaturate)         | [change](#change)    |
+| [rgba](#rgba) | [toRgba](#torgba)       | [green](#green)           | [isDark](#isdark)               | [lighten](#lighten)               | [invert](#invert)    |
+| [hsl](#hsl)   | [toHsla](#tohsla)       | [blue](#blue)             | [isLight](#islight)             | [darken](#darken)                 | [mix](#mix)          |
+| [hsla](#hsla) |                         | [hue](#hue)               | [isTransparent](#istransparent) | [opacify](#opacify)               | [scale](#scale)      |
+|               |                         | [saturation](#saturation) | [isValid](#isvalid)             | [fadeIn](#fadein)                 |                      |
+|               |                         | [lightness](#lightness)   |                                 | [transparentize](#transparentize) |                      |
+|               |                         | [alpha](#alpha)           |                                 | [fadeOut](#fadeout)               |                      |
+|               |                         | [opacity](#opacity)       |                                 | [rgba](#rgba-alt) (alt)           |                      |
+|               |                         |                           |                                 | [complement](#complement)         |                      |
+|               |                         |                           |                                 | [grayscale](#grayscale)           |                      |
 
 ### Create
 
@@ -311,6 +311,20 @@ function isLight ( color: string ): number;
 isLight ( 'black' ); // => false
 isLight ( 'white' ); // => true
 isLight ( '#ffcc00' ); // => true
+```
+
+#### `isTransparent`
+
+Checks if the provided color is a transparent color.
+
+```ts
+function isTransparent ( color: string ): boolean;
+```
+
+```ts
+isTransparent ( 'transparent' ); // => true
+isTransparent ( '#ffcc0000' ); // => true
+isTransparent ( '#ffcc00' ); // => false
 ```
 
 #### `isValid`
