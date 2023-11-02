@@ -4,6 +4,7 @@
   "description": "A collection of functions for manipulating CSS colors, inspired by SASS.",
   "version": "2.1.0",
   "type": "module",
+  "license": "MIT",
   "sideEffects": false,
   "main": "dist/index.js",
   "exports": "./dist/index.js",
