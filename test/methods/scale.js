@@ -28,8 +28,8 @@ describe ( 'scale', it => {
       [['rgba(0, 0, 0, .5)', { b: 0 }], 'rgba(0, 0, 0, 0.5)']
     ];
 
-    tests.forEach ( ([ args, ouptut ]) => {
-      t.is ( Color.format.rgb.stringify ( Color.parse ( scale ( ...args ) ) ), ouptut );
+    tests.forEach ( ([ args, output ]) => {
+      t.is ( Color.format.rgb.stringify ( Color.parse ( scale ( ...args ) ) ), output );
     });
 
   });
@@ -37,7 +37,7 @@ describe ( 'scale', it => {
   it ( 'scales any HSLA channels of the color', t => {
 
     const tests = [
-      [['hsl(0, 50%, 50%)', { h: 100 }], 'hsl(0, 50%, 50%)'], // Wraps becuase 360deg = 0deg
+      [['hsl(0, 50%, 50%)', { h: 100 }], 'hsl(0, 50%, 50%)'], // Wraps because 360deg = 0deg
       [['hsl(0, 50%, 50%)', { h: 50 }], 'hsl(180, 50%, 50%)'],
       [['hsl(0, 50%, 50%)', { h: 0 }], 'hsl(0, 50%, 50%)'],
       [['hsl(180, 50%, 50%)', { h: -100 }], 'hsl(0, 50%, 50%)'],

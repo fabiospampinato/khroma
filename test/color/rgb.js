@@ -11,7 +11,7 @@ describe ( 'RGB', it => {
   it ( 'parses RGB colors', t => {
 
     const tests = [
-      /* DECIAML 0~255 */
+      /* DECIMAL 0~255 */
       ['rgb(1, 20, 255)', 'rgb(1, 20, 255)'],
       ['rgb(1.99, 20.5, 255)', 'rgb(1.99, 20.5, 255)'],
       ['rgb(300, 255, -100)', 'rgb(255, 255, 0)'],

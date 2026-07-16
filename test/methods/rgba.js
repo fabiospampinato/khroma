@@ -42,7 +42,7 @@ describe ( 'rgba', it => {
 
   });
 
-  it ( 'allows ommiting the alpha channel', t => {
+  it ( 'allows omitting the alpha channel', t => {
 
     const tests = [
       [[0, 0, 0], '#000000'],
